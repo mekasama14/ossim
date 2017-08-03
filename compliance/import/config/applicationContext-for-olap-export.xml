@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+  
+  <bean class="com.jaspersoft.jasperserver.api.common.util.spring.BeanPropertyListAppender" lazy-init="false">
+    <property name="order" value="10"/>
+    <property name="beanName" value="sessionFactory"/>
+    <property name="propertyName" value="mappingResources"/>
+    <property name="appended">
+      <list>
+        <value>/com/jaspersoft/jasperserver/api/metadata/common/service/impl/hibernate/persistent/RepoMondrianConnection.hbm.xml</value>
+        <value>/com/jaspersoft/jasperserver/api/metadata/common/service/impl/hibernate/persistent/RepoMondrianXMLADefinition.hbm.xml</value>
+      </list>
+    </property>
+  </bean>
+  
+</beans>

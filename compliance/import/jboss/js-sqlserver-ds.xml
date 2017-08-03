@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+   <local-tx-datasource>
+      <jndi-name>jdbc/jasperserver</jndi-name>
+      <connection-url>jdbc:sqlserver://localhost:1433;databaseName=jasperserver;SelectMethod=cursor</connection-url>
+      <driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
+      <user-name>jasperadmin</user-name>
+      <password>password</password>
+      <min-pool-size>5</min-pool-size>
+      <max-pool-size>20</max-pool-size>
+      <idle-timeout-minutes>0</idle-timeout-minutes>
+      <metadata>
+         <type-mapping>MS SQLSERVER</type-mapping>
+      </metadata>
+      <check-valid-connection-sql>select 1</check-valid-connection-sql>
+   </local-tx-datasource>
+
+   <local-tx-datasource>
+      <jndi-name>jdbc/sugarcrm</jndi-name>
+      <connection-url>jdbc:sqlserver://localhost:1433;databaseName=sugarcrm;SelectMethod=cursor</connection-url>
+      <driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
+      <user-name>jasperadmin</user-name>
+      <password>password</password>
+      <min-pool-size>5</min-pool-size>
+      <max-pool-size>20</max-pool-size>
+      <idle-timeout-minutes>0</idle-timeout-minutes>
+      <metadata>
+         <type-mapping>MS SQLSERVER</type-mapping>
+      </metadata>
+      <check-valid-connection-sql>select 1</check-valid-connection-sql>
+   </local-tx-datasource>
+   
+   <local-tx-datasource>
+       <jndi-name>jdbc/foodmart</jndi-name>
+       <connection-url>jdbc:sqlserver://localhost:1433;databaseName=foodmart;SelectMethod=cursor</connection-url>
+       <driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
+       <user-name>jasperadmin</user-name>
+       <password>password</password>
+       <min-pool-size>5</min-pool-size>
+       <max-pool-size>20</max-pool-size>
+       <idle-timeout-minutes>0</idle-timeout-minutes>
+       <metadata>
+          <type-mapping>MS SQLSERVER</type-mapping>
+       </metadata>
+       <check-valid-connection-sql>select 1</check-valid-connection-sql>
+   </local-tx-datasource>
+</datasources>

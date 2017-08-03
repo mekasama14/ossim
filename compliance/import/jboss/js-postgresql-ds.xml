@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<datasources>
+
+   <local-tx-datasource>
+      <jndi-name>jdbc/jasperserver</jndi-name>
+      <connection-url>jdbc:postgresql://localhost:5432/jasperserver</connection-url>
+      <driver-class>org.postgresql.Driver</driver-class>
+      <user-name>postgres</user-name>
+      <password>postgres</password>
+      <min-pool-size>5</min-pool-size>
+      <max-pool-size>20</max-pool-size>
+      <idle-timeout-minutes>0</idle-timeout-minutes>
+      <!-- corresponding type-mapping in the standardjbosscmp-jdbc.xml (optional) -->
+      <metadata>
+         <type-mapping>PostgreSQL 8.0</type-mapping>
+      </metadata>
+      <check-valid-connection-sql>select 1 from DUAL</check-valid-connection-sql>
+   </local-tx-datasource>
+   
+   <local-tx-datasource>
+      <jndi-name>jdbc/sugarcrm</jndi-name>
+      <connection-url>jdbc:postgresql://localhost:5432/sugarcrm</connection-url>
+      <driver-class>org.postgresql.Driver</driver-class>
+      <user-name>postgres</user-name>
+      <password>postgres</password>
+      <min-pool-size>5</min-pool-size>
+      <max-pool-size>20</max-pool-size>
+      <idle-timeout-minutes>0</idle-timeout-minutes>
+      <!-- corresponding type-mapping in the standardjbosscmp-jdbc.xml (optional) -->
+      <metadata>
+         <type-mapping>PostgreSQL 8.0</type-mapping>
+      </metadata>
+      <check-valid-connection-sql>select 1 from DUAL</check-valid-connection-sql>
+   </local-tx-datasource>
+   
+   <local-tx-datasource>
+         <jndi-name>jdbc/foodmart</jndi-name>
+         <connection-url>jdbc:postgresql://localhost:5432/foodmart</connection-url>
+         <driver-class>org.postgresql.Driver</driver-class>
+         <user-name>postgres</user-name>
+         <password>postgres</password>
+         <min-pool-size>5</min-pool-size>
+         <max-pool-size>20</max-pool-size>
+         <idle-timeout-minutes>0</idle-timeout-minutes>
+         <!-- corresponding type-mapping in the standardjbosscmp-jdbc.xml (optional) -->
+         <metadata>
+            <type-mapping>PostgreSQL 8.0</type-mapping>
+         </metadata>
+         <check-valid-connection-sql>select 1 from DUAL</check-valid-connection-sql>
+   </local-tx-datasource>
+   
+</datasources>
+
