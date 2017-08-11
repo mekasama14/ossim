@@ -1080,33 +1080,35 @@ if ($system_name != '')
 
                                             <table id='t_login' align="center" cellspacing='4' cellpadding='2'>
                                                 <tr>
-                                                    <td class="td_user uppercase noborder <?php if ($pro) { echo 'white'; } ?>">
-                                                        <?php echo _('Username'); ?>
-                                                    </td>
+
                                                     <td class="left noborder">
                                                         <input type="text" size='25' maxlength="64" id='user' name="user" value="<?php echo $default_user ?>" />
                                                     </td>
+                                                    <td class="td_user uppercase noborder <?php if ($pro) { echo 'white'; } ?>">
+                                                        <?php echo _('نام کاربری'); ?>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="td_pass uppercase noborder <?php if ($pro) { echo 'white'; } ?>">
-                                                        <?php echo _('Password'); ?>
-                                                    </td>
+
                                                     <td class="left noborder">
                                                         <input type="password" onfocus="$('#wup').hide(); $('#nt_1').hide(); $('#nt_pass').hide();" id="passu" size='25' name="passu" autocomplete="off"/>
                                                         <input type="hidden" id="pass" name="pass"/>
+                                                    </td>
+                                                    <td class="td_pass uppercase noborder <?php if ($pro) { echo 'white'; } ?>">
+                                                        <?php echo _('رمز عبور'); ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="td_pass uppercase noborder"></td>
                                                     <td class="left noborder">
-                                                        <a id="ftpass" href="#forgotpass" class="link"><?php echo _('Forgot Password?')?></a>
+                                                        <a id="ftpass" href="#forgotpass" class="link"><?php echo _('آیا رمز عبور خود را فراموش کرده اید؟')?></a>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td class="td_pass uppercase noborder"></td>
                                                     <td class="left noborder" style="padding:15px 0px 0px 4px">
-                                                        <input type="submit" class="big button" id="submit_button" value="<?php echo _('Login'); ?>"/>
+                                                        <input type="submit" class="big button" id="submit_button" value="<?php echo _('ورود'); ?>"/>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -1242,7 +1244,7 @@ if ($system_name != '')
                                                                     <tr><td class="noborder"></td></tr>
 
                                                                     <tr>
-                                                                        <td width="20%" class="td_user uppercase right noborder"><?php echo _('UserName') ?> *</td>
+                                                                        <td width="20%" class="td_user uppercase left noborder"><?php echo _('UserName') ?> *</td>
                                                                         <td class="left noborder grey">
                                                                             <input type="text" name="user" value="<?php echo AV_DEFAULT_ADMIN?>" style="color:#888888" disabled="disabled"/>
                                                                         </td>
