@@ -51,7 +51,7 @@ Session::useractive();
 if (!Session::am_i_admin())
 {
     echo _('You do not have permissions to see this section');
-    
+
     die();
 }
 
@@ -79,18 +79,18 @@ $f['where']  = " host.id=ht.host_id AND ht.type=4 AND hip.host_id=host.id AND hi
 try
 {
     list($hosts, $total) = Asset_host::get_list($conn, $table, $f, FALSE);
-    $active_plugins      = Plugin::get_plugins_by_assets();    
+    $active_plugins      = Plugin::get_plugins_by_assets();
 }
 catch(Exception $e)
 {
     $total = 0;
-    Av_exception::write_log(Av_exception::USER_ERROR, $e->getMessage());   
+    Av_exception::write_log(Av_exception::USER_ERROR, $e->getMessage());
 }
 
-  
+
 if ($total > 0)
-{    
-    
+{
+
     try
     {
         $vendors = Software::get_hardware_vendors();
@@ -100,16 +100,16 @@ if ($total > 0)
         $vendors = array();
         Av_exception::write_log(Av_exception::USER_ERROR, $e->getMessage());
     }
-    
+
     $device_list = array();
 
     foreach ($hosts as $asset_id => $host)
     {
 
         $plugin_list = array();
-        
+
         $asset_id_canonical = Util::uuid_format($asset_id);
-        
+
         if (count($active_plugins[$asset_id_canonical]) < 1)
         {
             $plugin_list[$asset_id][] = array(
@@ -117,13 +117,13 @@ if ($total > 0)
                 'model'        => '',
                 'version'      => '',
                 'model_list'   => array(),
-                'version_list' => array()        
+                'version_list' => array()
             );
         }
         else
         {
             foreach ($active_plugins[$asset_id_canonical] as $pdata)
-            {        
+            {
                 $models   = array();
                 $versions = array();
 
@@ -132,15 +132,15 @@ if ($total > 0)
                     try
                     {
                         $models = Software::get_models_by_vendor($pdata['vendor']);
-                
+
                     }
                     catch(Exception $e)
-                    { 
-                        Av_exception::write_log(Av_exception::USER_ERROR, $e->getMessage()); 
+                    {
+                        Av_exception::write_log(Av_exception::USER_ERROR, $e->getMessage());
                     }
-                
+
                 }
-                
+
                 if ($pdata['model'] != '')
                 {
                     try
@@ -148,33 +148,35 @@ if ($total > 0)
                         $versions = Software::get_versions_by_model($pdata['vendor'].':'.$pdata['model']);
                     }
                     catch(Exception $e)
-                    { 
+                    {
                         Av_exception::write_log(Av_exception::USER_ERROR, $e->getMessage());
                     }
-                }   
-                
+                }
+
                 $plugin_list[$asset_id][] = array(
                     'vendor'       => $pdata['vendor'],
                     'model'        => $pdata['vendor'].':'.$pdata['model'],
                     'version'      => $pdata['vendor'].':'.$pdata['model'].':'.$pdata['version'],
                     'model_list'   => $models,
                     'version_list' => $versions
-                );                    
+                );
             }
         }
-        
-                
+
+
         $device_list[$asset_id] = array(
             "name"         => $host['name'],
             "ips"          => Asset::format_to_print($host['ips']),
             "plugins"      => $plugin_list[$asset_id]
         );
-        
+
     }
 }
 else
 {
-    $empty_msg = _('There are no network devices found. Return to the asset discovery step by clicking back to either discover or add network devices.');
+    $empty_msg = _('
+هیچ ابزار شبکه ای یافت نشد بازگشت به گام کشف دارایی با کلیک کردن گام قبلی یا اضافه کردن ابزار های شبکه.
+');
 }
 
 
@@ -185,13 +187,14 @@ $subtitle_2 = '';
 if ($total == 1)
 {
     $subtitle_1 = _('During the asset discovery scan we found 1 network device on your network');
-} 
+}
 else
 {
-    $subtitle_1 = sprintf(_("During the asset discovery scan we found %s network devices on your network"), $total);
+    $subtitle_1 = sprintf(_("
+در طول اسکن کشف دارایی، ما 0 دستگاه شبکه را در شبکه یافتیم"), $total);
 }
 
-$subtitle_1 .= '. ' . _('Confirm the vendor, model, and version of the device shown. Click the "Enable" button to enable the data source plugin for each device.'); 
+$subtitle_1 .= '. ' . _(' تأیید نماینده، مدل و نسخه دستگاه نشان داده شده است. برای فعال کردن پلاگین منبع داده برای هر دستگاه، روی دکمه  "فعال کردن " کلیک کنید');
 
 
 $subtitle_2 = _('Plugin(s) successfully configured. Configure each asset to send logs by clicking on the instructions provided. Once the asset is configured AlienVault should detect the incoming data. When AlienVault receives data for an asset the "Receiving Data" light will turn green. Click "Next" when you have received data from at least one asset.');
@@ -201,40 +204,40 @@ $subtitle_2_empty = _('You have not configured any plugin yet. In order to compl
 ?>
 
 <script type='text/javascript'>
-    
+
     var av_plugin_obj = false;
-    
+
     function load_js_step()
     {
         av_plugin_obj = new AVplugin_select();
-        
+
         <?php
         if ($total > 0)
         {
-            foreach ($device_list as $d_id => $dev)
-            {
-                ?>
-                var _options = <?php echo json_encode($dev['plugins']) ?>;
-                
-                av_plugin_obj.create('#table_<?php echo $d_id ?>', _options)
-                <?php
-            }
+        foreach ($device_list as $d_id => $dev)
+        {
+        ?>
+        var _options = <?php echo json_encode($dev['plugins']) ?>;
+
+        av_plugin_obj.create('#table_<?php echo $d_id ?>', _options)
+        <?php
+        }
         }
         ?>
-        
+
         load_handler_step_log();
-        
+
 
     }
 
 </script>
 
-<div id='step_log' class='step_container'>
+<div id='step_log' class='step_container' dir="rtl">
 
     <div class='wizard_title'>
-        <?php echo _('Set up Log Management') ?>
+        <?php echo _('مدیریت تنظیم لاگ') ?>
     </div>
-    
+
     <div class='wizard_subtitle'>
         <span id='screen_1_subtitle'><?php echo $subtitle_1 ?></span>
         <span id='screen_2_subtitle'><?php echo $subtitle_2 ?></span>
@@ -244,11 +247,11 @@ $subtitle_2_empty = _('You have not configured any plugin yet. In order to compl
     <?php
     if ($total > 0)
     {
-    ?>
+        ?>
         <div id='net_devices_container'>
-            
+
             <div id='first_screen'>
-            
+
                 <table id='net_devices_list' class='wizard_table table_data'>
                     <thead>
                     <tr>
@@ -263,38 +266,38 @@ $subtitle_2_empty = _('You have not configured any plugin yet. In order to compl
                     <?php
                     foreach ($device_list as $d_id => $dev)
                     {
-                    ?>
-                    <tr data-host="<?php echo $d_id ?>" data-name="<?php echo $dev['name'] ?>" data-ip="<?php echo $dev['ips'] ?>">
-        
-                        <td>
-                            <!--<button class='add_plugin av_b_secondary'>+</button>-->
-                            <div class='device_name'>
-                                <?php echo $dev['name'].' ('.$dev['ips'].')' ?>
-                            </div>
-                            
-                        </td>
-        
-                        <td colspan="4">
-                            <table class='table_data table_plugin_list' data-asset_id="<?php echo $d_id ?>">
-                                <tbody id='table_<?php echo $d_id ?>' class='plugin_list' data-host="<?php echo $d_id ?>"></tbody>
-                            </table>
-                        </td>
-        
-                    </tr>
-                    <?php
+                        ?>
+                        <tr data-host="<?php echo $d_id ?>" data-name="<?php echo $dev['name'] ?>" data-ip="<?php echo $dev['ips'] ?>">
+
+                            <td>
+                                <!--<button class='add_plugin av_b_secondary'>+</button>-->
+                                <div class='device_name'>
+                                    <?php echo $dev['name'].' ('.$dev['ips'].')' ?>
+                                </div>
+
+                            </td>
+
+                            <td colspan="4">
+                                <table class='table_data table_plugin_list' data-asset_id="<?php echo $d_id ?>">
+                                    <tbody id='table_<?php echo $d_id ?>' class='plugin_list' data-host="<?php echo $d_id ?>"></tbody>
+                                </table>
+                            </td>
+
+                        </tr>
+                        <?php
                     }
                     ?>
                     </tbody>
                 </table>
-                
+
                 <button id='w_apply' class='small'><?php echo _('Enable') ?></button>
-                
+
                 <div class='clear_layer'></div>
-                
+
             </div>
-                   
+
             <div id='second_screen' style="display:none;">
-            
+
                 <table id='log_devices_list' class='wizard_table table_data'>
                     <thead>
                     <tr>
@@ -305,26 +308,26 @@ $subtitle_2_empty = _('You have not configured any plugin yet. In order to compl
                         <th><?php echo _('Instructions') ?></th>
                     </tr>
                     </thead>
-                    
+
                     <tbody></tbody>
-                    
+
                 </table>
-                
+
                 <div class='clear_layer'></div>
-            
+
             </div>
-            
+
         </div>
 
-    <?php
+        <?php
     }
     else
     {
-    ?>
+        ?>
         <div id='empty_devices'>
             <?php echo $empty_msg ?>
         </div>
-    <?php       
+        <?php
     }
     ?>
 
@@ -334,11 +337,11 @@ $subtitle_2_empty = _('You have not configured any plugin yet. In order to compl
 <!-- THE BUTTONS HERE -->
 <div class='wizard_button_list'>
 
-    <a href='javascript:;' id='prev_step'   class='av_l_main'><?php echo _('Back') ?></a>
-    <a href='javascript:;' id='prev_screen' class='av_l_main'><?php echo _('Back') ?></a>
+    <a href='javascript:;' id='prev_step'   class='av_l_main'><?php echo _('قبلی') ?></a>
+    <a href='javascript:;' id='prev_screen' class='av_l_main'><?php echo _('قبلی') ?></a>
 
 
-    <button id='next_step' disabled class="fright"><?php echo _('Next') ?></button>
-    <button id='next_step' class="fright av_b_secondary"><?php echo _('Skip this Step') ?></button>
+    <button id='next_step' disabled class="fright"><?php echo _('بعدی') ?></button>
+    <button id='next_step' class="fright av_b_secondary"><?php echo _('رد کردن این مرحله') ?></button>
 
 </div>

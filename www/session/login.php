@@ -1,35 +1,35 @@
 <?php
 /**
-*
-* License:
-*
-* Copyright (c) 2003-2006 ossim.net
-* Copyright (c) 2007-2013 AlienVault
-* All rights reserved.
-*
-* This package is free software; you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation; version 2 dated June, 1991.
-* You may not use, modify or distribute this program under any other version
-* of the GNU General Public License.
-*
-* This package is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this package; if not, write to the Free Software
-* Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
-* MA  02110-1301  USA
-*
-*
-* On Debian GNU/Linux systems, the complete text of the GNU General
-* Public License can be found in `/usr/share/common-licenses/GPL-2'.
-*
-* Otherwise you can read it here: http://www.gnu.org/licenses/gpl-2.0.txt
-*
-*/
+ *
+ * License:
+ *
+ * Copyright (c) 2003-2006 ossim.net
+ * Copyright (c) 2007-2013 AlienVault
+ * All rights reserved.
+ *
+ * This package is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; version 2 dated June, 1991.
+ * You may not use, modify or distribute this program under any other version
+ * of the GNU General Public License.
+ *
+ * This package is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this package; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+ * MA  02110-1301  USA
+ *
+ *
+ * On Debian GNU/Linux systems, the complete text of the GNU General
+ * Public License can be found in `/usr/share/common-licenses/GPL-2'.
+ *
+ * Otherwise you can read it here: http://www.gnu.org/licenses/gpl-2.0.txt
+ *
+ */
 
 error_reporting(0);
 
@@ -110,8 +110,8 @@ if ($action == 'logout')
 //If user is logged, redirect to home
 if (Session::get_session_user() != '')
 {
-     header("Location: /ossim");
-     exit();
+    header("Location: /ossim");
+    exit();
 }
 
 
@@ -562,14 +562,14 @@ if ($system_name != '')
     <?php
     if (!Mobile::is_mobile_device() && $embed == 'true')
     {
-    ?>
+        ?>
         <style type="text/css">
             #c_login
             {
                 margin: auto;
             }
         </style>
-    <?php
+        <?php
     }
     ?>
 
@@ -582,19 +582,19 @@ if ($system_name != '')
 
         function show_help()
         {
-             var width  = 1024;
-             var height = 768;
+            var width  = 1024;
+            var height = 768;
 
-             var left = (screen.width/2)-(width/2);
-             var top  = (screen.height/2)-(height/2);
+            var left = (screen.width/2)-(width/2);
+            var top  = (screen.height/2)-(height/2);
 
-             var w_parameters = "left="+left+", top="+top+", height="+height+", width="+width+", location=no, menubar=no, resizable=yes, scrollbars=yes, status=no, titlebar=no";
+            var w_parameters = "left="+left+", top="+top+", height="+height+", width="+width+", location=no, menubar=no, resizable=yes, scrollbars=yes, status=no, titlebar=no";
 
-             var w_url  = 'https://www.alienvault.com/help/product/user_management_guide';
-             var w_name = 'User Management Guide';
+            var w_url  = 'https://www.alienvault.com/help/product/user_management_guide';
+            var w_name = 'User Management Guide';
 
-             h_window = window.open(w_url, w_name, w_parameters);
-             h_window.focus();
+            h_window = window.open(w_url, w_name, w_parameters);
+            h_window.focus();
         }
 
 
@@ -604,8 +604,8 @@ if ($system_name != '')
                 for (var x=1; x<=intShakes; x++)
                 {
                     $(this).animate({left:(intDistance*-1)}, (((intDuration/intShakes)/4)))
-                    .animate({left:intDistance}, ((intDuration/intShakes)/2))
-                    .animate({left:0}, (((intDuration/intShakes)/4)));
+                        .animate({left:intDistance}, ((intDuration/intShakes)/2))
+                        .animate({left:0}, (((intDuration/intShakes)/4)));
                 }
             });
 
@@ -702,47 +702,47 @@ if ($system_name != '')
         <?php
         if ($first_login == 'yes')
         {
-            ?>
-            function check()
+        ?>
+        function check()
+        {
+            if ($('#fullname').val() == '' || $('#pass').val() == '' ||  $('#pass1').val() == '' ||  $('#email').val() == '')
             {
-                if ($('#fullname').val() == '' || $('#pass').val() == '' ||  $('#pass1').val() == '' ||  $('#email').val() == '')
-                {
-                    alert("<?php echo _('Please fill all fields. Thank you')?>")
-                    return false;
-                }
-
-                var p_data = check_password();
-
-                if (p_data.status == 'error')
-                {
-                    alert(p_data.data);
-                    return false;
-                }
-
-                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-                if (reg.test($('#email').val()) == false)
-                {
-                    alert("<?php echo _('Invalid E-mail address')?>")
-                    return false;
-                }
-
-                return true;
-            }
-
-
-            function toggle_map()
-            {
-                var section = '.geolocation';
-
-                $(section).toggle();
-
-                av_map.draw_map();
-
-                document.getElementById('down_button').scrollIntoView();
-
+                alert("<?php echo _('Please fill all fields. Thank you')?>")
                 return false;
             }
-            <?php
+
+            var p_data = check_password();
+
+            if (p_data.status == 'error')
+            {
+                alert(p_data.data);
+                return false;
+            }
+
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (reg.test($('#email').val()) == false)
+            {
+                alert("<?php echo _('Invalid E-mail address')?>")
+                return false;
+            }
+
+            return true;
+        }
+
+
+        function toggle_map()
+        {
+            var section = '.geolocation';
+
+            $(section).toggle();
+
+            av_map.draw_map();
+
+            document.getElementById('down_button').scrollIntoView();
+
+            return false;
+        }
+        <?php
         }
         ?>
 
@@ -761,608 +761,624 @@ if ($system_name != '')
                 document.f_login.user.focus();
             }
 
-        	$("#ftpass").fancybox({
-        		'titlePosition'		: 'inside',
-        		'transitionIn'		: 'none',
-        		'transitionOut'		: 'none',
-        		'showCloseButton'   : false,
-        		onStart: function(){
+            $("#ftpass").fancybox({
+                'titlePosition'		: 'inside',
+                'transitionIn'		: 'none',
+                'transitionOut'		: 'none',
+                'showCloseButton'   : false,
+                onStart: function(){
                     $('#forgotpass').show();
                     return true;
                 },
-        		onClosed: function(){
+                onClosed: function(){
                     $('#forgotpass').hide();
                     return true;
                 }
-        	});
+            });
 
             <?php
             if (isset($bad_pass) || $is_disabled  || $disabled)
             {
-                ?>
-                $('#loginw').shake(5, 6, 360);
-                <?php
+            ?>
+            $('#loginw').shake(5, 6, 360);
+            <?php
             }
 
             if ($first_login == 'yes')
             {
-                ?>
-                __internet = new Av_internet_check();
+            ?>
+            __internet = new Av_internet_check();
 
-                // Scroll down to view de submit button (small screens)
-                document.getElementById('down_button').scrollIntoView();
+            // Scroll down to view de submit button (small screens)
+            document.getElementById('down_button').scrollIntoView();
 
-                $('#pass').pstrength();
-                $('#pass1').pstrength();
+            $('#pass').pstrength();
+            $('#pass1').pstrength();
 
-                av_map = new Av_map('c_map');
+            av_map = new Av_map('c_map');
 
-                Av_map.is_map_available(function(conn)
+            Av_map.is_map_available(function(conn)
+            {
+                if (conn)
                 {
-                    if (conn)
-                    {
-                        av_map.draw_map();
+                    av_map.draw_map();
 
-                        $('#search_location').geo_autocomplete(new google.maps.Geocoder, {
-        					mapkey: '<?php echo $map_key?>',
-        					selectFirst: true,
-        					minChars: 3,
-        					cacheLength: 50,
-        					width: 300,
-        					scroll: true,
-        					scrollHeight: 330
-        				}).result(function(_event, _data) {
-        					if (_data)
-        					{
-        						if (!$('.geolocation').is(':visible'))
-        						{
-        						    toggle_map();
-        						}
+                    $('#search_location').geo_autocomplete(new google.maps.Geocoder, {
+                        mapkey: '<?php echo $map_key?>',
+                        selectFirst: true,
+                        minChars: 3,
+                        cacheLength: 50,
+                        width: 300,
+                        scroll: true,
+                        scrollHeight: 330
+                    }).result(function(_event, _data) {
+                        if (_data)
+                        {
+                            if (!$('.geolocation').is(':visible'))
+                            {
+                                toggle_map();
+                            }
 
-        						//Set map coordenate
-                                av_map.map.fitBounds(_data.geometry.viewport);
+                            //Set map coordenate
+                            av_map.map.fitBounds(_data.geometry.viewport);
 
-                                var aux_lat = _data.geometry.location.lat();
-                                var aux_lng = _data.geometry.location.lng();
+                            var aux_lat = _data.geometry.location.lat();
+                            var aux_lng = _data.geometry.location.lng();
 
-                                //console.log(aux_lat);
-                                //console.log(aux_lng);
+                            //console.log(aux_lat);
+                            //console.log(aux_lng);
 
-                                av_map.set_location(aux_lat, aux_lng);
+                            av_map.set_location(aux_lat, aux_lng);
 
-                                $('#latitude').val(av_map.get_lat());
-                                $('#longitude').val(av_map.get_lng());
+                            $('#latitude').val(av_map.get_lat());
+                            $('#longitude').val(av_map.get_lng());
 
-                                //Save address
+                            //Save address
 
-                                av_map.set_address(_data.formatted_address);
+                            av_map.set_address(_data.formatted_address);
 
-                                // Marker (Add or update)
+                            // Marker (Add or update)
 
-                                av_map.remove_all_markers();
-                                av_map.add_marker(av_map.get_lat(), av_map.get_lng());
-                                av_map.markers[0].setTitle('<?php echo _('Company location')?>');
-                                av_map.markers[0].setMap(av_map.map);
+                            av_map.remove_all_markers();
+                            av_map.add_marker(av_map.get_lat(), av_map.get_lng());
+                            av_map.markers[0].setTitle('<?php echo _('Company location')?>');
+                            av_map.markers[0].setMap(av_map.map);
 
-                                av_map.map.setZoom(8);
+                            av_map.map.setZoom(8);
 
-                                //Get country
+                            //Get country
 
-        						var country = '';
-                                var i       = _data.address_components.length-1;
+                            var country = '';
+                            var i       = _data.address_components.length-1;
 
-                                for(i; i >= 0; i--)
+                            for(i; i >= 0; i--)
+                            {
+                                var item = _data.address_components[i];
+
+                                if(item.types[0] == 'country')
                                 {
-                                    var item = _data.address_components[i];
+                                    country = item.short_name;
 
-                                    if(item.types[0] == 'country')
-                                    {
-                                        country = item.short_name;
-
-                                        break;
-                                    }
+                                    break;
                                 }
+                            }
 
-                                $('#country').val(country);
-        					}
-        				});
-
-
-        				$('#view_map').click(function(event){
-
-                            event.preventDefault();
-                            toggle_map();
-                        });
-
-        				//Search box (Handler Keyup and Blur)
-        				av_map.bind_sl_actions();
-                    }
-                    else
-                    {
-                        $(".c_location").hide();
-                    }
-                });
+                            $('#country').val(country);
+                        }
+                    });
 
 
-                $('#f_login').submit(function(){
+                    $('#view_map').click(function(event){
 
-                    if (!check())
-                    {
-                       return false;
-                    }
-                    else
-                    {
-                        $('#pass').val($.base64.encode($('#pass').val()));
-                        $('#pass1').val($.base64.encode($('#pass1').val()))
-                    }
+                        event.preventDefault();
+                        toggle_map();
+                    });
 
-                    $('#down_button').addClass('av_b_processing');
-                });
-                <?php
+                    //Search box (Handler Keyup and Blur)
+                    av_map.bind_sl_actions();
+                }
+                else
+                {
+                    $(".c_location").hide();
+                }
+            });
+
+
+            $('#f_login').submit(function(){
+
+                if (!check())
+                {
+                    return false;
+                }
+                else
+                {
+                    $('#pass').val($.base64.encode($('#pass').val()));
+                    $('#pass1').val($.base64.encode($('#pass1').val()))
+                }
+
+                $('#down_button').addClass('av_b_processing');
+            });
+            <?php
             }
             else
             {
-                ?>
+            ?>
 
-                if (av_bookmark != '' && location.hash == '')
-                {
-                    location.hash = av_bookmark;
-                }
+            if (av_bookmark != '' && location.hash == '')
+            {
+                location.hash = av_bookmark;
+            }
 
-                save_hash();
+            save_hash();
 
-                $(window).on('hashchange', save_hash);
+            $(window).on('hashchange', save_hash);
 
-                $('#f_login').submit(function()
-                {
-                    $('#submit_button').addClass('av_b_processing');
-                    $('#pass').val($.base64.encode($('#passu').val()));
-                });
+            $('#f_login').submit(function()
+            {
+                $('#submit_button').addClass('av_b_processing');
+                $('#pass').val($.base64.encode($('#passu').val()));
+            });
 
-                <?php
+            <?php
             }
             ?>
         });
 
     </script>
-</head>
+    <html dir="rtl">
+    </head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
 
-<body>
+<body lang="fa">
 
+<?php
+
+if (Mobile::is_mobile_device())
+{
+    ?>
+    <div id='c_login'>
+        <form method="POST" id='f_login' name='f_login' action="login.php">
+            <table align="center" class='noborder'>
+                <tr>
+                    <td class="noborder">
+                        <table align="center" class="noborder">
+                            <tr>
+                                <td class="noborder" style="text-align:center;padding:30px 20px 3px 20px">
+                                    <img src="/ossim/pixmaps/<?php echo $b_logo?>" border='0'/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="noborder center" style="padding:10px">
+                                    <table id='t_login' class='opacity' align="center" cellspacing='2' cellpadding='6'>
+                                        <tr>
+                                            <td class='td_user'> <?php echo _('Username').':'; ?> </td>
+                                            <td class="left">
+                                                <input type="text" autocapitalize="off" maxlength="64" id="user" name="user" value="<?php echo $default_user?>"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class='td_pass'> <?php echo _('Password').':'; ?> </td>
+                                            <td class="left">
+                                                <input type="password" id="passu" name="passu" autocomplete="off"/>
+                                                <input type="hidden" id="pass" name="pass"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="center" style="height:24px;font-size: 12px;">
+                                    <input type="checkbox" value="status" name="mobile" checked/> <?php echo _('Mobile Console') ?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="center" style="padding:10px;">
+                                    <input type="submit" id="submit_button" value="<?php echo _('Login'); ?>" style="width:100%"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
     <?php
+if (isset($bad_pass))
+{
+    ?>
+    <p style='color:red' class='uppercase'>
+        <?php echo _('Wrong user or password')?>
+        <br/><br/>
+        <a href="javascript:void(0);" onclick="$('#nt_pass').show();"><?php echo ('Lost Password?')?></a>
+    </p>
+    <?php
+}
+elseif ($is_disabled)
+{
+    ?>
+    <p style='color:#888' class='uppercase'>
+        <?php printf(_("The User <strong> %s </strong> is <strong> disabled </strong>"), $user); ?>
+        <br/>&nbsp;
+        <?php echo _('Please contact the administrator')?>
+    </p>
+    <?php
+}
 
-    if (Mobile::is_mobile_device())
-    {
-        ?>
-        <div id='c_login'>
-            <form method="POST" id='f_login' name='f_login' action="login.php">
-                <table align="center" class='noborder'>
-                    <tr>
-                        <td class="noborder">
-                            <table align="center" class="noborder">
-                                <tr>
-                                    <td class="noborder" style="text-align:center;padding:30px 20px 3px 20px">
-                                        <img src="/ossim/pixmaps/<?php echo $b_logo?>" border='0'/>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="noborder center" style="padding:10px">
-                                        <table id='t_login' class='opacity' align="center" cellspacing='2' cellpadding='6'>
-                                            <tr>
-                                                <td class='td_user'> <?php echo _('Username').':'; ?> </td>
-                                                <td class="left">
-                                                    <input type="text" autocapitalize="off" maxlength="64" id="user" name="user" value="<?php echo $default_user?>"/>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class='td_pass'> <?php echo _('Password').':'; ?> </td>
-                                                <td class="left">
-                                                    <input type="password" id="passu" name="passu" autocomplete="off"/>
-                                                    <input type="hidden" id="pass" name="pass"/>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="center" style="height:24px;font-size: 12px;">
-                                        <input type="checkbox" value="status" name="mobile" checked/> <?php echo _('Mobile Console') ?>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="center" style="padding:10px;">
-                                        <input type="submit" id="submit_button" value="<?php echo _('Login'); ?>" style="width:100%"/>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-        <?php
-        if (isset($bad_pass))
+if ($disabled)
+{
+    ?>
+    <p style='color:#16A7C9'>
+        <?php echo _('This user has been disabled for security reasons.<br/> Please contact with the administrator')?>
+    </p>
+<?php
+}
+}
+else
+{
+if ($failed && $first_login != 'yes')
+{
+if($embed != 'true')
+{
+?>
+    <script type='text/javascript'>
+        if (location.href != top.location.href)
         {
-            ?>
-            <p style='color:red' class='uppercase'>
-                <?php echo _('Wrong user or password')?>
-                <br/><br/>
-                <a href="javascript:void(0);" onclick="$('#nt_pass').show();"><?php echo ('Lost Password?')?></a>
-            </p>
-            <?php
+            top.location.href = location.href;
         }
-        elseif ($is_disabled)
-        {
-            ?>
-            <p style='color:#888' class='uppercase'>
-                <?php printf(_("The User <strong> %s </strong> is <strong> disabled </strong>"), $user); ?>
-                <br/>&nbsp;
-                <?php echo _('Please contact the administrator')?>
-            </p>
-            <?php
-        }
+    </script>
+<?php
+}
+?>
 
-        if ($disabled)
-        {
-            ?>
-            <p style='color:#16A7C9'>
-                <?php echo _('This user has been disabled for security reasons.<br/> Please contact with the administrator')?>
-            </p>
-            <?php
-        }
-    }
-    else
-    {
-        if ($failed && $first_login != 'yes')
-        {
-            if($embed != 'true')
-            {
-                ?>
-                <script type='text/javascript'>
-                    if (location.href != top.location.href)
-                    {
-                        top.location.href = location.href;
-                    }
-                </script>
-                <?php
-            }
-            ?>
+    <div id='c_login'>
+        <form <?php if($embed == 'true'){ ?>target="_top" <?php } ?>name="f_login" id="f_login" method="POST" action="login.php">
+            <input type="hidden" name="embed" value="<?php echo $embed?>"/>
+            <input type="hidden" name="bookmark_string" id="bookmark_string" value=''/>
 
-            <div id='c_login'>
-                <form <?php if($embed == 'true'){ ?>target="_top" <?php } ?>name="f_login" id="f_login" method="POST" action="login.php">
-                    <input type="hidden" name="embed" value="<?php echo $embed?>"/>
-                    <input type="hidden" name="bookmark_string" id="bookmark_string" value=''/>
+            <table id='loginw' class='table_embed noborder'>
+                <tr>
+                    <td class="noborder">
+                        <table class="table_embed2 noborder">
 
-                    <table id='loginw' class='table_embed noborder'>
-                        <tr>
-                            <td class="noborder">
-                                <table class="table_embed2 noborder">
-
-                                    <tr>
-                                        <td class="noborder" style="text-align:center;padding:20px 0px 20px 8px">
-                                            <?php
-                                            if (file_exists('../tmp/headers/_login_logo.png'))
-                                            {
-                                                ?>
-                                                <img src="../tmp/headers/_login_logo.png" border='0' width="300" height="60" class="img_logo"/>
-                                                <?php
-                                            }
-                                            else
-                                            {
-                                                ?>
-                                                <img src="/ossim/pixmaps/<?php echo $b_logo?>"/>
-                                                <?php
-                                            }
-                                            ?>
-                                        </td>
-                                    </tr>
-
+                            <tr>
+                                <td class="noborder" style="text-align:center;padding:20px 0px 20px 8px">
                                     <?php
-                                    if ($system_name != '')
+                                    if (file_exists('../tmp/headers/_login_logo.png'))
                                     {
-                                    ?>
-                                    <tr>
-                                        <td class="noborder" id='system_info'>
-                                        <?php
-                                            echo $system_name . '  ' . $system_ip;
                                         ?>
-                                        </td>
-                                    </tr>
-                                    <?php
+                                        <img src="../tmp/headers/_login_logo.png" border='0' width="300" height="60" class="img_logo"/>
+                                        <?php
+                                    }
+                                    else
+                                    {
+                                        ?>
+                                        <img src="/ossim/pixmaps/<?php echo $b_logo?>"/>
+                                        <?php
                                     }
                                     ?>
-                                    <tr>
-                                        <td class="noborder center" style="padding-top:20px">
+                                </td>
+                            </tr>
 
-                                            <table id='t_login' align="center" cellspacing='4' cellpadding='2'>
-                                                <tr>
-                                                    <td class="td_user uppercase noborder <?php if ($pro) { echo 'white'; } ?>">
-                                                        <?php echo _('Username'); ?>
-                                                    </td>
-                                                    <td class="left noborder">
-                                                        <input type="text" size='25' maxlength="64" id='user' name="user" value="<?php echo $default_user ?>" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td_pass uppercase noborder <?php if ($pro) { echo 'white'; } ?>">
-                                                        <?php echo _('Password'); ?>
-                                                    </td>
-                                                    <td class="left noborder">
-                                                        <input type="password" onfocus="$('#wup').hide(); $('#nt_1').hide(); $('#nt_pass').hide();" id="passu" size='25' name="passu" autocomplete="off"/>
-                                                        <input type="hidden" id="pass" name="pass"/>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td_pass uppercase noborder"></td>
-                                                    <td class="left noborder">
-                                                        <a id="ftpass" href="#forgotpass" class="link"><?php echo _('Forgot Password?')?></a>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="td_pass uppercase noborder"></td>
-                                                    <td class="left noborder" style="padding:15px 0px 0px 4px">
-                                                        <input type="submit" class="big button" id="submit_button" value="<?php echo _('Login'); ?>"/>
-                                                    </td>
-                                                </tr>
-                                            </table>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="noborder" style="text-align:center" id="wup">
-                                        <?php
-                                            if (isset($bad_pass))
-                                            {
-                                                ?>
-                                                <p style='color:red' class='uppercase'>
-                                                    <?php echo _('Wrong user or password')?>
-                                                </p>
-                                                <?php
-                                            }
-                                            else if ($is_disabled)
-                                            {
-                                                ?>
-                                                <p style='color:#888' class='uppercase'>
-                                                    <?php
-                                                    printf(_("The User <strong> %s </strong> is <strong> disabled </strong>"), $user);?>
-                                                    <br/>&nbsp;
-                                                    <?php echo _("Please contact the administrator")?>.
-                                                </p>
-                                                <?php
-                                            }
-
-                                            if ($disabled)
-                                            {
-                                                ?>
-                                                <p style='color:#16A7C9'>
-                                                    <?php echo _("This user has been disabled for security reasons.<br/> Please contact with the administrator.")?>
-                                                </p>
-                                                <?php
-                                            }
-                                        ?>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-
-                </form>
-
-                <?php
-                if (($br = bad_browser()) != '')
-                {
-                    $txt_error = _("<strong>Warning!</strong> $br is <strong>not compatible</strong> with OSSIM.
-                                    <br/> Please use Internet Explorer 7 (or newer), Firefox or Chrome");
-
-                    $config_nt = array(
-                        'content' => $txt_error,
-                        'options' => array (
-                            'type'          => 'nf_error',
-                            'cancel_button' => TRUE
-                        ),
-                        'style'   => 'width: 350px; font-style: italic; font-size: 11px; margin: 20px auto; text-align: left;'
-                    );
-
-                    $nt = new Notification('nt_1', $config_nt);
-                    $nt->show();
-                }
-                ?>
-
-
-            </div>
-            <?php
-        }
-
-        // first login
-        if ($first_login == 'yes')
-        {
-            $longitude = 0;
-            $latitude  = 0;
-
-            // Overwrite logo, welcome uses the same as in home
-            $b_logo = ($pro) ? 'av_contrast_logo.png' : 'ossim_contrast_logo.png';
-
-            ?>
-
-            <div id='c_login'>
-
-                <form <?php if( $embed== 'true'){ ?>target="_top" <?php } ?>name="f_login" id="f_login" method="POST" action="login.php">
-
-                <input type="hidden" name="first_login" value="yes"/>
-                <input type="hidden" name="embed" value="<?php echo $embed?>"/>
-
-                <div class='header_welcome'>
-                    <div class='header_welcome_logo'><img src="/ossim/pixmaps/logo/<?php echo $b_logo?>"/></div>
-                </div>
-
-                <table align="center" class='transparent' cellspacing='0' cellpadding='0'>
-                    <tr>
-                        <td class="noborder">
-                            <table align="center" style="padding:1px;border:none;" class='noborder'>
+                            <?php
+                            if ($system_name != '')
+                            {
+                                ?>
                                 <tr>
-                                    <td class="noborder">
-                                        <table align="center" class="transparent">
-                                            <tr>
-                                                <td align="center" class="noborder">
-                                                    <table class='transparent' width="1200">
-                                                        <tr>
-                                                            <td class="left noborder" style="padding-top:20px;padding-left:0px">
-                                                                <span style="font-size:150%"><?php echo _('Welcome') ?></span>
-                                                                <hr class='welcome_hr'>
-                                                                <?php echo _("Congratulations on choosing AlienVault as your Unified Security Management tool. Before using your AlienVault,
-                                                                              you will need to create an<br>administrator user account.<br><br>If you need more information about AlienVault, please visit")." <a href='http://www.alienvault.com' target='av'>AlienVault.com</a>."?>
-                                                                              <br/><br/>
-                                                                <br/>
-                                                                <span style="font-size:150%"><?php echo _('Administrator Account Creation') ?></span>
-                                                                <hr class='welcome_hr'>
-                                                                <?php echo _("Create an account to access your AlienVault product.") ?>
-                                                                <br/><br/>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr><td class='left welcome_required'>* <?php echo _('Asterisks indicate required fields') ?></td></tr>
-
-                                                        <tr>
-                                                            <td class="left noborder welcome_form_table">
-                                                                <table width="100%" cellspacing="0" cellpadding="3" class="transparent">
-                                                                    <tr>
-                                                                        <td width="20%" class="td_user uppercase left noborder"><?php echo _('Full Name') ?> *</td>
-                                                                        <td class="left noborder">
-                                                                            <input type="text" name="fullname" id="fullname" maxlength="40"/>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                    <tr><td class="noborder"></td></tr>
-
-                                                                    <tr>
-                                                                        <td width="20%" class="td_user uppercase left noborder"><?php echo _('UserName') ?> *</td>
-                                                                        <td class="left noborder grey">
-                                                                            <input type="text" name="user" value="<?php echo AV_DEFAULT_ADMIN?>" style="color:#888888" disabled="disabled"/>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                    <tr><td class="noborder"></td></tr>
-
-                                                                    <tr>
-                                                                        <td class="td_user uppercase left noborder"><?php echo _('Password') ?> *</td>
-                                                                        <td class="left noborder">
-                                                                            <div class="pass_container">
-                                                                                <input type="password" id="pass" name="pass" autocomplete="off"/>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                    <tr><td class="noborder"></td></tr>
-
-                                                                    <tr>
-                                                                        <td class="td_user uppercase left noborder"><?php echo _('Confirm Password') ?> *</td>
-                                                                        <td class="left noborder">
-                                                                            <div class="pass_container">
-                                                                                <input type="password" id="pass1" name="pass1" autocomplete="off"/>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                    <tr><td class="noborder"></td></tr>
-
-                                                                    <tr>
-                                                                        <td class="td_user uppercase left noborder"><?php echo _('E-mail') ?> *</td>
-                                                                        <td class="left noborder">
-                                                                            <input type="text" name="email" id="email" maxlength="255"/>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                    <tr><td class="noborder"></td></tr>
-
-                                                                    <tr>
-                                                                        <td class="td_user uppercase left noborder"><?php echo _('Company Name') ?></td>
-                                                                        <td class="left noborder grey">
-                                                                            <input type="text" name="company" id="company" maxlength="40"/>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                    <tr><td class="noborder c_location"></td></tr>
-
-                                                                    <tr class='c_location'>
-                                                                        <td class="td_user uppercase left noborder">
-                                                                            <?php echo _('Location') ?>
-                                                                        </td>
-                                                                        <td class="left noborder grey">
-                                                                            <input type="text" name="search_location" id="search_location" maxlength="40"/>
-                                                                            <a href='' id="view_map"><?php echo _("View Map") ?></a>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                    <tr class="geolocation c_location" style="display:none">
-                                                                        <td colspan="2">
-                                                                            <input type="hidden" name="latitude"  id="latitude"  value=''/>
-                                                                            <input type="hidden" name="longitude" id="longitude" value=''/>
-                                                                            <input type="hidden" name="country"   id="country"   value=''/>
-                                                                            <div id='c_map'></div>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                    <tr>
-                                                                        <td id='td_track_usage_info' colspan="2">
-                                                                            <input type="checkbox" name="track_usage_information" value="1" id="track_usage_information" checked="checked"/>
-
-                                                                            <span><?php echo _('Share anonymous usage statistics and system information with AlienVault to help us make USM better')?>.</span>
-                                                                            <a href="/ossim/av_routing.php?action_type=EXT_TRACK_USAGE_INFORMATION" target="_blank"><?php echo _('Learn More')?></a>
-
-                                                                        </td>
-                                                                    </tr>
-
-                                                                    <tr>
-                                                                        <td></td>
-                                                                        <td class="left welcome_start">
-                                                                            <input id="down_button" type="submit" class="button big" value="<?php echo _('Start using AlienVault'); ?>" />
-                                                                        </td>
-                                                                    </tr>
-
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                    <td class="noborder" id='system_info'>
+                                        <?php
+                                        echo $system_name . '  ' . $system_ip;
+                                        ?>
                                     </td>
                                 </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </form>
+                                <?php
+                            }
+                            ?>
+                            <tr>
+                                <td class="noborder center" style="padding-top:20px">
 
-            </div>
-            <?php
+                                    <table id='t_login' align="center" cellspacing='4' cellpadding='2'>
+                                        <tr>
+
+
+                                            <td class="td_user uppercase noborder <?php if ($pro) { echo 'white'; } ?>">
+                                                <?php echo _(' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; نام کاربری '); ?>
+                                            </td>
+                                            <td class="left noborder">
+                                                <input type="text" size='25' maxlength="64" id='user' name="user" value="<?php echo $default_user ?>" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td class="td_pass uppercase noborder <?php if ($pro) { echo 'white'; } ?>">
+                                                <?php echo _(' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; رمز عبور  '); ?>
+                                            </td>
+
+                                            <td class="left noborder">
+                                                <input type="password" onfocus="$('#wup').hide(); $('#nt_1').hide(); $('#nt_pass').hide();" id="passu" size='25' name="passu" autocomplete="off"/>
+                                                <input type="hidden" id="pass" name="pass"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                        <tr>
+                                            <td class="td_pass uppercase noborder"></td>
+                                            <td class="left noborder">
+                                                <a id="ftpass" href="#forgotpass" class="link"><?php echo _('آیا رمز عبور خود را فراموش کرده اید؟ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')?></a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+
+                                            <td class="left noborder" style="padding:15px 0px 0px 4px">
+                                                <input type="submit" class="big button" id="submit_button" value="<?php echo _('ورود'); ?>"/>
+                                            </td>
+                                            <td class="td_pass uppercase noborder"></td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="noborder" style="text-align:center" id="wup">
+                                    <?php
+                                    if (isset($bad_pass))
+                                    {
+                                        ?>
+                                        <p style='color:red' class='uppercase'>
+                                            <?php echo _('Wrong user or password')?>
+                                        </p>
+                                        <?php
+                                    }
+                                    else if ($is_disabled)
+                                    {
+                                        ?>
+                                        <p style='color:#888' class='uppercase'>
+                                            <?php
+                                            printf(_("The User <strong> %s </strong> is <strong> disabled </strong>"), $user);?>
+                                            <br/>&nbsp;
+                                            <?php echo _("Please contact the administrator")?>.
+                                        </p>
+                                        <?php
+                                    }
+
+                                    if ($disabled)
+                                    {
+                                        ?>
+                                        <p style='color:#16A7C9'>
+                                            <?php echo _("This user has been disabled for security reasons.<br/> Please contact with the administrator.")?>
+                                        </p>
+                                        <?php
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+
+        <?php
+        if (($br = bad_browser()) != '')
+        {
+            $txt_error = _("<strong>Warning!</strong> $br is <strong>not compatible</strong> with OSSIM.
+                                    <br/> Please use Internet Explorer 7 (or newer), Firefox or Chrome");
+
+            $config_nt = array(
+                'content' => $txt_error,
+                'options' => array (
+                    'type'          => 'nf_error',
+                    'cancel_button' => TRUE
+                ),
+                'style'   => 'width: 350px; font-style: italic; font-size: 11px; margin: 20px auto; text-align: left;'
+            );
+
+            $nt = new Notification('nt_1', $config_nt);
+            $nt->show();
         }
-    }
-    ?>
+        ?>
 
-    <div id="forgotpass">
-        <span><?php echo _("Password Reset Instructions") ?></span><br><br><br>
-        To reset your password please login using ssh to your AlienVault device, when AlienVault CLI is displayed please follow these steps:<br><br>
 
-        <ol>
-            <li>Select "System Preferences" and press Enter</li>
-            <li>Select "Change Password" and press Enter</li>
-            <li>Select "Reset UI Admin Password" and press Enter</li>
-            <li>Verify you want to change the password</li>
-        </ol>
-        <br><br>
-        This will generate a temporary password that will allow you login into AlienVault UI. The system will ask you to change the password when you login
-
-        <br><br>
-        <center><button type="button" class="big" onclick="$.fancybox.close();"><?php echo _("Ok")?></button></center>
     </div>
+<?php
+}
+
+// first login
+if ($first_login == 'yes')
+{
+$longitude = 0;
+$latitude  = 0;
+
+// Overwrite logo, welcome uses the same as in home
+$b_logo = ($pro) ? 'av_contrast_logo.png' : 'ossim_contrast_logo.png';
+
+?>
+
+    <div id='c_login'>
+
+        <form <?php if( $embed== 'true'){ ?>target="_top" <?php } ?>name="f_login" id="f_login" method="POST" action="login.php">
+
+            <input type="hidden" name="first_login" value="yes"/>
+            <input type="hidden" name="embed" value="<?php echo $embed?>"/>
+
+            <div class='header_welcome'>
+                <div class='header_welcome_logo'><img src="/ossim/pixmaps/logo/<?php echo $b_logo?>"/></div>
+            </div>
+
+            <table align="center" class='transparent' cellspacing='0' cellpadding='0'>
+                <tr>
+                    <td class="noborder">
+                        <table align="center" style="padding:1px;border:none;" class='noborder'>
+                            <tr>
+                                <td class="noborder">
+                                    <table align="center" class="transparent">
+                                        <tr>
+                                            <td align="center" class="noborder">
+                                                <table class='transparent' width="1200">
+                                                    <tr>
+                                                        <td class="left noborder" style="padding-top:20px;padding-left:0px">
+                                                            <span style="font-size:150%"><?php echo _('Welcome') ?></span>
+                                                            <hr class='welcome_hr'>
+                                                            <?php echo _("Congratulations on choosing AlienVault as your Unified Security Management tool. Before using your AlienVault,
+                                                                              you will need to create an<br>administrator user account.<br><br>If you need more information about AlienVault, please visit")." <a href='http://www.alienvault.com' target='av'>AlienVault.com</a>."?>
+                                                            <br/><br/>
+                                                            <br/>
+                                                            <span style="font-size:150%"><?php echo _('Administrator Account Creation') ?></span>
+                                                            <hr class='welcome_hr'>
+                                                            <?php echo _("Create an account to access your AlienVault product.") ?>
+                                                            <br/><br/>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr><td class='left welcome_required'>* <?php echo _('Asterisks indicate required fields') ?></td></tr>
+
+                                                    <tr>
+                                                        <td class="left noborder welcome_form_table">
+                                                            <table width="100%" cellspacing="0" cellpadding="3" class="transparent">
+                                                                <tr>
+                                                                    <td width="20%" class="td_user uppercase left noborder"><?php echo _('Full Name') ?> *</td>
+                                                                    <td class="left noborder">
+                                                                        <input type="text" name="fullname" id="fullname" maxlength="40"/>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr><td class="noborder"></td></tr>
+
+                                                                <tr>
+                                                                    <td width="20%" class="td_user uppercase left noborder"><?php echo _('UserName') ?> *</td>
+                                                                    <td class="left noborder grey">
+                                                                        <input type="text" name="user" value="<?php echo AV_DEFAULT_ADMIN?>" style="color:#888888" disabled="disabled"/>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr><td class="noborder"></td></tr>
+
+                                                                <tr>
+                                                                    <td class="td_user uppercase left noborder"><?php echo _('Password') ?> *</td>
+                                                                    <td class="left noborder">
+                                                                        <div class="pass_container">
+                                                                            <input type="password" id="pass" name="pass" autocomplete="off"/>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr><td class="noborder"></td></tr>
+
+                                                                <tr>
+                                                                    <td class="td_user uppercase left noborder"><?php echo _('Confirm Password') ?> *</td>
+                                                                    <td class="left noborder">
+                                                                        <div class="pass_container">
+                                                                            <input type="password" id="pass1" name="pass1" autocomplete="off"/>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr><td class="noborder"></td></tr>
+
+                                                                <tr>
+                                                                    <td class="td_user uppercase left noborder"><?php echo _('E-mail') ?> *</td>
+                                                                    <td class="left noborder">
+                                                                        <input type="text" name="email" id="email" maxlength="255"/>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr><td class="noborder"></td></tr>
+
+                                                                <tr>
+                                                                    <td class="td_user uppercase left noborder"><?php echo _('Company Name') ?></td>
+                                                                    <td class="left noborder grey">
+                                                                        <input type="text" name="company" id="company" maxlength="40"/>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr><td class="noborder c_location"></td></tr>
+
+                                                                <tr class='c_location'>
+                                                                    <td class="td_user uppercase left noborder">
+                                                                        <?php echo _('Location') ?>
+                                                                    </td>
+                                                                    <td class="left noborder grey">
+                                                                        <input type="text" name="search_location" id="search_location" maxlength="40"/>
+                                                                        <a href='' id="view_map"><?php echo _("View Map") ?></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr class="geolocation c_location" style="display:none">
+                                                                    <td colspan="2">
+                                                                        <input type="hidden" name="latitude"  id="latitude"  value=''/>
+                                                                        <input type="hidden" name="longitude" id="longitude" value=''/>
+                                                                        <input type="hidden" name="country"   id="country"   value=''/>
+                                                                        <div id='c_map'></div>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td id='td_track_usage_info' colspan="2">
+                                                                        <input type="checkbox" name="track_usage_information" value="1" id="track_usage_information" checked="checked"/>
+
+                                                                        <span><?php echo _('Share anonymous usage statistics and system information with AlienVault to help us make USM better')?>.</span>
+                                                                        <a href="/ossim/av_routing.php?action_type=EXT_TRACK_USAGE_INFORMATION" target="_blank"><?php echo _('Learn More')?></a>
+
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td class="left welcome_start">
+                                                                        <input id="down_button" type="submit" class="button big" value="<?php echo _('Start using AlienVault'); ?>" />
+                                                                    </td>
+                                                                </tr>
+
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+    <?php
+}
+}
+?>
+
+<div id="forgotpass">
+    <span><?php echo _("دستورالعمل تنظیم مجدد رمز عبور") ?></span><br><br><br>
+    برای بازنشانی رمز عبور خود، لطفا با استفاده از ssh به دستگاه AlienVault خود وارد شوید، هنگامی که AlienVault CLI نمایش داده می شود، لطفا این مراحل را دنبال کنید:<br><br>
+
+    <ol>
+        <li> "تنظیمات سیستم " را انتخاب کنید و Enter را فشار دهید</li>
+        <li> "تغییر رمز عبور" را انتخاب کنید و Enter را فشار دهید</li>
+        <li> "تنظیم مجدد پسورد UI ادمین" را انتخاب کنید و Enter را فشار دهید</li>
+        <li>
+            تأیید کنید که می خواهید رمز عبور را تغییر دهید</li>
+    </ol>
+    <br><br>
+    این یک گذرواژه موقت ایجاد خواهد کرد که به شما اجازه ورود به AlienVault UI را می دهد. سیستم شما از شما می خواهد هنگام ورود به سیستم  رمز عبور را تغییر دهید
+
+    <br><br>
+    <center><button type="button" class="big" onclick="$.fancybox.close();"><?php echo _("بسیار خب")?></button></center>
+</div>
 
 </body>
 </html>
