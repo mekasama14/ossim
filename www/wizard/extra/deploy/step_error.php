@@ -39,7 +39,7 @@ Session::useractive();
 ?>
 
 <div class='wizard_title'>
-    <?php echo _('HIDS Deployment Error') ?>
+    <?php echo _('خطا در گسترش HIDS') ?>
 </div>
 
 <div class='box_message'>
@@ -48,7 +48,7 @@ Session::useractive();
 
 
 <div class='box_single_button'>
-    <button id='cancel_deploy'><?php echo _('Close') ?></button>
+    <button id='cancel_deploy'><?php echo _('بستن') ?></button>
 </div>
 
 

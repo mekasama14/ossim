@@ -37,7 +37,7 @@ Session::useractive();
 
 if ($step != 2)
 {
-    $msg = _('An error happened, the step is wrong. Try again later');
+    $msg = _('خطا: این گام اشتباه است دوباره امتحان کنید');
     
     include 'step_error.php';
     
@@ -47,12 +47,12 @@ if ($step != 2)
 ?>
         
 <div class='wizard_title'>
-    <?php echo _('HIDS Deployment') ?>
+    <?php echo _('گسترش HIDS') ?>
 </div>
 
 
 <div class='wizard_subtitle'>
-    <?php echo _('Deploying the HIDS agent to the selected devices.') ?>
+    <?php echo _(' بکار گیری عامل HIDS در ابزارهای انتخاب شده') ?>
 </div>
 
 
@@ -63,7 +63,7 @@ if ($step != 2)
     <span class='bar-label'></span>
 
     <div id='progress_legend'>
-        <span id='progress_current'>-</span> <?php echo _('Agents Remaining') ?>
+        <span id='progress_current'>-</span> <?php echo _('عامل های دیگر') ?>
     </div>
     
 </div> 

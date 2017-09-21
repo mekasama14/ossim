@@ -37,7 +37,7 @@ Session::useractive();
 
 if ($step != 1)
 {
-    $msg = _('An error happened, the step is wrong. Try again later');
+    $msg = _('خطا: این گام اشتباه است. بعدا امتحان کنید');
     
     include 'step_error.php';
     
@@ -46,18 +46,18 @@ if ($step != 1)
 
 if (count($hosts) == 1)
 {
-    $confirm = _('You are about to deploy 1 host');
+    $confirm = _('شما در مرحله نصب میزبان 1 هستید');
 }
 else
 {
-    $confirm = sprintf(_('You are about to deploy %s hosts'), count($hosts));
+    $confirm = sprintf(_('شما در حال نصب میزبان %s هستید'), count($hosts));
 }
 
-$confirm .= _(', this may take more than a few minutes. Are you sure you would like to continue?');
+$confirm .= _('،این کار ممکن است چند دقیقه طول بکشد. آیا مطمئنید که می خواهید ادامه دهید؟');
         
 ?>
 <div class='wizard_title'>
-    <?php echo _('HIDS Deployment') ?>
+    <?php echo _('گسترش HIDS') ?>
 </div>
 
 <div class='wizard_subtitle'>
@@ -65,8 +65,8 @@ $confirm .= _(', this may take more than a few minutes. Are you sure you would l
 </div>
 
 <div class='box_double_button'>
-    <button id='cancel_deploy' class='av_b_secondary'><?php echo _('Cancel') ?></button>
-    <button id='start_deploy'  class=''><?php echo _('Continue') ?></button>
+    <button id='cancel_deploy' class='av_b_secondary'><?php echo _('بیخیال') ?></button>
+    <button id='start_deploy'  class=''><?php echo _('ادامه') ?></button>
 </div>
         
 

@@ -53,7 +53,7 @@ $total = $wizard->get_step_data('scan_hosts');
 
 
 <div class='wizard_subtitle'>
-    <?php echo _('AlienVault is performing a scan to discover the assets on your network.')?>
+    <?php echo _(' این برنامه برای کشف دارایی ها روی شبکه شما یک اسکن انجام می دهد')?>
 </div>
 
 
@@ -65,14 +65,14 @@ $total = $wizard->get_step_data('scan_hosts');
 
     <div id='progress_legend'>
         <span id='progress_current'>0</span>/<span id='progress_total'><?php echo intval($total)?></span> <?php echo _('Assets')?>
-        (<span id='progress_remaining'><?php echo _('Calculating Remaining Time') ?></span>)
+        (<span id='progress_remaining'><?php echo _('محاسبه کردن زمان باقی مانده') ?></span>)
     </div>
 
 </div>
 
 
 <div class='box_single_button'>
-    <button id='cancel_scan'><?php echo _('Stop Scan')?></button>
+    <button id='cancel_scan'><?php echo _('توقف اسکن')?></button>
 </div>
 
 

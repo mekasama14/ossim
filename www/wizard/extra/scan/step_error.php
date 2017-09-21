@@ -39,7 +39,7 @@ Session::useractive();
 ?>
 
 <div class='wizard_title'>
-    <?php echo _('Scan Error')?>
+    <?php echo _('خطای اسکن')?>
 </div>
 
 <div class='box_message'>
@@ -48,7 +48,7 @@ Session::useractive();
 
 
 <div class='box_single_button'>
-    <button id='cancel_scan'><?php echo _('Close') ?></button>
+    <button id='cancel_scan'><?php echo _('بستن') ?></button>
 </div>
 
 

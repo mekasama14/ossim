@@ -67,40 +67,40 @@ $t     = $info['time'];
 
 <div id='scan_notif'></div>
 
-<div class='wizard_subtitle'>
+<div dir="rtl" class='wizard_subtitle'>
 <?php
     if ($total == 0)
     {
-        echo _("The scan has completed. We couldn't find any asset within the selected networks");
+        echo _("اسکن کامل شد.ما نمیتوانیم هیچ دارایی با شبکه انتخاب شده پیدا کنیم");
     }
     else
     {
-        echo _("The scan has completed. We found $n network devices and $s servers. The scan took $t to complete.");
+        echo _("اسکن کامل شد. ما $n ابزار شبکه و $s سرور پیدا کردیم . اینکار $t زمان نیاز داشت.");
     }
 ?>
 </div>
 
-<div class='wizard_subtitle'>
+<div dir="rtl" class='wizard_subtitle'>
 <?php
-    echo _('We recommend scheduling this scan to repeat periodically to discover changes in the environment.');
+    echo _(' ما جدول بندی این اسکن را برای گزارش متناوب جهت کشف تغییرات محیط پیشنهاد میدهیم');
 ?>
 </div>
 
 <div id='schedule_container' class='wizard_subtitle'>
-    <?php echo _('Schedule to Perform Scan') ?><br/>
+    <?php echo _('جدول انجام دادن اسکن') ?><br/>
 
     <select id='scan_scheduler' class='scheduler_opts'>
         <option value=""></option>
-        <option value="1"><?php echo _('Daily') ?></option>
-        <option value="2" selected="selected"><?php echo _('Weekly') ?></option>
-        <option value="3"><?php echo _('Monthly') ?></option>
+        <option value="1"><?php echo _('روزانه') ?></option>
+        <option value="2" selected="selected"><?php echo _('هفتگی') ?></option>
+        <option value="3"><?php echo _('ماهانه') ?></option>
     </select>
 
 </div>
 
 
 <div class='box_single_button'>
-    <button id='finish_scan' ><?php echo _('OK') ?></button>
+    <button id='finish_scan' ><?php echo _('بسیار خب') ?></button>
 </div>
 
 

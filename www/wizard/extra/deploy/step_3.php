@@ -37,7 +37,7 @@ Session::useractive();
 
 if ($step != 3)
 {
-    $msg = _('An error happened, the step is wrong. Try again later');
+    $msg = _('خطا: این گام اشتباه است. بعدا امتحان کنید');
     
     include 'step_error.php';
     
@@ -54,7 +54,7 @@ $success = intval($wizard->get_step_data('deploy_success'));
 
 
 <div class='wizard_title'>
-    <?php echo _('HIDS Deployment') ?>
+    <?php echo _('گسترش HIDS') ?>
 </div>
 
 
@@ -65,7 +65,7 @@ $success = intval($wizard->get_step_data('deploy_success'));
 
 
 <div class='box_single_button'>
-    <button id='finish_deploy' ><?php echo _('OK') ?></button>
+    <button id='finish_deploy' ><?php echo _('خب') ?></button>
 </div>
 
 

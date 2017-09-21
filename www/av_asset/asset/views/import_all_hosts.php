@@ -90,7 +90,7 @@ function print_form($import_type)
                 'checked' => TRUE
             ),
             'help' => array(
-                'Version 4.x.x or higher' => array(
+                'ورژن 4.x.x یا بالاتر' => array(
                     'format'  => _('"IPs(IP1,IP2,...)";"Hostname";"Description";"Operating System";"Device Type(Type1,Type2,...)"'),
                     'header'  => _('"IPs";"Hostname";"Description";"Operating System";"Device Type"'),
                     'example' => '"192.168.10.3";"Host-1";"'._('Short description').'";"Windows";"Server,Network Device"'
@@ -116,7 +116,7 @@ function print_form($import_type)
             <input type="hidden" name="ctx" id="ctx" value="<?php echo $config[$import_type]['contexts']['default_value']?>"/>
             <input type="hidden" name="import_type" id="import_type" value="<?php echo $import_type?>"/>
 
-            <table id='form_container'>
+            <table id='form_container' dir="rtl">
 
                 <?php
                 //Context
@@ -131,7 +131,7 @@ function print_form($import_type)
 
                     <tr>
                         <td class='td_content'>
-                            <table id="t_tree">
+                            <table id="t_tree" dir="rtl">
                                 <tr>
                                     <td class='noborder'>
                                         <div id="tree"></div>
@@ -153,8 +153,8 @@ function print_form($import_type)
                 //Input File
                 ?>
                 <tr>
-                    <td class='td_title'>
-                        <span><?php echo _('Choose a CSV file')?>:</span>
+                    <td class='td_title'  style="direction:rtl;text-align:right;">
+                        <span><?php echo _('یک فایل CSV انتخاب کنید')?>:</span>
                     </td>
                 </tr>
 
@@ -185,22 +185,22 @@ function print_form($import_type)
                 </tr>
 
                 <tr>
-                        <td class='td_content'>
-                            <div id='c_send'>
-                                <input type='button' name='send' id='send' value='<?php echo _('Import')?>'/>
+                        <td class='td_content' >
+                            <div id='c_send'  style="direction:rtl;text-align:right;">
+                                <input type='button' name='send' id='send' value='<?php echo _('وارد کردن')?>'/>
                             </div>
                         </td>
                     </tr>
 
                 <tr>
-                    <td class='td_title'>
-                        <span><?php echo _('Formats allowed')?>:</span>
+                    <td class='td_title'  style="direction:rtl;text-align:right;">
+                        <span><?php echo _('فرمت های مجاز')?>:</span>
                     </td>
                 </tr>
 
                 <tr>
                     <td class='td_content'>
-                        <table id='t_format'>
+                        <table id='t_format'  style="direction:rtl;text-align:right;">
                             <?php
                             //Help
                             foreach($config[$import_type]['help'] as $version => $help_data)
@@ -213,22 +213,22 @@ function print_form($import_type)
                                 </tr>
 
                                 <tr>
-                                    <td class='td_format'>
-                                        <strong><?php echo _('Format')?>:</strong>
+                                    <td class='td_format' dir="rtl">
+                                        <strong><?php echo _('فرمت')?>:</strong>
                                         <?php echo $help_data['format']?>
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td class='td_header'>
-                                        <strong><?php echo _('Header')?>:</strong>
+                                    <td class='td_header' dir="rtl">
+                                        <strong><?php echo _('سرآمد')?>:</strong>
                                         <?php echo $help_data['header']?>
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td class='td_example'>
-                                        <strong><?php echo _('Example')?>:</strong>
+                                    <td class='td_example' dir="rtl">
+                                        <strong><?php echo _('مثال')?>:</strong>
                                        <?php echo $help_data['example']?>
                                     </td>
                                 </tr>
@@ -245,16 +245,16 @@ function print_form($import_type)
                 </tr>
 
                 <tr>
-                    <td class='td_title'>
-                        <span><?php echo _('Notes')?>:</span>
+                    <td class='td_title'  style="direction:rtl;text-align:right;">
+                        <span><?php echo _('نکات')?>:</span>
                     </td>
                 </tr>
 
                 <tr>
-                    <td class='td_content'>
+                    <td class='td_content' dir="rtl">
                         <ul id='note_list'>
-                            <li><?php echo _('IP address and sensor fields cannot be empty')?></li>
-                            <li><?php echo _('Hostname syntax defined by RFC 1123')?></li>
+                            <li  style="direction:rtl;text-align:right;"><?php echo _('بخش آدرس IP و سنسور ها نباید خالی باشند')?></li>
+                            <li  style="direction:rtl;text-align:right;"><?php echo _('ترکیب نام میزبان به وسیله ی  RFC1123 تعریف می شود')?></li>
                             <?php
                             if ($import_type == 'hosts')
                             {
@@ -271,11 +271,11 @@ function print_form($import_type)
                             else
                             {
                                 ?>
-                                <li>
-                                    <span><?php echo _('Valid Operating System values')?>:</span> <span class='italic'>Windows <?php echo _('or')?> Linux</span>
+                                <li  style="direction:rtl;text-align:right;">
+                                    <span><?php echo _('سیستم عامل معتبر')?>:</span> <span class='italic'>ویندوز <?php echo _('یا')?> لینوکس</span>
                                 </li>
-                                 <li>
-                                    <span><?php echo _('Valid Device Types')?>:</span> <span class='italic'>Server <?php echo _('or')?> Network Device</span>
+                                 <li  style="direction:rtl;text-align:right;">
+                                    <span><?php echo _('ابزارهای معتبر')?>:</span> <span class='italic'>سرور <?php echo _('یا')?> ابزار شبکه</span>
                                 </li>
                                 <?php
                             }
@@ -379,7 +379,7 @@ function import_assets_from_csv($filename, $iic, $ctx, $import_type)
     if (count($data) <= 0 || (count($data) == 1 && preg_match('/IP/',$data[0][0])))
     {
         $summary['general']['status'] = 'error';
-        $summary['general']['data']   = _('CSV file is empty');
+        $summary['general']['data']   = _('فایل CSV خالی است');
         $summary['general']['statistics']['errors'] = 1;
 
         return $summary;
@@ -1030,9 +1030,9 @@ if ($_POST['import_assets'] == 1)
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html dir="rtl"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title><?php echo _('Import Assets from CSV')?></title>
+    <title><?php echo _('وارد کردن دارایی از CSV')?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
 
     <?php
