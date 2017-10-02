@@ -54,13 +54,14 @@ function load_menu_scripts()
     <?php
 
     $av_menu = unserialize($_SESSION['av_menu']);
+	
 
     if (!is_object($av_menu))
     {
         $db   = new ossim_db();
         $conn = $db->connect();
 
-        $av_menu = new Menu($conn);
+        //$av_menu = new Menu($conn);
 
         $db->close();
     }

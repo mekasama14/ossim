@@ -30,6 +30,7 @@
 * Otherwise you can read it here: http://www.gnu.org/licenses/gpl-2.0.txt
 *
 */
+//header('Content-Type: text/html; charset=utf-8');
 require_once 'av_init.php';
 
 Session::useractive();
@@ -100,7 +101,8 @@ $track_usage_information = $config->get_conf('track_usage_information');
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head>
-        <title> <?php echo _("AlienVault " . ($pro ? "USM" : "OSSIM")) ?> </title>
+	<meta http-equiv="Content-Type" content="text/html"; charset=UTF-8'>
+        <title> <?php echo ("سامانه مدیریت رخداد") ?> </title>
 
         <?php
             //CSS Files
@@ -217,7 +219,7 @@ $track_usage_information = $config->get_conf('track_usage_information');
 
                     <div id="header_options">
                         <span id="welcome" title="<?php echo Session::get_session_user() ?>" class="tip">
-                            <?php echo _("Welcome") . " " . substr(Session::get_session_user(), 0, 15) ?>
+                            <?php echo _("خوش آمدید") . " " . substr(Session::get_session_user(), 0, 15) ?>
                         </span>
                         <span class="sep_ri">|</span>
                         <div id="top_system_info"></div>
@@ -226,11 +228,11 @@ $track_usage_information = $config->get_conf('track_usage_information');
                         <a id="link_notification_center" href="javascript:void(0)">
                             <img id='img_notif' alt="Notification Center" src='/ossim/pixmaps/statusbar/envelope.png' />
                             <span id='notif_bubble'>0</span>
-                        </a>
+                        </a>  
 
-                        <a id="link_settings" href="javascript:void(0);"><?php echo _("Settings") ?></a>
-                        <a id="link_support" href="javascript:void(0);"><?php echo _("Support") ?></a>
-                        <a href="<?php echo  AV_MAIN_PATH ?>/session/login.php?action=logout"><?php echo _("Logout") ?></a>
+                        <a id="link_settings" href="javascript:void(0);"><?php echo "تنظیمات"; ?></a>
+                        <a id="link_support" href="javascript:void(0);"><?php echo "پشتیبانی"; ?></a>
+                        <a href="<?php echo  AV_MAIN_PATH ?>/session/login.php?action=logout"><?php echo "خروج"; ?></a>
                     </div>
 
                     <?php
@@ -271,7 +273,7 @@ $track_usage_information = $config->get_conf('track_usage_information');
 
                     <div id='content_overlay'></div>
 
-                    <iframe id='main' name='main' src=''></iframe>
+                    <iframe id='main' name='main' src=''></iframe> 
 
                 </div>
 
@@ -280,9 +282,10 @@ $track_usage_information = $config->get_conf('track_usage_information');
             <div class='clear_layer'></div>
 
             <div id='footer'>
-                &copy; COPYRIGHT <?php echo date("Y") ?> ALIENVAULT, INC.
-                <span id='sep_ri'>|</span>
-                <a href='javascript:;' id='link_copyright'>LEGAL</a>
+				<h3> شرکت صبا </h3>
+                <!-- &copy; COPYRIGHT <?php //echo date("Y") ?> alienvault Inc. -->
+                <!-- <span id='sep_ri'>|</span>  -->
+                <!-- <a href='javascript:;' id='link_copyright'>LEGAL</a> -->
             </div>
 
 
@@ -292,16 +295,16 @@ $track_usage_information = $config->get_conf('track_usage_information');
 
                 <div id='notif_layer' class='notif_closed notif_border'>
 
-                    <div class='notif_title'><?php echo _('Environment Snapshot') ?></div>
+                    <div class='notif_title'><?php echo '<h2>'.'وضعیت کلی سامانه'.'<h2>'; ?></div>
 
                     <div class='notif_section'>
-                        <div class='notif_left'><?php echo _('Open Tickets') ?></div>
+                        <div class='notif_left'><?php echo '<h3>'.'تیکت های باز'.'<h3>'; ?></div>
                         <div id='notif_tickets' class='notif_right'>-</div>
                         <div class='clear_layer'></div>
                     </div>
 
                     <div class='notif_section'>
-                        <div class='notif_left'><?php echo _('Unresolved Alarms') ?></div>
+                        <div class='notif_left'><?php echo '<h3>'.'هشدارهای حل نشده'.'<h3>'; ?></div>
                         <div id='notif_alarms' class='notif_right'>-</div>
                         <div class='clear_layer'></div>
                     </div>
@@ -310,7 +313,7 @@ $track_usage_information = $config->get_conf('track_usage_information');
 
                     <div class='notif_section'>
 
-                        <div class='notif_section_title'><?php echo _('System Health') ?></div>
+                        <div class='notif_section_title'><?php echo '<h3>'.'وضعیت سلامت سیستم'.'<h3>'; ?></div>
 
                         <div id='notif_sensors_chart' class='notif_left'>
                             <div id="semaphore_led1" class='semaphore'>&nbsp;</div>
@@ -326,13 +329,13 @@ $track_usage_information = $config->get_conf('track_usage_information');
                     <div class='notif_separator'></div>
 
                     <div class='notif_section'>
-                        <div class='notif_left'><?php echo _('Latest SIEM Activity') ?></div>
+                        <div class='notif_left'><?php echo '<h3>'.'آخرین فعالیتهای سامانه'.'<h3>'; ?></div>
                         <div id='notif_eps' class='notif_right'>-</div>
                         <div class='clear_layer'></div>
                     </div>
 
                     <div class='notif_section'>
-                        <div class='notif_left'><?php echo _('Monitored Devices') ?></div>
+                        <div class='notif_left'><?php echo '<h3>'.'دستگاه های تحت نظارت'.'</h3>'; ?></div>
                         <div id='notif_devices' class='notif_right'>-</div>
                         <div class='clear_layer'></div>
                     </div>
@@ -376,5 +379,6 @@ $track_usage_information = $config->get_conf('track_usage_information');
 
         </div>
 
+		<?php /*echo "<h1>"."میلاد"."</h1>"; /* ?>
     </body>
 </html>

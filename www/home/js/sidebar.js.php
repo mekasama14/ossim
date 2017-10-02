@@ -618,7 +618,7 @@ function bind_notif_links()
         ?>
         $('#notif_container').on('click', '.nl_tickets', function()
         {
-            var url = "<?php echo Menu::get_menu_url('/incidents/index.php?status=Open', 'analysis', 'tickets'); ?>";
+            var url = "<?php echo Menu::get_menu_url('/incidents/index.php?status=Open', 'analysis', 'تیکت'); ?>";
 
 
             av_menu.load_content(url);
