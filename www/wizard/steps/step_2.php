@@ -124,6 +124,9 @@ $n_ids = array_fill_keys(array_keys($nets_selected), 1);
     {
         margin-top:-4px !important;
     }
+    {
+        font-family: BNazanin;
+    }
 
 </style>
 
