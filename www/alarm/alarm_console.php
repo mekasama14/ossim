@@ -1944,7 +1944,7 @@ if (!isset($_GET["hide_search"]))
                 <label dir="rtl" class='line' for='otx_activity'><?php echo _("تنها فعالیت پالس OTX"); ?></label><br/><br/>
                 
                 <input id="no_resolv" name="no_resolv" type="checkbox" value="1" <?php echo $checked_resolv?> />
-                <label class='line' for='no_resolv'><?php echo _("نام را به آدرس IP تبدیل نکن"); ?></label><br/><br/>
+                <label class='line' style="text-align:right" for='no_resolv'><?php echo _("نام را به آدرس IP تبدیل نکن"); ?></label><br/><br/>
                 
                 <input id="hide_closed"  name="hide_closed" type="checkbox" value="1" <?php echo $checked_hclosed?> />
                 <label class='line' for='hide_closed'><?php echo _("Hide closed alarms"); ?></label><br/><br/>
