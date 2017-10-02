@@ -32,7 +32,7 @@ $show_rows = POST("show_rows") ? POST("show_rows") : 50;
                         <td style="padding-left:0px;vertical-align:top" nowrap>
                             <table class="transparent" cellpadding=0 cellspacing=0><tr>
 
-                            <td class="siem_title_gray"><?= _("Show")?>&nbsp;</td>
+                            <td class="siem_title_gray"><?= _("نمایش")?>&nbsp;</td>
                             <td>
                             <input type="submit" name="submit" style="display:none" id="pagx" value="0">
                             <select name="show_rows" onchange="$('#pagx').click()">
@@ -41,10 +41,10 @@ $show_rows = POST("show_rows") ? POST("show_rows") : 50;
                                 <? } ?>
                             </select>
                             </td>
-                            <td class='siem_title_gray'>&nbsp;<?= _("Entries")?></td>
+                            <td class='siem_title_gray'>&nbsp;<?= _("ورودی ها")?></td>
                             </tr><tr>
                             <td class='siem_title_gray' style="padding-right:5px">
-                                <?php echo _("SHOW TREND GRAPH") ?>
+                                <?php echo _("نمایش گراف وضعیت") ?>
                             </td>
                             <td>
                                 <div id="trend_checkbox"></div>
@@ -56,7 +56,7 @@ $show_rows = POST("show_rows") ? POST("show_rows") : 50;
                             <div style="padding-top:3px">
                               <div id='loadingTrend' style='margin:0 auto;height:68px;width:760px;position:absolute;z-index:10000;background-color:#eee;text-align:center;opacity:0.85;filter:alpha(opacity=85);-moz-opacity:0.85;-khtml-opacity:0.85'>
                                   <div style='margin:0 auto;padding-top:25px;line-height:18px;font-size:12px'>
-                                      <?php echo _("Loading trend graph, please wait a few seconds") ?> <img src='../pixmaps/loading3.gif'/>
+                                      <?php echo _("درحال بارگذاری گراف لطفا چند لحظه صبر کنید") ?> <img src='../pixmaps/loading3.gif'/>
                                   </div>
                               </div>
                               <div style="width:100%">
@@ -70,7 +70,7 @@ $show_rows = POST("show_rows") ? POST("show_rows") : 50;
                                 PrintPredefinedViews();
                             ?>
                             <button id="actions_link" class="button av_b_secondary">
-                                <?php echo _('Actions') ?> &nbsp;&#x25be;
+                                <?php echo _('فعالیتها') ?> &nbsp;&#x25be;
                             </button>
                         </td>
                     </tr>
@@ -459,7 +459,7 @@ if ($qs->num_result_rows > 0)
         $sensor_name = GetSensorName($myrow["device_id"], $db, false);
         if ($sensor_name == 'Unknown' || $sensor_name == 'N/A')
         {
-            $sensor_msg             = _("Directive events are generated in servers, not in sensors");
+            $sensor_msg             = _("رویدادهای مستقیم در سرورها ایچاد می شود ن در حسگرها");
             $cell_data['SENSOR']    = '<A class="trlnk" alt="'.$sensor_msg.'" title="'.$sensor_msg.'" HREF="#">'._("N/A").'</A>';
             $cell_pdfdata['SENSOR'] = _("N/A");
         }
@@ -475,14 +475,14 @@ if ($qs->num_result_rows > 0)
 
         $cell_align['SENSOR'] = "center";
 
-        $cell_data['OTX']  = ($myrow['otx'] != '') ? '<a class="trlnk" href="#" onclick="GB_show(\''._("OTX Details").'\',\''.str_replace('__EVENTID__',$eid,$otx_detail_url).'\',500,\'80%\');return false"><img class="otx" src="../pixmaps/'.$myrow['otx'].'_icon.png" border=0/></a>' : 'N/A';
+        $cell_data['OTX']  = ($myrow['otx'] != '') ? '<a class="trlnk" href="#" onclick="GB_show(\''._("OTX جزییات").'\',\''.str_replace('__EVENTID__',$eid,$otx_detail_url).'\',500,\'80%\');return false"><img class="otx" src="../pixmaps/'.$myrow['otx'].'_icon.png" border=0/></a>' : 'N/A';
         $cell_align['OTX'] = "center";
 
         $e_url = Menu::get_menu_url("base_qry_main.php?new=2&num_result_rows=-1&submit=Query+DB&current_view=-1&ctx=$ctx", 'analysis', 'security_events', 'security_events');
 
-        $cell_data['ENTITY']  = '<a class="trlnk" href="'.$e_url.'">'.Util::htmlentities((!empty($entities[$ctx])) ? $entities[$ctx] : _("Unknown")).'</a>';
+        $cell_data['ENTITY']  = '<a class="trlnk" href="'.$e_url.'">'.Util::htmlentities((!empty($entities[$ctx])) ? $entities[$ctx] : _("نامعلوم")).'</a>';
         $cell_align['ENTITY'] = "center";
-        $cell_data['ENTITY']  = Util::htmlentities((!empty($entities[$ctx])) ? $entities[$ctx] : _("Unknown"));
+        $cell_data['ENTITY']  = Util::htmlentities((!empty($entities[$ctx])) ? $entities[$ctx] : _("نا معلوم"));
 
         $cell_data['PLUGIN_ID'] = $myrow["plugin_id"];
         $cell_align['PLUGIN_ID'] = "center";
@@ -583,7 +583,7 @@ if ($qs->num_result_rows > 0)
         $link_incident = "";
         if ( Session::menu_perms("analysis-menu", "IncidentsOpen") )
         {
-            $link_incident = "<a class='trlnk greybox' title='"._('New Event ticket')."' href=\"../incidents/newincident.php?ref=Event&" . "title=" . urlencode($nidespues) . "&" . "priority=1&" . "src_ips=".$current_sip."&" . "event_start=".$myrow['timestamp']."&" . "event_end=".$myrow['timestamp']."&" . "src_ports=".$myrow["layer4_sport"]."&" . "dst_ips=".$current_dip."&" . "dst_ports=".$myrow["layer4_dport"]."\"><img class='newticket' src='../pixmaps/new_ticket.png' alt='"._('New Event ticket')."' border='0'/></a>";
+            $link_incident = "<a class='trlnk greybox' title='"._('تیکت جدید رویداد')."' href=\"../incidents/newincident.php?ref=Event&" . "title=" . urlencode($nidespues) . "&" . "priority=1&" . "src_ips=".$current_sip."&" . "event_start=".$myrow['timestamp']."&" . "event_end=".$myrow['timestamp']."&" . "src_ports=".$myrow["layer4_sport"]."&" . "dst_ips=".$current_dip."&" . "dst_ports=".$myrow["layer4_dport"]."\"><img class='newticket' src='../pixmaps/new_ticket.png' alt='"._('تیکت جدید رویدار')."' border='0'/></a>";
         }
 
         // 1- Checkbox
@@ -613,7 +613,7 @@ if ($qs->num_result_rows > 0)
         if ($tz!=0) $tzdate = gmdate("Y-m-d H:i:s",$event_date_uut+(3600*$tz));
 
         $cell_data['DATE'] = $tzdate;
-        $cell_tooltip['DATE'] = ($event_date==$myrow['timestamp'] || $event_date==$tzdate) ? "" : _("Event date").": <b>".Util::htmlentities($event_date)."</b><br>"._("Timezone").": <b>".Util::timezone($tzone)."</b>";
+        $cell_tooltip['DATE'] = ($event_date==$myrow['timestamp'] || $event_date==$tzdate) ? "" : _("تاریخ رویداد").": <b>".Util::htmlentities($event_date)."</b><br>"._("تایم زون").": <b>".Util::timezone($tzone)."</b>";
         $cell_pdfdata['DATE'] = str_replace(" ","<br>",$tzdate);
         $cell_align['DATE'] = "center";
         $cell_more['DATE'] = "nowrap";
@@ -829,7 +829,7 @@ if ($qs->num_result_rows > 0)
 
         // 8- Priority
         //qroPrintEntry("<img src=\"bar2.php?value=" . $current_oprio . "&max=5\" border='0' align='absmiddle' title='$current_oprio'>&nbsp;");
-        $cell_data['PRIORITY'] = '<a href="javascript:;" onclick="nogb=true;GB_show_nohide(\''._("Edit Directive Settings").'\',\'/forensics/modify_relprio.php?id='.$myrow["plugin_id"].'&sid='.$myrow["plugin_sid"].'\',300,400)">'."<img src=\"bar2.php?value=" . $current_oprio . "&max=5\" border='0' align='absmiddle' title='$current_oprio'></a>";
+        $cell_data['PRIORITY'] = '<a href="javascript:;" onclick="nogb=true;GB_show_nohide(\''._("ویرایش تنظیمات").'\',\'/forensics/modify_relprio.php?id='.$myrow["plugin_id"].'&sid='.$myrow["plugin_sid"].'\',300,400)">'."<img src=\"bar2.php?value=" . $current_oprio . "&max=5\" border='0' align='absmiddle' title='$current_oprio'></a>";
         $cell_pdfdata['PRIORITY'] = "<img src='".$current_url."/forensics/bar2.php?value=" . $current_oprio . "&max=5' border='0' align='absmiddle' style='width:10mm'>";
         $cell_align['PRIORITY'] = "center";
         //if ($current_oprio != "")
@@ -839,7 +839,7 @@ if ($qs->num_result_rows > 0)
 
         // 10- Rel
         //qroPrintEntry("<img src=\"bar2.php?value=" . $current_oreli . "&max=9\" border='0' align='absmiddle' title='$current_oreli'>&nbsp;");
-        $cell_data['RELIABILITY'] = '<a href="javascript:;" onclick="nogb=true;GB_show_nohide(\''._("Edit Directive Settings").'\',\'/forensics/modify_relprio.php?id='.$myrow["plugin_id"].'&sid='.$myrow["plugin_sid"].'\',300,400)">'."<img src=\"bar2.php?value=" . $current_oreli . "&max=9\" border='0' align='absmiddle' title='$current_oreli'></a>";
+        $cell_data['RELIABILITY'] = '<a href="javascript:;" onclick="nogb=true;GB_show_nohide(\''._("ویرایش تنظیمات").'\',\'/forensics/modify_relprio.php?id='.$myrow["plugin_id"].'&sid='.$myrow["plugin_sid"].'\',300,400)">'."<img src=\"bar2.php?value=" . $current_oreli . "&max=9\" border='0' align='absmiddle' title='$current_oreli'></a>";
         $cell_pdfdata['RELIABILITY'] = "<img src='".$current_url."/forensics/bar2.php?value=" . $current_oreli . "&max=9' border='0' align='absmiddle' style='width:10mm'>";
         $cell_align['RELIABILITY'] = "center";
         //if ($current_oreli != "")
@@ -855,11 +855,11 @@ if ($qs->num_result_rows > 0)
         $risk_bar = "<span class='risk-bar $risk_text'>"._($risk_text)."</span>";
         $risk_detail = "<div class='risk-popup' style='text-align:right'>
             <table CELLPADDING='0' CELLSPACING='0'>
-                <tr><th class='risk-popup-top'>"._("Risk").":</th><td class='risk-popup-top'>$risk_bar</td></tr>
-                <tr><th>"._("Asset Value")." "._("Source").":</th><td>$current_oasset_s</td></tr>
-                <tr><th>"._("Asset Value")." "._("Destination").":</th><td>$current_oasset_d</td></tr>
-                <tr><th>"._("Priority").":</th><td>$current_oprio</td></tr>
-                <tr><th>"._("Reliability").":</th><td>$current_oreli</td></tr>
+                <tr><th class='risk-popup-top'>"._("ریسک").":</th><td class='risk-popup-top'>$risk_bar</td></tr>
+                <tr><th>"._("دارایی")." "._("Source").":</th><td>$current_oasset_s</td></tr>
+                <tr><th>"._("دارایی")." "._("Destination").":</th><td>$current_oasset_d</td></tr>
+                <tr><th>"._("اولویت").":</th><td>$current_oprio</td></tr>
+                <tr><th>"._("قابلیت اطمینان").":</th><td>$current_oreli</td></tr>
             </table>";
         $cell_data['RISK'] = "<a href='javascript:;' class='riskinfo' style='text-decoration:none' txt='".Util::htmlentities($risk_detail,ENT_QUOTES)."'>$risk_bar</a>";
         $cell_pdfdata['RISK'] = "<img src='".$current_url."/forensics/bar2.php?value=" . $current_maxrisk . "&max=9&range=1' border='0' align='absmiddle' style='width:10mm'>";
