@@ -121,7 +121,6 @@ input[type="text"], input[type="password"]
 	padding-left: 0px !important;
 	padding-bottom: 10px;
 }
-#forgotpass
 {
     overflow: auto;
     position: relative;
@@ -134,7 +133,7 @@ input[type="text"], input[type="password"]
 
 #forgotpass span
 {
-    font-family: "open_sans","Lucida Sans","Lucida Grande",Lucida,sans-serif,Verdana;
+    font-family:  "BNazanin";
     font-size: 14px;
     text-transform: uppercase;
 }
