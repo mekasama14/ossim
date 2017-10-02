@@ -33,6 +33,13 @@ header("Content-type: text/css");
 *
 */
 
+#Head_Font{
+    font-family: "BTitrTGEBold";
+    color: #006580;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 body
 {
     overflow-y: auto !important;
@@ -107,7 +114,7 @@ input.big
 
 .link
 {
-    font-family: "open_sans","Lucida Sans","Lucida Grande",Lucida,sans-serif,Verdana;
+    font-family:  "BNazanin";;
     font-size: 11px;
 }
 
@@ -124,7 +131,7 @@ input.big
 
 #forgotpass span
 {
-    font-family: "open_sans","Lucida Sans","Lucida Grande",Lucida,sans-serif,Verdana;
+    font-family:  "BNazanin";;
     font-size: 14px;
     text-transform: uppercase;
 }
@@ -161,12 +168,15 @@ input.big
 {
     font-size: 12px;
     text-align: right;
-    font-family: "open_sans","Lucida Sans","Lucida Grande",Lucida,sans-serif,Verdana;
+    font-family:  "BNazanin";
     color: white;
 }
 
 #user, #passu
 {
+    font-family: "BNazanin";
+    color: white;
+    font-size: 14px;
     height: 17px !important;
 }
 

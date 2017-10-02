@@ -1068,7 +1068,9 @@ if($embed != 'true')
                             {
                                 ?>
                                 <tr>
-                                    <td class="noborder" id='system_info'>
+
+                                    <td class="noborder" id='Head_Font'>
+
                                         <?php
                                         echo "<h2>";
                                         echo $system_name //. '  ' . $system_ip;

@@ -240,7 +240,7 @@ if ($flag != '')
             text-align:right !important;
             font-size: 12px;
             white-space: nowrap;
-            font-family: "open_sans","Lucida Sans","Lucida Grande",Lucida,sans-serif,Verdana;
+            font-family: "BNazanin";;
             text-transform: uppercase;
         }
 
@@ -249,7 +249,7 @@ if ($flag != '')
             text-align:right !important;
             font-size: 12px;
             white-space: nowrap;
-            font-family: "open_sans","Lucida Sans","Lucida Grande",Lucida,sans-serif,Verdana;
+            font-family: "BNazanin";
             text-transform: uppercase;
         }
 
@@ -258,7 +258,7 @@ if ($flag != '')
             text-align:right !important;
             font-size: 12px;
             white-space: nowrap;
-            font-family: "open_sans","Lucida Sans","Lucida Grande",Lucida,sans-serif,Verdana;
+            font-family:"BNazanin";
             text-transform: uppercase;
         }
 
