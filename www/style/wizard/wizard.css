@@ -578,7 +578,7 @@ a.button
 {
     float: left;
     padding-right: 4px;
-    font-family: arial;
+    font-family: BZar;
     font-size: 22px;
     font-weight: bold;
     color: #98C938;
@@ -838,6 +838,7 @@ a.button
 
 #net_inputs .wizard_subtitle
 {
+    font-family: BZar;
     padding-bottom: 0px;
 }
 

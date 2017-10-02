@@ -84,7 +84,7 @@ if (ossim_error())
         </script>
 
     </head>
-    <body>
+    <body >
         <?php 
         require_once 'menu.php';             
         ?>
