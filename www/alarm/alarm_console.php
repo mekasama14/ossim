@@ -204,6 +204,7 @@ $alarm_url = Alarm::get_alarm_path();
     <style>
         h1 {color:red;}
         p {color:blue;}
+        {font-family: BNazanin}
     </style>
     <?php
         //CSS Files
