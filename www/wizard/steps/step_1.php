@@ -127,7 +127,7 @@ $text_descr = sprintf($text_descr, $v_short, $v_short);
         <?php echo _("پیکربندی اینترفیس شبکه") ?>
     </div>
 
-    <div class='wizard_subtitle' style="font-family: 'B Mehr'">
+    <div class='wizard_subtitle' ">
         <?php echo $text_descr ?>
     </div>
 

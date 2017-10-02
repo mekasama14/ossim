@@ -132,7 +132,7 @@ $n_ids = array_fill_keys(array_keys($nets_selected), 1);
 
 <div id='step_discovery' class='step_container' dir="rtl"  >
 
-    <div class='wizard_title'>
+    <div class='wizard_title' style="font-family: 'B Titr'; font-weight: bold">
         <?php echo _('اسکن کردن و اضافه کردن دارایی') ?>
     </div>
 

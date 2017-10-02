@@ -627,7 +627,7 @@ class Menu
                        )
                     )
                 )
-            )
+            ),'style'   => '"font-family: \'B Titr\'; font-weight: bold"'
         );
 
 

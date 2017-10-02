@@ -137,8 +137,8 @@ $first_tab    = key($deploy_tabs);
 
 <div id='step_hids' class='step_container' dir="rtl">
 
-    <div class='wizard_title'>
-        <?php echo _('گسترش دادن HIDS به سرور') ?>
+    <div class='wizard_title' style="font-family: 'B Titr'; font-weight: bold">
+        <?php echo _('اضافه کردن HIDS به سرور') ?>
     </div>
 
     <div class='wizard_subtitle'>

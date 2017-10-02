@@ -201,7 +201,10 @@ $alarm_url = Alarm::get_alarm_path();
 <head>
     <title><?php echo _("Alarm Console")?> </title>
     <meta http-equiv="Pragma" content="no-cache"/>
-    
+    <style>
+        h1 {color:red;}
+        p {color:blue;}
+    </style>
     <?php
         //CSS Files
         $_files = array(
@@ -1735,11 +1738,11 @@ if (!isset($_GET["hide_search"]))
     <div>
         <div class="filters uppercase">
             <img id='search_arrow' src='/ossim/pixmaps/arrow_down.png' />
-            <a href='javascript:;' onclick="toggle_filters()"><?php echo _('Search and filter') ?></a>
+            <a href='javascript:;' onclick="toggle_filters()"><?php echo _('پالایش و جستجو') ?></a>
         </div>
         
         <div id='report_icon_container'>
-            <div id='graph_toggle_legend'> <?php echo _('Show Alarm Graph') ?></div>
+            <div id='graph_toggle_legend'> <?php echo _('نمایش گراف هشدارها') ?></div>
             <div id='graph_toggle' class='toggle_button'></div>
             
             <a href='../report/sec_report.php?section=all&type=alarm&back=alarm' class='tip greybox2' title='<?php echo _('Alarm Report') ?>' style='text-decoration:none;'>
@@ -1809,11 +1812,11 @@ if (!isset($_GET["hide_search"]))
                 <?php
                 if ($date_from != '' && $date_to != '')
                 {
-                    $date_text  = '<a title="'. Util::js_entities(_('Clean date filter')) .'" href="javascript:void(0);" id="clean_date_filter">' . _('Date') . '</a>';
+                    $date_text  = '<a title="'. Util::js_entities(_('Clean date filter')) .'" href="javascript:void(0);" id="clean_date_filter">' . _('تاریخ') . '</a>';
                 }
                 else
                 {
-                    $date_text  = _('Date');
+                    $date_text  = _('تاریخ');
                 }
                 ?>
                 <label><?php echo $date_text ?></label>
@@ -1947,10 +1950,10 @@ if (!isset($_GET["hide_search"]))
                 <label dir="rtl" class='line'  style="text-align:left" for='no_resolv'><?php echo _("عدم تبدیل نام به IP"); ?></label><br/><br/>
                 
                 <input id="hide_closed"  name="hide_closed" type="checkbox" value="1" <?php echo $checked_hclosed?> />
-                <label class='line' for='hide_closed'><?php echo _("Hide closed alarms"); ?></label><br/><br/>
+                <label dir="rtl" class='line' for='hide_closed'><?php echo _("عدم نمایش هشدارهای بسته شده"); ?></label><br/><br/>
                 
                 <input id="beep" name="beep" type="checkbox" value="1" <?php echo $checked_beep?> />
-                <label class='line' for='beep'><?php echo _("Beep on new alarm"); ?></label><br/>
+                <label dir="rtl" class='line' for='beep'><?php echo _("پخش صدا برای هشدارهای جدید"); ?></label><br/>
                 
             </div>
             

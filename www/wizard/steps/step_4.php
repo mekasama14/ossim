@@ -234,7 +234,7 @@ $subtitle_2_empty = _('You have not configured any plugin yet. In order to compl
 
 <div id='step_log' class='step_container' dir="rtl">
 
-    <div class='wizard_title'>
+    <div class='wizard_title' style="font-family: 'B Titr'; font-weight: bold">
         <?php echo _('مدیریت تنظیم لاگ') ?>
     </div>
 
