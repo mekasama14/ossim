@@ -217,7 +217,7 @@ $track_usage_information = $config->get_conf('track_usage_information');
                     </div>
 
 
-                    <div id="header_options" style="font-family: 'B Titr';font-weight: bold">
+                    <div id="header_options" style="font-family: 'BNazanin';font-weight: bold">
                         <span id="welcome" title="<?php echo Session::get_session_user() ?>" class="tip">
                             <?php echo _("خوش آمدید") . " " . substr(Session::get_session_user(), 0, 15) ?>
                         </span>
