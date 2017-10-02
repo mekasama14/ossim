@@ -235,6 +235,7 @@ $pro = Session::is_pro();
 try
 {
     list($system_name, $system_ip) = Session::get_local_sysyem_info();
+    $system_name = 'سامانه مدیریت رخداد و هشدار امنیتی';
 }
 catch (Exception $e){}
 
@@ -498,7 +499,8 @@ if ($cnd_1 && $cnd_2)
 
 if ($system_name != '')
 {
-    $title .= " [$system_name - $system_ip]";
+    //$title .= " [$system_name - $system_ip]";
+    $title = $system_name;
 }
 
 ?>
@@ -925,11 +927,9 @@ if ($system_name != '')
         });
 
     </script>
-    <html dir="rtl">
-    </head>
-    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+</head>
 
-<body lang="fa">
+<body>
 
 <?php
 
@@ -952,14 +952,14 @@ if (Mobile::is_mobile_device())
                                 <td class="noborder center" style="padding:10px">
                                     <table id='t_login' class='opacity' align="center" cellspacing='2' cellpadding='6'>
                                         <tr>
-                                            <td class='td_user'> <?php echo _('Username').':'; ?> </td>
+                                            <td class='td_user'> <h3> نام کاربری </h3> </td>
                                             <td class="left">
                                                 <input type="text" autocapitalize="off" maxlength="64" id="user" name="user" value="<?php echo $default_user?>"/>
                                             </td>
                                         </tr>
 
                                         <tr>
-                                            <td class='td_pass'> <?php echo _('Password').':'; ?> </td>
+                                            <td class='td_pass'> <?php echo _('رمزعبور').':'; ?> </td>
                                             <td class="left">
                                                 <input type="password" id="passu" name="passu" autocomplete="off"/>
                                                 <input type="hidden" id="pass" name="pass"/>
@@ -977,7 +977,7 @@ if (Mobile::is_mobile_device())
 
                             <tr>
                                 <td class="center" style="padding:10px;">
-                                    <input type="submit" id="submit_button" value="<?php echo _('Login'); ?>" style="width:100%"/>
+                                    <input type="submit" id="submit_button" value="<?php echo _('ورود'); ?>" style="width:100%"/>
                                 </td>
                             </tr>
                         </table>
@@ -1003,7 +1003,7 @@ elseif ($is_disabled)
     <p style='color:#888' class='uppercase'>
         <?php printf(_("The User <strong> %s </strong> is <strong> disabled </strong>"), $user); ?>
         <br/>&nbsp;
-        <?php echo _('Please contact the administrator')?>
+        <?php echo _("لطفا با مدیر سامانه تماس بگیرید.")?>
     </p>
     <?php
 }
@@ -1012,7 +1012,7 @@ if ($disabled)
 {
     ?>
     <p style='color:#16A7C9'>
-        <?php echo _('This user has been disabled for security reasons.<br/> Please contact with the administrator')?>
+        <?php echo _("این کاربر به دلایل امنیتی غیرفعال شده است.<br/> لطفا با مدیر سامانه تماس بگیرید.")?>
     </p>
 <?php
 }
@@ -1070,7 +1070,9 @@ if($embed != 'true')
                                 <tr>
                                     <td class="noborder" id='system_info'>
                                         <?php
-                                        echo $system_name . '  ' . $system_ip;
+                                        echo "<h2>";
+                                        echo $system_name //. '  ' . $system_ip;
+                                        //echo "</h2>";
                                         ?>
                                     </td>
                                 </tr>
@@ -1082,47 +1084,35 @@ if($embed != 'true')
 
                                     <table id='t_login' align="center" cellspacing='4' cellpadding='2'>
                                         <tr>
-
-
-                                            <td class="td_user uppercase noborder <?php if ($pro) { echo 'white'; } ?>">
-                                                <?php echo _(' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; نام کاربری '); ?>
-                                            </td>
                                             <td class="left noborder">
                                                 <input type="text" size='25' maxlength="64" id='user' name="user" value="<?php echo $default_user ?>" />
                                             </td>
+                                            <td  class="td_user uppercase noborder <?php if ($pro) { echo 'white'; } ?>">
+                                                <? /*php echo _('نام کاربری');  */ ?>
+                                                <h3> نام کاربری </h3>
+                                            </td>
                                         </tr>
                                         <tr>
-
-                                            <td class="td_pass uppercase noborder <?php if ($pro) { echo 'white'; } ?>">
-                                                <?php echo _(' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; رمز عبور  '); ?>
-                                            </td>
-
                                             <td class="left noborder">
                                                 <input type="password" onfocus="$('#wup').hide(); $('#nt_1').hide(); $('#nt_pass').hide();" id="passu" size='25' name="passu" autocomplete="off"/>
                                                 <input type="hidden" id="pass" name="pass"/>
                                             </td>
+                                            <td  class="td_pass uppercase noborder <?php  if ($pro) { echo 'white'; }  ?>">
+                                                <h3> رمزعبور </h3>
+                                            </td>
                                         </tr>
                                         <tr>
-                                        </tr>
-                                        <tr>
-                                        </tr>
-                                        <tr>
-                                        </tr>
-                                        <tr>
-                                        </tr>
-                                        <tr>
-                                            <td class="td_pass uppercase noborder"></td>
-                                            <td class="left noborder">
-                                                <a id="ftpass" href="#forgotpass" class="link"><?php echo _('آیا رمز عبور خود را فراموش کرده اید؟ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')?></a>
+                                            <!-- <td class="td_pass uppercase noborder"></td> -->
+                                            <td>
+                                                <a id="ftpass" href="#forgotpass" class="link"><?php echo _('رمز عبور را فراموش کرده ام')?></a>
                                             </td>
                                         </tr>
 
                                         <tr>
-
-                                            <td class="left noborder" style="padding:15px 0px 0px 4px">
+                                            <!-- <td class="td_pass uppercase noborder"></td> -->
+                                            <td style="padding:15px 0px 0px 4px">
                                                 <input type="submit" class="big button" id="submit_button" value="<?php echo _('ورود'); ?>"/>
                                             </td>
-                                            <td class="td_pass uppercase noborder"></td>
                                         </tr>
                                     </table>
 
@@ -1136,7 +1126,7 @@ if($embed != 'true')
                                     {
                                         ?>
                                         <p style='color:red' class='uppercase'>
-                                            <?php echo _('Wrong user or password')?>
+                                            <?php echo _('نام کاربری یا رمزعبور اشتباه است')?>
                                         </p>
                                         <?php
                                     }
@@ -1147,7 +1137,7 @@ if($embed != 'true')
                                             <?php
                                             printf(_("The User <strong> %s </strong> is <strong> disabled </strong>"), $user);?>
                                             <br/>&nbsp;
-                                            <?php echo _("Please contact the administrator")?>.
+                                            <?php echo _("لطفا با مدیر سامانه تماس بگیرید")?>.
                                         </p>
                                         <?php
                                     }
@@ -1156,7 +1146,7 @@ if($embed != 'true')
                                     {
                                         ?>
                                         <p style='color:#16A7C9'>
-                                            <?php echo _("This user has been disabled for security reasons.<br/> Please contact with the administrator.")?>
+                                            <?php echo _("این کاربر به دلایل امنیتی غیرفعال شده است.<br/> لطفا با مدیر سامانه تماس بگیرید.")?>
                                         </p>
                                         <?php
                                     }
@@ -1363,21 +1353,20 @@ $b_logo = ($pro) ? 'av_contrast_logo.png' : 'ossim_contrast_logo.png';
 ?>
 
 <div id="forgotpass">
-    <span><?php echo _("دستورالعمل تنظیم مجدد رمز عبور") ?></span><br><br><br>
-    برای بازنشانی رمز عبور خود، لطفا با استفاده از ssh به دستگاه AlienVault خود وارد شوید، هنگامی که AlienVault CLI نمایش داده می شود، لطفا این مراحل را دنبال کنید:<br><br>
+    <span><?php echo _("Password Reset Instructions") ?></span><br><br><br>
+    To reset your password please login using ssh to your AlienVault device, when AlienVault CLI is displayed please follow these steps:<br><br>
 
     <ol>
-        <li> "تنظیمات سیستم " را انتخاب کنید و Enter را فشار دهید</li>
-        <li> "تغییر رمز عبور" را انتخاب کنید و Enter را فشار دهید</li>
-        <li> "تنظیم مجدد پسورد UI ادمین" را انتخاب کنید و Enter را فشار دهید</li>
-        <li>
-            تأیید کنید که می خواهید رمز عبور را تغییر دهید</li>
+        <li>Select "System Preferences" and press Enter</li>
+        <li>Select "Change Password" and press Enter</li>
+        <li>Select "Reset UI Admin Password" and press Enter</li>
+        <li>Verify you want to change the password</li>
     </ol>
     <br><br>
-    این یک گذرواژه موقت ایجاد خواهد کرد که به شما اجازه ورود به AlienVault UI را می دهد. سیستم شما از شما می خواهد هنگام ورود به سیستم  رمز عبور را تغییر دهید
+    This will generate a temporary password that will allow you login into AlienVault UI. The system will ask you to change the password when you login
 
     <br><br>
-    <center><button type="button" class="big" onclick="$.fancybox.close();"><?php echo _("بسیار خب")?></button></center>
+    <center><button type="button" class="big" onclick="$.fancybox.close();"><?php echo _("Ok")?></button></center>
 </div>
 
 </body>
