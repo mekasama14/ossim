@@ -1797,13 +1797,13 @@ if (!isset($_GET["hide_search"]))
                     ?>
                 </select>
                 
-                <label for='query'><?php echo _('Alarm name')?></label>
+                <label for='query'><?php echo _('نام هشدار')?></label>
                 <input type="text" name="query" value="<?php echo Util::htmlentities($query) ?>"/>
                 
-                <label for='src_ip'><?php echo _('Source IP Address')?></label>
+                <label for='src_ip'><?php echo _('آدرس IP منبع')?></label>
                 <input type="text" id="src_ip" name="src_ip" value="<?php echo $src_ip ?>"/>
                  
-                <label for='dst_ip'><?php echo _('Destination IP Address')?></label> 
+                <label for='dst_ip'><?php echo _('آدرس IP مقصد')?></label>
                 <input type="text" id="dst_ip" name="dst_ip" value="<?php echo $dst_ip ?>"/> 
                 
                 <?php
@@ -1941,10 +1941,10 @@ if (!isset($_GET["hide_search"]))
                 <input type="text" id="pulse_name" value="<?php echo $pulse_name ?>"/> <br/><br/>
                 
                 <input id='otx_activity' name="otx_activity" type="checkbox" value="1" <?php echo $checked_otx ?> />
-                <label class='line' for='otx_activity'><?php echo _("Only OTX Pulse Activity"); ?></label><br/><br/>
+                <label dir="rtl" class='line' for='otx_activity'><?php echo _("تنها فعالیت پالس OTX"); ?></label><br/><br/>
                 
                 <input id="no_resolv" name="no_resolv" type="checkbox" value="1" <?php echo $checked_resolv?> />
-                <label class='line' for='no_resolv'><?php echo _("Do not resolve ip names"); ?></label><br/><br/>
+                <label class='line' for='no_resolv'><?php echo _("نام را به آدرس IP تبدیل نکن"); ?></label><br/><br/>
                 
                 <input id="hide_closed"  name="hide_closed" type="checkbox" value="1" <?php echo $checked_hclosed?> />
                 <label class='line' for='hide_closed'><?php echo _("Hide closed alarms"); ?></label><br/><br/>
