@@ -160,7 +160,7 @@ $n_ids = array_fill_keys(array_keys($nets_selected), 1);
 
         <div id='import_host_csv'>
             <button class='av_b_secondary' id='launch_scan'><?php echo _('اسکن شبکه ') ?></button>
-            <button class='av_b_secondary' id='import_csv'><?php echo _('وارد کردن از csv') ?></button>
+            <button class='av_b_secondary' id='import_csv'><?php echo _('وارد کردن فایل csv دارایی') ?></button>
         </div>
 
 
