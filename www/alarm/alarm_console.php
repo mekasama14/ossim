@@ -204,7 +204,6 @@ $alarm_url = Alarm::get_alarm_path();
     <style>
         h1 {color:red;}
         p {color:blue;}
-        {font-family: BNazanin}
     </style>
     <?php
         //CSS Files
@@ -331,7 +330,7 @@ $alarm_url = Alarm::get_alarm_path();
             av_confirm(open_msg).done(function()
             {
 
-                $('#delete_data').html("<?php echo _("Opening selected alarm ...") ?>");
+                $('#delete_data').html("<?php echo _("باز کردن هشدارهای انتخاب شده...") ?>");
                 $('#info_delete').show();
 
                 var ids = [];
@@ -361,7 +360,7 @@ $alarm_url = Alarm::get_alarm_path();
                             }
                             else
                             {
-                                $('#delete_data').html("<?php echo _("Reloading alarms ...") ?>");
+                                $('#delete_data').html("<?php echo _("بارگذاری هشدارها ...") ?>");
                                 document.location.href='<?php echo $refresh_url?>';
                             }
 
@@ -597,7 +596,7 @@ $alarm_url = Alarm::get_alarm_path();
             {
                 if(alt_pressed)
                 {
-                    GB_show_multiple('<?php echo _("Alarm Detail") ?>', 'alarm_detail.php?backlog=' + id, 600, '80%');
+                    GB_show_multiple('<?php echo _("جزییات هشدارهای") ?>', 'alarm_detail.php?backlog=' + id, 600, '80%');
                 }
                 else
                 {
@@ -1787,7 +1786,7 @@ if (!isset($_GET["hide_search"]))
                 }
                 ?>
                 
-                <label for='sensor_query'><?php echo _('Sensor')?></label>
+                <label for='sensor_query'><?php echo _('حسگر')?></label>
                 <select name="sensor_query" id='sensor_query'>
                     <option value=""></option>
                     <?php 
@@ -1841,9 +1840,9 @@ if (!isset($_GET["hide_search"]))
 
             <div class='p_column'>
 
-                <label for='asset_group'><?php echo _('Asset Group')?></label>
+                <label for='asset_group'><?php echo _('گروه دارایی ها')?></label>
                 <select name='asset_group' id='asset_group'>
-                    <option value=''><?php echo (count($asset_groups) > 0) ? '' : '- '._('No groups found').' -' ?></option>
+                    <option value=''><?php echo (count($asset_groups) > 0) ? '' : '- '._('گروهی یافت نشد').' -' ?></option>
                     <?php
                     foreach ($asset_groups as $group_id => $group_obj)
                     {
@@ -1855,7 +1854,7 @@ if (!isset($_GET["hide_search"]))
                     ?>
                 </select>
 
-                <label for='intent'><?php echo _('Intent')?></label>
+                <label for='intent'><?php echo _('هدف حمله به دارایی')?></label>
                 <select name="intent" id='intent'><option value="0"></option>
                 <?php
                     $intents = Alarm::get_intents($conn);
@@ -1867,25 +1866,25 @@ if (!isset($_GET["hide_search"]))
                 ?>
                 </select>
                 
-                <label for='directive_id'><?php echo _('Directive ID')?></label>
+                <label for='directive_id'><?php echo _('مشخصه دارایی')?></label>
                 <input type="text" name="directive_id" value="<?php echo $directive_id?>"/>
                 
-                <label for='ds_name'><?php echo _('Contains the Event Type')?></label>
+                <label for='ds_name'><?php echo _('نوع رویداد:')?></label>
                 <input type="text" name="ds_name" id='ds_name' value="<?php echo Util::htmlentities($ds_name)?>" onchange="if (this.value=='') $('#ds_id').val('')"/>
                 <input type="hidden" name="ds_id" id='ds_id' value="<?php echo $ds_id?>"/>
                 
-                <label for='num_events'><?php echo _('Number of events in alarms')?></label>
+                <label for='num_events'><?php echo _('تعداد رویدادها در هشدارها')?></label>
                 <select name="num_events_op" id='num_events_op' class="alarms_op">
                     <option value="less" <?php if ($num_events_op == "less") echo "selected='selected'"?>>&lt;=</option>
                     <option value="more" <?php if ($num_events_op == "more") echo "selected='selected'"?>>&gt;=</option>
                 </select>
                 &nbsp;<input type="text" name="num_events" id='num_events' size='3' value="<?php echo $num_events ?>" class="alarms_op_value"/>
-                <label><?php echo _('Risk level in alarms')?></label>
+                <label><?php echo _('میزان ریسک هر هشدار')?></label>
 
                 <div id="asset_value_slider" class="filter_left_slider">
                 <?php
                 $risks = array(
-                    _("Low"),_("Medium"),_("High")
+                    _("پایین"),_("متوسط"),_("بالا")
                 );
                 $risk_selected = function($risk,$key,$risk_selected) {
                     $selected = $key == $risk_selected ? "selected='selected'" : "";
@@ -1903,12 +1902,12 @@ if (!isset($_GET["hide_search"]))
             <div class='p_column'>
                 
                 <label for='tag'>
-                    <?php echo _('Label') ?>
+                    <?php echo _('فیلترها') ?>
                     <?php
                     if (Session::am_i_admin())
                     {
                     ?>
-                    <a class='tags_edit'>[<?php echo _("Manage Labels") ?>]</a>
+                    <a class='tags_edit'>[<?php echo _("مدیرت فیلترها") ?>]</a>
                     <?php
                     }
                     ?>
@@ -1940,7 +1939,7 @@ if (!isset($_GET["hide_search"]))
                 $refresh_url    .= implode("&", $parameters);
                 ?>
                 
-                <label for='pulse_name'><?php echo _('OTX Pulse')?></label> 
+                <label for='pulse_name'><?php echo _('OTX')?></label>
                 <input type="hidden" id="pulse_id" name="pulse_id" value="<?php echo $pulse_id ?>"/>
                 <input type="text" id="pulse_name" value="<?php echo $pulse_name ?>"/> <br/><br/>
                 
@@ -1959,7 +1958,7 @@ if (!isset($_GET["hide_search"]))
             </div>
             
             <div class='search_button_container'>
-                <input type="submit" name='search' id='btnsearch' value="<?php echo _("Search") ?>"/>
+                <input type="submit" name='search' id='btnsearch' value="<?php echo _("جستجو") ?>"/>
             </div>
         </form>
      </div>
@@ -1970,7 +1969,7 @@ if (!isset($_GET["hide_search"]))
     
     <div id="graph_container">
         <div id="graph_overlay">
-            <?php echo _('Loading') ?> 
+            <?php echo _('بارگذاری') ?>
             <img src='/ossim/pixmaps/loading3.gif' align='absmiddle'/>
         </div>
         <iframe src="" name="alarm_graph" id="alarm_graph" frameborder="0"></iframe>
@@ -1984,7 +1983,7 @@ if (!isset($_GET["hide_search"]))
                 
                 <img id="btn_al" class="button_labels av_b_secondary" src="/ossim/pixmaps/label.png" />
                 <button id='button_action' class='small' data-dropdown="#dropdown-actions">
-                    <?php echo _('Actions') ?> &nbsp;&#x25be;
+                    <?php echo _('فعالیتها') ?> &nbsp;&#x25be;
                 </button>               
             </div>
 
@@ -2001,27 +2000,27 @@ if (!isset($_GET["hide_search"]))
                     <th class="center" id="chkall"><input type="checkbox" id="allcheck" name="allcheck" onclick="checkall(this)"></th>
                     
                     <th>
-                        <?php echo _("Date") ?>
+                        <?php echo _("تاریخ") ?>
                     </th>
                     
                     <th>
-                        <?php echo _("Status") ?></a>
+                        <?php echo _("وضعیت") ?></a>
                     </th>
                     
                     <th>
-                        <?php echo _("Labels") ?>
+                        <?php echo _("برچسب") ?>
                     </th>
 
                     <th>
-                        <?php echo _("Intent & Strategy") ?>
+                        <?php echo _("استراتیژی و هدف حمله") ?>
                     </th>
                     
                     <th>
-                        <?php echo _("Method") ?>
+                        <?php echo _("روش") ?>
                     </th>
 
                     <th>
-                        <?php echo _("Risk")?>
+                        <?php echo _("ریسک")?>
                     </th>
                     
                     <th>
@@ -2029,11 +2028,11 @@ if (!isset($_GET["hide_search"]))
                     </th>
                     
                     <th>
-                        <?php echo _("Source") ?>
+                        <?php echo _("مبدا") ?>
                     </th>
 
                     <th>
-                        <?php echo _("Destination") ?>
+                        <?php echo _("مقصد") ?>
                     </th>
                     
                     <th>
@@ -2047,19 +2046,19 @@ if (!isset($_GET["hide_search"]))
 
     <?php if ( Session::menu_perms("analysis-menu", "ControlPanelAlarmsDelete") ) { ?>
     <a href="javascript:;" class="fright" style="padding-bottom:15px;" onclick="delete_all_alarms();">
-        <?php echo _("Delete ALL"); ?>
+        <?php echo _("حذف همگی"); ?>
     </a>
     <?php } ?>
     
     
     <div id="dropdown-actions"  class="dropdown dropdown-close dropdown-tip dropdown-anchor-right">
         <ul class="dropdown-menu">
-            <li><a href="#1" id="btn_ds" onclick="open_alarm();"><?php echo _('Open Alarm') ?></a></li>
+            <li><a href="#1" id="btn_ds" onclick="open_alarm();"><?php echo _('هشدارهای باز') ?></a></li>
             <?php if ( Session::menu_perms("analysis-menu", "ControlPanelAlarmsClose") ) {?>
-                <li><a href="#2" id="btn_cs" onclick="bg_close();"><?php echo _('Close Alarm') ?></a></li>
+                <li><a href="#2" id="btn_cs" onclick="bg_close();"><?php echo _('هشدارهای بسته') ?></a></li>
             <?php }
             if ( Session::menu_perms("analysis-menu", "ControlPanelAlarmsDelete") ) { ?>
-                <li><a href="#3" id="btn_ds" onclick="selection_type == 'all' ?  delete_all_alarms() : bg_delete();"><?php echo _('Delete Alarm') ?></a></li>
+                <li><a href="#3" id="btn_ds" onclick="selection_type == 'all' ?  delete_all_alarms() : bg_delete();"><?php echo _('هشدارهای حذف شده') ?></a></li>
             <?php } ?>
         </ul>
     </div>
