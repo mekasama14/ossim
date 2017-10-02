@@ -51,7 +51,7 @@ body
     background-image:url('/ossim/pixmaps/background/av_bg.jpg');
     background-repeat:repeat;
     color: #333333;
-    font-family: "open_sans","Lucida Sans","Lucida Grande",Lucida,sans-serif,Verdana;
+    font-family: BNazanin;
     text-transform: uppercase;
     overflow: auto !important;
 }
@@ -306,7 +306,7 @@ img
     border-bottom-left-radius: 7px;
     text-align: center;
     font-size: 11px;
-    font-family: "open_sans","Lucida Sans","Lucida Grande",Lucida,sans-serif,Verdana;
+    font-family: BNazanin;
     color: white;
 }
 
@@ -573,7 +573,7 @@ img
 .notif_right
 {
     float:right;
-    font-family: "open_sans","Lucida Sans","Lucida Grande",Lucida,sans-serif,Verdana;
+    font-family: BNazanin;
 }
 
 #notif_sensors

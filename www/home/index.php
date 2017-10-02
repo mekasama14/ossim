@@ -230,7 +230,7 @@ $track_usage_information = $config->get_conf('track_usage_information');
                             <span id='notif_bubble'>0</span>
                         </a>  
 
-                        <a id="link_settings" href="javascript:void(0);"><?php echo "تنظیمات"; ?></a>
+                        <a id="link_settings"  href="javascript:void(0);"><?php echo "تنظیمات"; ?></a>
                         <a id="link_support" href="javascript:void(0);"><?php echo "پشتیبانی"; ?></a>
                         <a href="<?php echo  AV_MAIN_PATH ?>/session/login.php?action=logout"><?php echo "خروج"; ?></a>
                     </div>
