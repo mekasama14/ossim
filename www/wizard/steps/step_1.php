@@ -123,7 +123,7 @@ $text_descr = sprintf($text_descr, $v_short, $v_short);
 
 <div id='step_interfaces' class='step_container' dir="rtl">
 
-    <div class='wizard_title'>
+    <div class='wizard_title' style="font-family: 'B Titr'; font-weight: bold">
         <?php echo _("پیکربندی اینترفیس شبکه") ?>
     </div>
 
