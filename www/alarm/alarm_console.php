@@ -1800,10 +1800,10 @@ if (!isset($_GET["hide_search"]))
                 <label for='query'><?php echo _('نام هشدار')?></label>
                 <input type="text" name="query" value="<?php echo Util::htmlentities($query) ?>"/>
                 
-                <label for='src_ip'><?php echo _('آدرس IP منبع')?></label>
+                <label dir="rtl" for='src_ip' ><?php echo _('آدرس مبدا')?></label>
                 <input type="text" id="src_ip" name="src_ip" value="<?php echo $src_ip ?>"/>
                  
-                <label for='dst_ip'><?php echo _('آدرس IP مقصد')?></label>
+                <label dir="rtl" for='dst_ip'><?php echo _('آدرس  مقصد')?></label>
                 <input type="text" id="dst_ip" name="dst_ip" value="<?php echo $dst_ip ?>"/> 
                 
                 <?php
@@ -1944,7 +1944,7 @@ if (!isset($_GET["hide_search"]))
                 <label dir="rtl" class='line' for='otx_activity'><?php echo _("تنها فعالیت های OTX را نمایش بده"); ?></label><br/><br/>
                 
                 <input id="no_resolv" name="no_resolv" type="checkbox" value="1" <?php echo $checked_resolv?> />
-                <label class='rtl'  for='no_resolv'><?php echo _("عدم تبدیل IP به آدرس"); ?></label><br/><br/>
+                <label dir="rtl" class='line'  style="text-align:left" for='no_resolv'><?php echo _("عدم تبدیل IP به آدرس"); ?></label><br/><br/>
                 
                 <input id="hide_closed"  name="hide_closed" type="checkbox" value="1" <?php echo $checked_hclosed?> />
                 <label class='line' for='hide_closed'><?php echo _("Hide closed alarms"); ?></label><br/><br/>
