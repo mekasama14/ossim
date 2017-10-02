@@ -220,8 +220,8 @@ class Menu
             + Submenu:Message Center
                 + Hmenu:Message Center
         + Menu:Dashboards
-            + Submenu:Overview
-                + Hmenu:Overview
+            + Submenu:overview
+                + Hmenu:overview
             + Submenu:Deployment Status
                 + Hmenu:Dashboard
             + Submenu:Risk Maps
@@ -557,14 +557,14 @@ class Menu
 
 
         $this->menus['dashboard'] = array(
-            "name"    => _("Dashboards"),
+            "name"    => _("داشبورد"),
             "enabled" => $perm_m_dasboards,
             "display" => TRUE,
             "submenu" => array(
 
                 /* Overview */
                 "overview" => array(
-                    "name" => _("Overview"),
+                    "name" => _("نمای کلی"),
                     "enabled" => $perm_dashboards,
                     "hmenu"   => array(
                         "overview" => array(
@@ -577,7 +577,7 @@ class Menu
 
                 /* Deployment Status */
                 "deployment_status" => array(
-                    "name"    => _("Deployment Status"),
+                    "name"    => _("وضعیت استقرار"),
                     "enabled" => $perm_deployment_status,
                     "hmenu"   => array(
                         "deployment_status" => array(
@@ -590,7 +590,7 @@ class Menu
 
                 /* Risk Maps */
                 "riskmaps" => array(
-                    "name"    => _("Risk Maps"),
+                    "name"    => _("نقشه های ریسک"),
                     "enabled" => $perm_risk_maps,
                     "hmenu"   => array(
                         "overview" => array(
@@ -666,14 +666,14 @@ class Menu
         $url_se = "/forensics/base_qry_main.php?clear_allcriteria=1&num_result_rows=-1&submit=Query+DB&current_view=-1&sort_order=time_d".$today;
 
         $this->menus['analysis'] = array(
-            "name"     => _("Analysis"),
+            "name"     => _("آنالیز"),
             "enabled"  => $perm_m_analysis,
             "display" => TRUE,
             "submenu"  => array(
 
                 /* Alarms */
                 "alarms" => array(
-                    "name"    => _("Alarms"),
+                    "name"    => _("هشدارها"),
                     "enabled" => $perm_alarms,
                     "hmenu"   => array(
 
@@ -693,14 +693,13 @@ class Menu
 
                 /* Security Events (SIEM) */
                 "security_events" => array(
-                    "name"    => _("Security Events (SIEM)"),
+                    "name"    => _("رخدادهای امنیتی"),
                     "enabled" => $perm_siem_events,
                     "hmenu"   => array(
                         "security_events" => array(
                             "name"    => _("SIEM"),
                             "enabled" => $perm_sec_events,
-                            "url"     => $url_se,
-                            "b_param" => "/forensics/base_qry_alert.php?noheader=true&submit=%230-"
+                            "url"     => $url_se
                         ),
                         "real_time" => array(
                             "name"    => _("Real-time"),
@@ -717,7 +716,7 @@ class Menu
 
                 /* Raw Logs */
                 "raw_logs" => array(
-                    "name"    => _("Raw Logs"),
+                    "name"    => _("لاگها"),
                     "enabled" => $perm_raw_logs,
                      "hmenu"  => array(
                         "raw_logs" => array(
@@ -730,7 +729,7 @@ class Menu
 
                 /* Tickets */
                 "tickets" => array(
-                    "name"    => _("Tickets"),
+                    "name"    => _("تیکتها"),
                     "enabled" => $perm_tickets,
                     "hmenu"   => array(
                         "tickets" => array(
@@ -787,14 +786,14 @@ class Menu
         $perm_m_environment   = $perm_assets || $perm_vulns || $perm_netflow || $perm_traffic_capture || $perm_availability || $perm_detection;
 
         $this->menus['environment'] = array(
-            "name"     => _("Environment"),
+            "name"     => _("محیط استقرار"),
             "enabled"  => $perm_m_environment,
             "display"  => TRUE,
             "submenu"  => array(
 
                 /* Assets */
                 "assets" => array(
-                    "name"    => _("Assets & Groups"),
+                    "name"    => _("دارایی ها"),
                     "enabled" => $perm_assets,
                     "hmenu"   => array(
 
@@ -856,7 +855,7 @@ class Menu
 
                 /* Vulnerabilities */
                 "vulnerabilities" => array(
-                    "name"    => _("Vulnerabilities"),
+                    "name"    => _("آسیب پذیریها"),
                     "enabled" => $perm_vulns,
                     "hmenu"   => array(
                         "overview" => array(
@@ -913,7 +912,7 @@ class Menu
 
                 /* Netflow */
                 "netflow" => array(
-                    "name"    => _("Netflow"),
+                    "name"    => _("نمایش فلو (نت فلو)"),
                     "enabled" => $perm_netflow,
                     "hmenu"   => array(
                         "details" => array(
@@ -938,7 +937,7 @@ class Menu
 
                 /* Traffic Capture */
                 "traffic_capture" => array(
-                    "name"    => _("Traffic Capture"),
+                    "name"    => _("ثبت ترافیک"),
                     "enabled" => $perm_traffic_capture,
                     "hmenu"   => array(
                         "traffic_capture" => array(
@@ -952,7 +951,7 @@ class Menu
 
                 /* Availability */
                 "availability" => array(
-                    "name"    => _("Availability"),
+                    "name"    => _("قابلیت دسترسی"),
                     "enabled" => $perm_availability,
                     "hmenu"   => array(
                         "monitoring" => array(
@@ -971,7 +970,7 @@ class Menu
 
                 /* Detection */
                 "detection" => array(
-                    "name"    => _("Detection"),
+                    "name"    => _("نشخیص"),
                     "enabled" => $perm_detection,
                     "hmenu"   => array(
                         "hids" => array(
@@ -1132,14 +1131,14 @@ class Menu
 
 
              $this->menus['reports'] = array(
-                "name"     => _("Reports"),
+                "name"     => _("گزارش"),
                 "enabled"  => $perm_m_reports,
                 "display"  => TRUE,
                 "submenu"  => array(
 
                     /* Overview */
                     "ossim_reports" => array(
-                        "name"   => _("Overview"),
+                        "name"   => _("نمای کلی"),
                         "enabled" => $perm_ossim_reports,
                         "hmenu"   => array(
                             "overview" => array(
@@ -1233,14 +1232,14 @@ class Menu
         $perm_m_configuration = $perm_administration || $perm_deployment || $perm_ti || $perm_otx;
 
         $this->menus['configuration'] = array(
-            "name"     => _("Configuration"),
+            "name"     => _("پیکربندی"),
             "enabled"  => $perm_m_configuration,
             "display"  => TRUE,
             "submenu"  => array(
 
                 /* Administration */
                 "administration" => array(
-                    "name"    => _("Administration"),
+                    "name"    => _("مدیریت"),
                     "enabled" => $perm_administration,
                     "hmenu"   => array(
                         "users" => array(
@@ -1310,7 +1309,7 @@ class Menu
 
                 /* Deployment */
                 "deployment" => array(
-                    "name"    => _("Deployment"),
+                    "name"    => _("استقرار"),
                     "enabled" => $perm_deployment,
                     "hmenu"   => array(
 
@@ -1361,7 +1360,7 @@ class Menu
 
                 /* Threat Intelligence */
                 "threat_intelligence" => array(
-                    "name"   => _("Threat Intelligence"),
+                    "name"   => _("هوشمند سازی تهدیدات"),
                     "enabled" => $perm_ti,
                     "hmenu"   => array(
                         "policy" => array(
@@ -1491,7 +1490,7 @@ class Menu
                 
                 /* Open Threat Exchange */
                 "otx" => array(
-                    "name"    => _("Open Threat Exchange"),
+                    "name"    => _("تبادل نظر در رابطه با تهدیدات"),
                     "enabled" => $perm_otx,
                     "hmenu"   => array(
                         "otx" => array(
