@@ -43,7 +43,7 @@ header("Content-type: text/css");
 body
 {
     overflow-y: auto !important;
-    background: #3C3C3C;
+    background: white;
 }
 
 table
