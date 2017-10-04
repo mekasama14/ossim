@@ -621,7 +621,7 @@ $alarm_url = Alarm::get_alarm_path();
        <?php if ( Session::menu_perms("analysis-menu", "ControlPanelAlarmsClose") ) { ?>
         function bg_close() 
         {
-            var close_msg = "<?php echo Util::js_entities(_("You are going to close the selected alarm(s). Would you like to continue?")) ?>";
+            var close_msg = "<?php echo Util::js_entities(_("شما در حال بستن هشدار(های) انتخاب شده هستید. آیا میخواهید ادامه دهید؟ ")) ?>";
             var action_number =  selection_type == 'all' ? 5 : 1;
             alarm_action(action_number,close_msg);
         }
@@ -629,7 +629,7 @@ $alarm_url = Alarm::get_alarm_path();
 
         function open_alarm()
         {
-            var open_msg = "<?php echo Util::js_entities(_("You are going to open the selected alarm. Would you like to continue?")) ?>";
+            var open_msg = "<?php echo Util::js_entities(_("شما در حال باز کردن هشدار انتخاب شده هستید. آیا میخواهید ادامه دهید؟")) ?>";
             var action_number =  selection_type == 'all' ? 8 : 2;
             alarm_action(action_number,open_msg);
             
@@ -1656,8 +1656,8 @@ $alarm_url = Alarm::get_alarm_path();
 
 <div id='counter_container'>
     <div id='counter'>
-        <?php echo _('Next refresh in') ?> <span id='reload'><?php echo $refresh_time_secs ?></span> <?php echo _('seconds') ?>.
-        <a href='javascript:;' onclick='time=0;reload_alarms();'> <?php echo _('Or click here to refresh now') ?></a>
+        <?php echo _('بارگزاری مجدد در ') ?> <span id='reload'><?php echo $refresh_time_secs ?></span> <?php echo _('ثانیه') ?>.
+        <a href='javascript:;' onclick='time=0;reload_alarms();'> <?php echo _('یا با کلیک در این قسمت همین الان مجدادا بار گزاری کنید') ?></a>
     </div>
     <div id='breadcrum'></div>
 </div>
