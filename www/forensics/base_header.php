@@ -66,7 +66,7 @@ $year_m      = gmdate("m", strtotime("-11 month UTC",$timetz));
 $year_y      = gmdate("Y", strtotime("-11 month UTC",$timetz));
 
 // Current signature/payload/IDM filter
-$sterm = ($_GET['search_str'] != "") ? $_GET['search_str'] : ($_SESSION['search_str'] != "" ? $_SESSION['search_str'] : _("Search"));
+$sterm = ($_GET['search_str'] != "") ? $_GET['search_str'] : ($_SESSION['search_str'] != "" ? $_SESSION['search_str'] : _("جستجو"));
 
 ?>
 
@@ -141,7 +141,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                                         <img id='db_icon' style='width: 16px; height: 16px;' src='../forensics/images/home.png' border='0' align='absbottom'/>
                                     </td>
                                     <td class='left noborder'>
-                                        <a href='<?php echo preg_replace("/\&server\=[^\&]+/","",$actual_url) ?>server=local'><?php echo ($ss=="local" ? "<b>"._("Local")."</b>" : _("local")) ?></a>
+                                        <a href='<?php echo preg_replace("/\&server\=[^\&]+/","",$actual_url) ?>server=local'><?php echo ($ss=="local" ? "<b>"._("محلی")."</b>" : _("محلی")) ?></a>
                                     </td>
                                 </tr>
                             </table>
@@ -178,17 +178,17 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
 
                         <div class='left_float'>
                             <select name="submit" class="hselect" id='search_type_combo'>
-                                <option value="<?php echo _("Signature") ?>"><?php echo _("Signature") ?></option>
-                                <option value="Payload"><?php echo _("Payload") ?></option>
+                                <option value="<?php echo _("امضا") ?>"><?php echo _("امضا") ?></option>
+                                <option value="Payload"><?php echo _("پیلود") ?></option>
                                 <?php if ($_SESSION["_idm"]) { ?>
-                                <option value="<?php echo _("IDM Username") ?>"><?php echo _("IDM Username") ?></option>
-                                <option value="<?php echo _("IDM Hostname") ?>"><?php echo _("IDM Hostname") ?></option>
-                                <option value="<?php echo ("IDM Domain") ?>"><?php echo ("IDM Domain") ?></option>
+                                <option value="<?php echo _("IDM نام کاربری") ?>"><?php echo _("IDM نام کاربری") ?></option>
+                                <option value="<?php echo _("IDM نام میزبان") ?>"><?php echo _("IDM نام میزبان") ?></option>
+                                <option value="<?php echo ("IDM دامنه") ?>"><?php echo ("IDM دامنه") ?></option>
                                 <?php } ?>
-                                <option value="<?php echo _("Src or Dst IP") ?>"><?php echo _("Src or Dst IP") ?></option>
+                                <option value="<?php echo _("Src یا Dst IP") ?>"><?php echo _("Src یا Dst IP") ?></option>
                                 <option value="<?php echo _("Src IP") ?>"><?php echo _("Src IP") ?></option>
                                 <option value="<?php echo _("Dst IP") ?>"><?php echo _("Dst IP") ?></option>
-                                <option value="<?php echo _("Src or Dst Host") ?>"><?php echo _("Src or Dst Host") ?></option>
+                                <option value="<?php echo _("Src یا Dst Host") ?>"><?php echo _("Src یا Dst Host") ?></option>
                                 <option value="<?php echo _("Src Host") ?>"><?php echo _("Src Host") ?></option>
                                 <option value="<?php echo _("Dst Host") ?>"><?php echo _("Dst Host") ?></option>
                             </select>
@@ -196,7 +196,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
 
                         <!-- GO SUBMIT BUTTON -->
                         <div class='left_float'>
-                            <input type="submit" style="margin-top: 3px;padding: 5px 5px;" value="<?php echo _('Go') ?>" id="go_button">
+                            <input type="submit" style="margin-top: 3px;padding: 5px 5px;" value="<?php echo _('شروع') ?>" id="go_button">
                         </div>
 
                         <img id='help_tooltip' class='help_icon_1' src="/ossim/pixmaps/help_small.png">
@@ -289,12 +289,12 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                                                     <div id='c_close'>
                                                         <div id='b_close'>
                                                             <a style="cursor:pointer;" onclick="$('#export').toggle()">
-                                                                <img src="../pixmaps/cross-circle-frame.png" alt="<?php echo _("Close"); ?>" title="<?php echo _("Close"); ?>" border="0" align='absmiddle'/>
+                                                                <img src="../pixmaps/cross-circle-frame.png" alt="<?php echo _("بستن"); ?>" title="<?php echo _("بستن"); ?>" border="0" align='absmiddle'/>
                                                             </a>
                                                         </div>
                                                     </div>
 
-                                                    <span><?php echo _("Export Mode")?></span>
+                                                    <span><?php echo _("نوع خروجی")?></span>
                                                 </th>
                                             </tr>
                                         </thead>
@@ -309,7 +309,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                                                 <tr>
                                                     <td class='left'>
                                                         <a href="javascript:;" onclick="javascript:report_launcher('<?php echo $export_pdf_mode ?>','pdf');return false">
-                                                            <img src="images/pdf-icon.png" border="0" align="absmiddle" title="<?=_("Launch PDF Report")?>"> <?php echo _("Download data as PDF Report") ?>
+                                                            <img src="images/pdf-icon.png" border="0" align="absmiddle" title="<?=_("دادن گزارش به شکل PDF")?>"> <?php echo _("دانلود داده به عنوان گزارش PDF") ?>
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -323,7 +323,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                                                 <tr>
                                                     <td class='left'>
                                                        <a href="javascript:;" onclick="javascript:report_launcher('<?php echo $export_csv_mode ?>','<?php echo $csv_report_type ?>');return false">
-                                                           <img src="images/csv-icon.png" border="0" align="absmiddle" title="<?=_("Download data in csv format")?>"> <?php echo _("Download data in CSV format") ?>
+                                                           <img src="images/csv-icon.png" border="0" align="absmiddle" title="<?=_('گرفتن داده با فرمت CSV')?>"> <?php echo _("گرفتن داده با فرمت CSV") ?>
                                                        </a>
                                                     </td>
                                                 </tr>
@@ -362,28 +362,28 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                     if ($_GET["port_type"]  != "") $params.= "&port_type=" . urlencode($_GET["port_type"]);
                     if ($_GET["fqdn"]       != "") $params.= "&fqdn=" . urlencode($_GET["fqdn"]);
                     ?>
-                    <div class='siem_form_title'><?php echo _("Show Events") ?></div>
+                    <div class='siem_form_title'><?php echo _("نمایش رویدادها") ?></div>
 
                         <div>
 
                             <div class='siem_form_daterange'>
                                 <input class="margin0" type="radio" <? if ($_GET['time_range'] == "day")   echo "checked" ?> name="selected_time_range" onclick="load_link('<?php echo Util::get_sanitize_request_uri($urltimecriteria) ?>?time_range=day&time%5B0%5D%5B0%5D=+&time%5B0%5D%5B1%5D=%3E%3D&time%5B0%5D%5B2%5D=<?php echo $yesterday_m ?>&time%5B0%5D%5B3%5D=<?php echo $yesterday_d ?>&time%5B0%5D%5B4%5D=<?php echo $yesterday_y ?>&time%5B0%5D%5B5%5D=<?php echo $today_h ?>&time%5B0%5D%5B6%5D=&time%5B0%5D%5B7%5D=&time%5B0%5D%5B8%5D=+&time%5B0%5D%5B9%5D=+&submit=Query+DB&num_result_rows=-1&time_cnt=1<?php echo $params ?>')"/>
-                                <?php echo _("Last Day") ?>
+                                <?php echo _("آخرین روز") ?>
                             </div>
 
                             <div class='siem_form_daterange'>
                                 <input class="margin0" type="radio" <? if ($_GET['time_range'] == "week")  echo "checked" ?> name="selected_time_range" onclick="load_link('<?php echo Util::get_sanitize_request_uri($urltimecriteria) ?>?time_range=week&time%5B0%5D%5B0%5D=+&time%5B0%5D%5B1%5D=%3E%3D&time%5B0%5D%5B2%5D=<?php echo $week_m ?>&time%5B0%5D%5B3%5D=<?php echo $week_d ?>&time%5B0%5D%5B4%5D=<?php echo $week_y ?>&time%5B0%5D%5B5%5D=<?php echo $today_h ?>&time%5B0%5D%5B6%5D=&time%5B0%5D%5B7%5D=&time%5B0%5D%5B8%5D=+&time%5B0%5D%5B9%5D=+&submit=Query+DB&num_result_rows=-1&time_cnt=1<?php echo $params ?>')"/>
-                                <?php echo _("Last Week") ?>
+                                <?php echo _("آخرین هفته") ?>
                             </div>
 
                             <div class='siem_form_daterange'>
                                 <input class="margin0" type="radio" <? if ($_GET['time_range'] == "month") echo "checked" ?> name="selected_time_range" onclick="load_link('<?php echo Util::get_sanitize_request_uri($urltimecriteria) ?>?time_range=month&time%5B0%5D%5B0%5D=+&time%5B0%5D%5B1%5D=%3E%3D&time%5B0%5D%5B2%5D=<?php echo $month_m ?>&time%5B0%5D%5B3%5D=<?php echo $month_d ?>&time%5B0%5D%5B4%5D=<?php echo $month_y ?>&time%5B0%5D%5B5%5D=<?php echo $today_h ?>&time%5B0%5D%5B6%5D=&time%5B0%5D%5B7%5D=&time%5B0%5D%5B8%5D=+&time%5B0%5D%5B9%5D=+&submit=Query+DB&num_result_rows=-1&time_cnt=1<?php echo $params ?>')"/>
-                                <?php echo _("Last Month") ?>
+                                <?php echo _("آخرین ماه") ?>
                             </div>
 
                             <div class='siem_form_daterange'>
                                 <input class="margin0" type="radio" <? if ($_GET['time_range'] == "range") echo "checked" ?> name="selected_time_range" onclick='show_calendar()'/>
-                                <?php echo _("Date Range") ?>
+                                <?php echo _("تاریخ") ?>
                             </div>
 
 
@@ -436,7 +436,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                     <div class='siem_form_column'>
 
                         <!-- Data Sources -->
-                        <div class='siem_form_title'><?php echo _("Data Sources") ?></div>
+                        <div class='siem_form_title'><?php echo _("منابع داده ها") ?></div>
                         <div>
                                 <select name="plugin" class="selectp" onchange="$('input[name=sourcetype],#category,#subcategory').val('');this.form.bsf.click()"><option value=''></option>
                                 <?php
@@ -478,7 +478,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                         <input type="hidden" id="sort_order" name="sort_order" value="">
 
                         <!-- DS Group -->
-                        <div class='siem_form_title'><?=_("Data Source Groups")?></div>
+                        <div class='siem_form_title'><?=_("گروه منابع داده ها")?></div>
                         <div>
                             <select name="plugingroup" class="selectp" onchange="this.form.bsf.click()"><option value=''></option>
                             <?php
@@ -524,11 +524,11 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                             }
                         }
                         ?>
-                        <div class='siem_form_title_sensor'><?php echo _("Sensors") ?>
+                        <div class='siem_form_title_sensor'><?php echo _("حسگرها") ?>
                             <div class='exclude'>
                                 <table class="tax noborder"><tr>
                                 <td><input type="checkbox" id="exclude" name="exclude" onclick="SetSensor(this.form.bsf,false)" value="1"<?php echo $exclude ?>></td>
-                                <td id="lexc"><?php echo _("Exclude") ?></td>
+                                <td id="lexc"><?php echo _("جدا کردن") ?></td>
                                 </tr></table>
                             </div>
                         </div>
@@ -543,7 +543,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                         <!-- User data content -->
                         <div class='siem_form_pad'>
                              <input type="text" id='extradatafield' name="userdata[2]" placeholder="" class='search_sensor' value="<?php echo Util::htmlentities($_SESSION["userdata"][2]) ?>"/>
-                             <!-- <input type="button" value="<?php echo _("Apply")?>" onclick="this.form.bsf.click()" class="small av_b_secondary"/> -->
+                             <!-- <input type="button" value="<?php echo _("انجام")?>" onclick="this.form.bsf.click()" class="small av_b_secondary"/> -->
                         </div>
 
                     </div>
@@ -554,7 +554,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                     <div class='siem_form_column'>
 
                         <!-- Asset Group -->
-                        <div class='siem_form_title'><?=_("Asset Groups")?></div>
+                        <div class='siem_form_title'><?=_("گروه های دارایی")?></div>
                         <div>
                             <select name="addhomeips" class="selectp" onchange="this.form.bsf.click()"><option value='-1'></option>
                             <?php
@@ -568,7 +568,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                         </div>
 
                         <!--  Network Group -->
-                        <div class='siem_form_title'><?=_("Network Groups")?></div>
+                        <div class='siem_form_title'><?=_("گروه های شبکه")?></div>
                         <div>
                             <select name="networkgroup" class="selectp" onchange="this.form.bsf.click()">
                                 <option value=''></option>
@@ -581,12 +581,12 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
 
 
                         <!-- Risk -->
-                        <div class='siem_form_title'><?php echo _("Risk") ?></div>
+                        <div class='siem_form_title'><?php echo _("ریسک") ?></div>
                         <div>
                             <select name="ossim_risk_a" class="selectp" onchange="$('#sort_order').val((this.value==' ') ? '' : 'oriska_d');this.form.bsf.click()"><option value=' '>
-                                <option value="low"<?php if ($_SESSION['ossim_risk_a'] == "low") echo " selected" ?>><?php echo _("Low") ?></option>
-                                <option value="medium"<?php if ($_SESSION['ossim_risk_a'] == "medium") echo " selected" ?>><?php echo _("Medium") ?></option>
-                                <option value="high"<?php if ($_SESSION['ossim_risk_a'] == "high") echo " selected" ?>><?php echo _("High") ?></option>
+                                <option value="low"<?php if ($_SESSION['ossim_risk_a'] == "low") echo " selected" ?>><?php echo _("پایین") ?></option>
+                                <option value="medium"<?php if ($_SESSION['ossim_risk_a'] == "medium") echo " selected" ?>><?php echo _("متوسط") ?></option>
+                                <option value="high"<?php if ($_SESSION['ossim_risk_a'] == "high") echo " selected" ?>><?php echo _("بالا") ?></option>
                             </select>
                         </div>
 
@@ -628,15 +628,15 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                             </select>
                         </div>
 
-                        <div class='siem_form_title'><?php echo _("OTX Pulse") ?></div>
+                        <div class='siem_form_title'><?php echo _("OTX پالس") ?></div>
                         <div>
                             <input type="hidden" name="otx[0]" id="otx_pulse_value" value="<?php if ($_SESSION["otx"][0]!='') echo $_SESSION["otx"][0] ?>"/>
-                            <input type="text" id="otx_pulse" value="<?php if (!empty($_SESSION["otx"][0])) echo GetPulseName($_SESSION["otx"][0]); ?>" placeholder="<?php echo _("Pulse name") ?>" class='search_sensor'/>
+                            <input type="text" id="otx_pulse" value="<?php if (!empty($_SESSION["otx"][0])) echo GetPulseName($_SESSION["otx"][0]); ?>" placeholder="<?php echo _("نام پالس") ?>" class='search_sensor'/>
                         </div>
 
                         <div class='siem_form_otx'>
                             <input type="checkbox" onchange="$('#otx_pulse_value').val('');$('#otx_pulse').val('');this.form.bsf.click()" name="otx[1]" id="otx_activity" value="1" <?php if ($_SESSION["otx"][1] != "") echo "checked" ?>/>
-                            <label for="otx_activity" class='siem_form_title'><?php echo _("Only OTX Pulse Activity") ?></label>
+                            <label for="otx_activity" class='siem_form_title'><?php echo _("ففط فعالیت های پالس OTX") ?></label>
                         </div>
 
                     </div>
@@ -647,7 +647,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                         PrintCriteria2();
                     ?>
                         <div class="float_left">
-                            <input type="button" class="av_b_secondary" value="<?php echo _("Advanced Search") ?>" id="adv_search_button"/>
+                            <input type="button" class="av_b_secondary" value="<?php echo _("جستجوی پیشرفته") ?>" id="adv_search_button"/>
                         </div>
 
                     </div>
@@ -659,7 +659,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
             <div id="filters_buttons_div">
 
                  <div class="float_right padding_right_5 task_info">
-                    <span id="task" style="display:none;"><?php echo _("No pending tasks") ?>.</span>
+                    <span id="task" style="display:none;"><?php echo _("عدم وجود کارهای معوق") ?>.</span>
                  </div>
 
                  <div id="backup_info"></div>
@@ -700,7 +700,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                             </li>
                             <li>
                                 <a href="#null_aux_div" data-action_id='2'>
-                            <?php echo _("Grouped"); ?>
+                            <?php echo _("گروه بندی شده"); ?>
                             </a>
                             </li>
                             <li>
@@ -718,7 +718,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                                 <?php
                                 }
                                 ?>
-                            <?php echo _("Timeline") ?>
+                            <?php echo _("خط زمانی") ?>
                             </a>
                             </li>
                         </ul>
@@ -742,59 +742,59 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                     <?php global $addr_type ?>
                         <!-- Level 1 grouping -->
                         <select name="groupby_1" id="groupby_1" style='width:110px' onchange="group_selected(this.value)">
-                            <option value=""><?php echo _("Select One") ?></option>
+                            <option value=""><?php echo _("یکی را انتخاب کنید") ?></option>
                             <option value="ip"         <?php if (preg_match("/base_stat_(uaddr|iplink)/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("IP") ?></option>
-                            <option value="hostname"   <?php if (preg_match("/base_stat_uidm/", $_SERVER['SCRIPT_NAME']) && preg_match("/host/", $addr_type)) echo "selected" ?>><?php echo _("IDM Hostname") ?></option>
-                            <option value="idmusername"   <?php if (preg_match("/base_stat_uidm/", $_SERVER['SCRIPT_NAME']) && preg_match("/user/", $addr_type)) echo "selected" ?>><?php echo _("IDM Username") ?></option>
-                            <option value="signature"  <?php if (preg_match("/base_stat_alerts\.php/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("Signature") ?></option>
-                            <option value="port"       <?php if (preg_match("/base_stat_ports/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("Port") ?></option>
-                            <option value="sensor"     <?php if (preg_match("/base_stat_sensor\.php/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("Sensors") ?></option>
-                            <option value="otx"        <?php if (preg_match("/base_stat_otx/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("OTX Pulses") ?></option>
-                            <option value="ptypes"     <?php if (preg_match("/base_stat_ptypes/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("Product Type") ?></option>
-                            <option value="plugins"    <?php if (preg_match("/base_stat_plugins/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("Data Source") ?></option>
-                            <option value="country"    <?php if (preg_match("/base_stat_country/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("Country") ?></option>
-                            <option value="categories" <?php if (preg_match("/base_stat_categories/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("Categories") ?></option>
-                            <option value="username"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/username/", $addr_type)) echo "selected" ?>><?php echo _("Username") ?></option>
-                            <option value="userdata1"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata1/", $addr_type)) echo "selected" ?>><?php echo _("Userdata1") ?></option>
-                            <option value="userdata2"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata2/", $addr_type)) echo "selected" ?>><?php echo _("Userdata2") ?></option>
-                            <option value="userdata3"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata3/", $addr_type)) echo "selected" ?>><?php echo _("Userdata3") ?></option>
-                            <option value="userdata4"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata4/", $addr_type)) echo "selected" ?>><?php echo _("Userdata4") ?></option>
-                            <option value="userdata5"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata5/", $addr_type)) echo "selected" ?>><?php echo _("Userdata5") ?></option>
-                            <option value="userdata6"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata6/", $addr_type)) echo "selected" ?>><?php echo _("Userdata6") ?></option>
-                            <option value="userdata7"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata7/", $addr_type)) echo "selected" ?>><?php echo _("Userdata7") ?></option>
-                            <option value="userdata8"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata8/", $addr_type)) echo "selected" ?>><?php echo _("Userdata8") ?></option>
-                            <option value="userdata9"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata9/", $addr_type)) echo "selected" ?>><?php echo _("Userdata9") ?></option>
+                            <option value="hostname"   <?php if (preg_match("/base_stat_uidm/", $_SERVER['SCRIPT_NAME']) && preg_match("/host/", $addr_type)) echo "انتخاب شده" ?>><?php echo _("IDM نام میزبان") ?></option>
+                            <option value="idmusername"   <?php if (preg_match("/base_stat_uidm/", $_SERVER['SCRIPT_NAME']) && preg_match("/user/", $addr_type)) echo "انتخاب شده" ?>><?php echo _("IDM نام کاربری") ?></option>
+                            <option value="signature"  <?php if (preg_match("/base_stat_alerts\.php/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("امضا") ?></option>
+                            <option value="port"       <?php if (preg_match("/base_stat_ports/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("پورت") ?></option>
+                            <option value="sensor"     <?php if (preg_match("/base_stat_sensor\.php/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("حسگرها") ?></option>
+                            <option value="otx"        <?php if (preg_match("/base_stat_otx/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("OTX پالس") ?></option>
+                            <option value="ptypes"     <?php if (preg_match("/base_stat_ptypes/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("نوع محصول") ?></option>
+                            <option value="plugins"    <?php if (preg_match("/base_stat_plugins/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("منبع داده") ?></option>
+                            <option value="country"    <?php if (preg_match("/base_stat_country/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("کشور") ?></option>
+                            <option value="categories" <?php if (preg_match("/base_stat_categories/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("دسته ها") ?></option>
+                            <option value="username"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/username/", $addr_type)) echo "selected" ?>><?php echo _("نام کاربری 1") ?></option>
+                            <option value="userdata1"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata1/", $addr_type)) echo "selected" ?>><?php echo _("نام کاربری 2") ?></option>
+                            <option value="userdata2"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata2/", $addr_type)) echo "selected" ?>><?php echo _("نام کاربری 3") ?></option>
+                            <option value="userdata3"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata3/", $addr_type)) echo "selected" ?>><?php echo _("نام کاربری 4") ?></option>
+                            <option value="userdata4"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata4/", $addr_type)) echo "selected" ?>><?php echo _("نام کاربری 5") ?></option>
+                            <option value="userdata5"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata5/", $addr_type)) echo "selected" ?>><?php echo _("نام کاربری 6") ?></option>
+                            <option value="userdata6"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata6/", $addr_type)) echo "selected" ?>><?php echo _("نام کاربری 7") ?></option>
+                            <option value="userdata7"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata7/", $addr_type)) echo "selected" ?>><?php echo _("نام کاربری 8") ?></option>
+                            <option value="userdata8"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata8/", $addr_type)) echo "selected" ?>><?php echo _("نام کاربری 9") ?></option>
+                            <option value="userdata9"   <?php if (preg_match("/base_stat_extra/", $_SERVER['SCRIPT_NAME']) && preg_match("/userdata9/", $addr_type)) echo "selected" ?>><?php echo _("نام کاربری 10") ?></option>
                         </select>
     
                         <!-- Level 2: IP -->
                         <div id="group_ip_select" style="display:<?php echo (preg_match("/base_stat_(uaddr|iplink)/", $_SERVER['SCRIPT_NAME'])) ? "inline" : "none" ?>">
                         <select name="groupby_ip" id="groupby_ip" onchange="group_selected(this.value)">
-                            <option value="ipempty"><?php echo _("Select one") ?></option>
-                            <option value="ipboth"      <?php if (preg_match("/base_stat_uaddress\.php/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("All") ?></option>
-                            <option value="ipsrc"       <?php if (preg_match("/base_stat_uaddr\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == 1) echo "selected" ?>><?php echo _("Source") ?></option>
-                            <option value="ipdst"       <?php if (preg_match("/base_stat_uaddr\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == 2) echo "selected" ?>><?php echo _("Destination") ?></option>
-                            <option value="iplink"      <?php if (preg_match("/base_stat_iplink\.php/", $_SERVER['SCRIPT_NAME']) && $_GET['fqdn'] == 'no') echo "selected" ?>><?php echo _("IP Links") ?></option>
-                            <option value="iplink_fqdn" <?php if (preg_match("/base_stat_iplink\.php/", $_SERVER['SCRIPT_NAME']) && $_GET['fqdn'] == 'yes') echo "selected" ?>><?php echo _("IP Links [FQDN]") ?></option>
+                            <option value="ipempty"><?php echo _("یکی را انتخاب کنید") ?></option>
+                            <option value="ipboth"      <?php if (preg_match("/base_stat_uaddress\.php/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("همه") ?></option>
+                            <option value="ipsrc"       <?php if (preg_match("/base_stat_uaddr\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == 1) echo "selected" ?>><?php echo _("منبع") ?></option>
+                            <option value="ipdst"       <?php if (preg_match("/base_stat_uaddr\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == 2) echo "selected" ?>><?php echo _("مقصد") ?></option>
+                            <option value="iplink"      <?php if (preg_match("/base_stat_iplink\.php/", $_SERVER['SCRIPT_NAME']) && $_GET['fqdn'] == 'no') echo "selected" ?>><?php echo _("IP لینک") ?></option>
+                            <option value="iplink_fqdn" <?php if (preg_match("/base_stat_iplink\.php/", $_SERVER['SCRIPT_NAME']) && $_GET['fqdn'] == 'yes') echo "selected" ?>><?php echo _("IP لینک [FQDN]") ?></option>
                         </select>
                         </div>
     
                         <!-- Level 2: Hostname -->
                         <div id="group_hostname_select" style="display:<?php echo (preg_match("/base_stat_uidm/", $_SERVER['SCRIPT_NAME']) && preg_match("/host/", $_GET['addr_type'])) ? "inline" : "none" ?>">
                         <select name="groupby_hostname" id="groupby_hostname" onchange="group_selected(this.value)">
-                            <option value="hostnameempty"><?php echo _("Select one") ?></option>
-                            <option value="hostnameboth" <?php if (preg_match("/base_stat_uidm\.php/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("All") ?></option>
-                            <option value="hostnamesrc"  <?php if (preg_match("/base_stat_uidmsel\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == "src_hostname") echo "selected" ?>><?php echo _("Source") ?></option>
-                            <option value="hostnamedst"  <?php if (preg_match("/base_stat_uidmsel\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == "dst_hostname") echo "selected" ?>><?php echo _("Destination") ?></option>
+                            <option value="hostnameempty"><?php echo _("یکی را انتخاب کنید") ?></option>
+                            <option value="hostnameboth" <?php if (preg_match("/base_stat_uidm\.php/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("همه") ?></option>
+                            <option value="hostnamesrc"  <?php if (preg_match("/base_stat_uidmsel\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == "src_hostname") echo "selected" ?>><?php echo _("منبع") ?></option>
+                            <option value="hostnamedst"  <?php if (preg_match("/base_stat_uidmsel\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == "dst_hostname") echo "selected" ?>><?php echo _("مقصد") ?></option>
                         </select>
                         </div>
     
                         <!-- Level 2: Username -->
                         <div id="group_username_select" style="display:<?php echo (preg_match("/base_stat_uidm/", $_SERVER['SCRIPT_NAME']) && preg_match("/user/", $_GET['addr_type'])) ? "inline" : "none" ?>">
                         <select name="groupby_username" id="groupby_username" onchange="group_selected(this.value)">
-                            <option value="usernameempty"><?php echo _("Select one") ?></option>
-                            <option value="usernameboth" <?php if (preg_match("/base_stat_uidm\.php/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("All") ?></option>
-                            <option value="usernamesrc"  <?php if (preg_match("/base_stat_uidmsel\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == "src_userdomain") echo "selected" ?>><?php echo _("Source") ?></option>
-                            <option value="usernamedst"  <?php if (preg_match("/base_stat_uidmsel\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == "dst_userdomain") echo "selected" ?>><?php echo _("Destination") ?></option>
+                            <option value="usernameempty"><?php echo _("یکی را انتخاب کنید") ?></option>
+                            <option value="usernameboth" <?php if (preg_match("/base_stat_uidm\.php/", $_SERVER['SCRIPT_NAME'])) echo "selected" ?>><?php echo _("همه") ?></option>
+                            <option value="usernamesrc"  <?php if (preg_match("/base_stat_uidmsel\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == "src_userdomain") echo "selected" ?>><?php echo _("منبع") ?></option>
+                            <option value="usernamedst"  <?php if (preg_match("/base_stat_uidmsel\.php/", $_SERVER['SCRIPT_NAME']) && $addr_type == "dst_userdomain") echo "selected" ?>><?php echo _("مقصد") ?></option>
                         </select>
                         </div>
     
@@ -802,9 +802,9 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                         <div id="group_port_select" style="display:<?php echo (preg_match("/base_stat_port/", $_SERVER['SCRIPT_NAME'])) ? "inline" : "none" ?>">
                         <?php global $port_type ?>
                         <select name="groupby_port" id="groupby_port" onchange="group_selected(this.value)">
-                            <option value="portempty"><?php echo _("Select one") ?></option>
-                            <option value="portsrc" <?php if (preg_match("/base_stat_port/", $_SERVER['SCRIPT_NAME']) && $port_type == "1") echo "selected" ?>><?php echo _("Source") ?></option>
-                            <option value="portdst" <?php if (preg_match("/base_stat_port/", $_SERVER['SCRIPT_NAME']) && $port_type == "2") echo "selected" ?>><?php echo _("Destination") ?></option>
+                            <option value="portempty"><?php echo _("یکی را انتخاب کنید") ?></option>
+                            <option value="portsrc" <?php if (preg_match("/base_stat_port/", $_SERVER['SCRIPT_NAME']) && $port_type == "1") echo "selected" ?>><?php echo _("منبع") ?></option>
+                            <option value="portdst" <?php if (preg_match("/base_stat_port/", $_SERVER['SCRIPT_NAME']) && $port_type == "2") echo "selected" ?>><?php echo _("مقصد") ?></option>
                         </select>
                         </div>
     
@@ -812,7 +812,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                         <div id="group_proto_select" style="display:<?php echo (preg_match("/base_stat_port/", $_SERVER['SCRIPT_NAME'])) ? "inline" : "none" ?>">
                         <?php global $proto ?>
                         <select name="groupby_proto" id="groupby_proto" onchange="group_selected(this.value)">
-                            <option value="portprotoempty"><?php echo _("Select one") ?></option>
+                            <option value="portprotoempty"><?php echo _("یکی را انتخاب کنید") ?></option>
                             <option value="portprotoany" <?php if (preg_match("/base_stat_port/", $_SERVER['SCRIPT_NAME']) && $proto == "-1")  echo "selected" ?>><?php echo _("Any") ?></option>
                             <option value="portprototcp" <?php if (preg_match("/base_stat_port/", $_SERVER['SCRIPT_NAME']) && $proto == "6")  echo "selected" ?>><?php echo _("TCP") ?></option>
                             <option value="portprotoudp" <?php if (preg_match("/base_stat_port/", $_SERVER['SCRIPT_NAME']) && $proto == "17") echo "selected" ?>><?php echo _("UDP") ?></option>
@@ -829,7 +829,7 @@ if (count($database_servers)>0 && Session::menu_perms("configuration-menu", "Pol
                 ?>
                 <td class='right'>
                     <button id="actions_link" class="button av_b_secondary">
-                        <?php echo _('Actions') ?> &nbsp;&#x25be;
+                        <?php echo _('فعالیت ها') ?> &nbsp;&#x25be;
                     </button>
                 </td>
                 <?php

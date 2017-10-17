@@ -40,11 +40,11 @@ Session::logcheck('environment-menu', 'ToolsScan');
 $keytree = 'assets';
 
 $scan_types = array(
-    'ping'   => _('Ping'),
-    'fast'   => _('Fast Scan'),
-    'normal' => _('Normal'),
-    'full'   => _('Full Scan'),
-    'custom' => _('Custom')
+    'ping'   => _('پینگ'),
+    'fast'   => _('اسکن سریع'),
+    'normal' => _('معمولی'),
+    'full'   => _('اسکن کامل'),
+    'custom' => _('کاستوم')
 );
 
 $time_templates = array(
@@ -153,12 +153,12 @@ if ($_REQUEST['action'] == 'custom_scan')
     }
 
     $validate = array (
-        'host_id'         => array('validation' => 'OSS_HEX',                    'e_message' => 'illegal:' . _('Host ID')),
-        'sensor'          => array('validation' => 'OSS_LETTER',                 'e_message' => 'illegal:' . _('Sensor')),
-        'scan_type'       => array('validation' => 'OSS_LETTER',                 'e_message' => 'illegal:' . _('Scan Mode')),
-        'timing_template' => array('validation' => 'OSS_TIMING_TEMPLATE',        'e_message' => 'illegal:' . _('Timing Template')),
-        'autodetected'    => array('validation' => 'OSS_BINARY',                 'e_message' => 'illegal:' . _('Autodetected services and OS')),
-        'rdns'            => array('validation' => 'OSS_BINARY',                 'e_message' => 'illegal:' . _('Reverse DNS '))
+        'host_id'         => array('validation' => 'OSS_HEX',                    'e_message' => 'illegal:' . _('مشخصه میزبان')),
+        'sensor'          => array('validation' => 'OSS_LETTER',                 'e_message' => 'illegal:' . _('حسگر')),
+        'scan_type'       => array('validation' => 'OSS_LETTER',                 'e_message' => 'illegal:' . _('مد اسکن')),
+        'timing_template' => array('validation' => 'OSS_TIMING_TEMPLATE',        'e_message' => 'illegal:' . _('تمپلت زمانی')),
+        'autodetected'    => array('validation' => 'OSS_BINARY',                 'e_message' => 'illegal:' . _('تشخیص اتوماتیک سرویس ها و سیستم عامل')),
+        'rdns'            => array('validation' => 'OSS_BINARY',                 'e_message' => 'illegal:' . _('عکس DNS '))
     );
 
     $validation_errors = validate_form_fields('POST', $validate);
@@ -170,13 +170,13 @@ if ($_REQUEST['action'] == 'custom_scan')
         if (!array_key_exists(POST('scan_type'), $scan_types))
         {
             $validation_errors['status']    = 'error';
-            $validation_errors['scan_type'] = _('Error! Scan type not allowed');
+            $validation_errors['scan_type'] = _('خطا نوع اسکن اشتباه است');
         }
 
         if (!array_key_exists(POST('timing_template'), $time_templates))
         {
             $validation_errors['status']          = 'error';
-            $validation_errors['timing_template'] = _('Error! Timing template not allowed');
+            $validation_errors['timing_template'] = _('تمپلت زمانی اشتباه است');
         }
 
         if (empty($validation_errors))
@@ -201,7 +201,7 @@ $db->close();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-    <title><?php echo _('OSSIM Framework');?></title>
+    <title><?php echo _('چهار چوب صبا');?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
     <meta http-equiv="Pragma" content="no-cache"/>
 
@@ -248,7 +248,7 @@ $db->close();
 
         function show_notification (msg, container, nf_type, style)
         {
-            var nt_error_msg = (msg == '')   ? '<?php echo _('Sorry, operation was not completed due to an error when processing the request')?>' : msg;
+            var nt_error_msg = (msg == '')   ? '<?php echo _('عملیات به دلیل وجود خطا در پردازش تقاضا انجام نشد')?>' : msg;
             var style        = (style == '') ? 'width: 80%; text-align:center; padding: 5px 5px 5px 22px; margin: 20px auto;' : style;
 
             var config_nt = {
@@ -291,7 +291,7 @@ $db->close();
         {
             if(getcombotext("assets").length < 1)
             {
-                av_alert('<?php echo Util::js_entities(_('You must choose at least one asset'))?>');
+                av_alert('<?php echo Util::js_entities(_('شما باید حداقل یک دارایی را انتخاب کنید'))?>');
 
                 return false;
             }
@@ -327,11 +327,11 @@ $db->close();
 
             if (num_targets > 256)
             {
-                var msg_confirm = '<?php echo Util::js_entities(_("You are about to scan a big number of assets (#TARGETS# assets). This scan could take a long time depending on your network and the number of assets that are up, are you sure you want to continue?"))?>';
+                var msg_confirm = '<?php echo Util::js_entities(_("به دلیل انتخاب تعداد زیادی از دارایی ها-با توجه به سرعت شبکه- ممکن است که فرآیند اسکن بسیار طولانی شود، آیا مطمئن به ادامه هستید؟"))?>';
 
                 msg_confirm = msg_confirm.replace("#TARGETS#", num_targets);
 
-                var keys = {"yes": "<?php echo _('Yes') ?>","no": "<?php echo _('No') ?>"};
+                var keys = {"yes": "<?php echo _('بله') ?>","no": "<?php echo _('خیر') ?>"};
 
                 av_confirm(msg_confirm, keys).fail(function(){
                     return false;
@@ -383,11 +383,11 @@ $db->close();
             check_scan_status().done(function(data) {
 
                 var allowed_status = new Array();
-                    allowed_status[1] = '<?php echo _('Searching assets')?>';
-                    allowed_status[2] = '<?php echo _('Search finished')?>';
-                    allowed_status[3] = '<?php echo _('Scanning assets')?>';
-                    allowed_status[4] = '<?php echo _('Scan finished')?>';
-                    allowed_status[5] = '<?php echo _('Failed')?>';
+                    allowed_status[1] = '<?php echo _('درحال جستجوی دارایی ها')?>';
+                    allowed_status[2] = '<?php echo _('اتمام جستجو')?>';
+                    allowed_status[3] = '<?php echo _('درحال اسکن دارایی ها')?>';
+                    allowed_status[4] = '<?php echo _('اتمام اسکن')?>';
+                    allowed_status[5] = '<?php echo _('ناموفق')?>';
 
                 try
                 {
@@ -521,7 +521,7 @@ $db->close();
                 success: function(data){
 
                     var scan_status   = 0;
-                    var scan_info     = '<?php echo _('Requesting data, please wait')?> ...';
+                    var scan_info     = '<?php echo _('در حال درخواست داده, لطفا صبر کنید')?> ...';
                     var scan_progress = null;
 
                     show_state_box(scan_status, scan_info, scan_progress);
@@ -769,7 +769,7 @@ $db->close();
                                 {
                                     if (data.length < 1)
                                     {
-                                        show_notification('<?php echo _('Unable to fetch the asset group members')?>', 'c_info', 'nf_error', 'padding: 3px; width: 90%; margin: auto; text-align: center;');
+                                        show_notification('<?php echo _('عدم توانایی دریافت عضوهای  گروه دارایی')?>', 'c_info', 'nf_error', 'padding: 3px; width: 90%; margin: auto; text-align: center;');
                                     }
                                     else
                                     {
@@ -778,7 +778,7 @@ $db->close();
 
                                         if (last_element.match(/hostgroup_/))
                                         {
-                                            show_notification('<?php echo _('This asset group has more than 200 assets, please try again with a smaller group')?>', 'c_info', 'nf_warning', 'padding: 3px; width: 90%; margin: auto; text-align: center;');
+                                            show_notification('<?php echo _('این گروه دارایی بیشتر از 200 عضو دارد، لطفا با گروهای کوچکتر شروع کنید')?>', 'c_info', 'nf_warning', 'padding: 3px; width: 90%; margin: auto; text-align: center;');
                                         }
                                         else
                                         {
@@ -958,7 +958,7 @@ $db->close();
 
             $("#searchbox").blur(function() {
                 $("#searchbox").addClass('greyfont');
-                $("#searchbox").val('<?php echo _('Type here to search assets')?>');
+                $("#searchbox").val('<?php echo _('برای جستجوی دارایی ها اینجا بنویسید')?>');
             });
 
 
@@ -1057,7 +1057,7 @@ $db->close();
     <?php
     if (is_array($validation_errors) && !empty($validation_errors))
     {
-        $txt_error = '<div>'._('The following errors occurred').":</div>
+        $txt_error = '<div>'._('خطای زیر رخ داد').":</div>
                       <div style='padding: 10px;'>".implode('<br/>', $validation_errors).'</div>';
 
         $config_nt = array(
@@ -1079,18 +1079,18 @@ $db->close();
 
     <form name="assets_form" id="assets_form">
 
-        <div class='scan_title'><?php echo _('Scan for New Assets') ?></div>
+        <div class='scan_title'><?php echo _('جستجو برای دارایی های جدید') ?></div>
 
         <table align="center" id='t_ad'>
 
             <tbody>
                 <tr>
-                    <th colspan="2"><?php echo _('Target selection') ?></th>
+                    <th colspan="2"><?php echo _('انتخاب هدف') ?></th>
                 </tr>
 
                 <tr>
                     <td>
-                        <span> <?php echo _('Please, select the assets you want to scan:');?></span>
+                        <span> <?php echo _('لطفا دارایی را که می خواهید جستجو کنید، انتخاب کنید');?></span>
                     </td>
                 </tr>
 
@@ -1108,13 +1108,13 @@ $db->close();
                                         <tr>
                                             <td class="nobborder" style="text-align:right;padding-top:5px;">
                                                 <input type="button" name='deletel' id='delete' class="small av_b_secondary" value=" [X] "/>
-                                                <input type="button" name='delete_all' id='delete_all' class="small av_b_secondary" style="margin-right:0px;" value="<?php echo _('Delete all')?>"/>
+                                                <input type="button" name='delete_all' id='delete_all' class="small av_b_secondary" style="margin-right:0px;" value="<?php echo _('حذف همه')?>"/>
                                             </td>
                                         </tr>
                                     </table>
                                 </td>
                                 <td class="nobborder" width="300px;" style="vertical-align: top;padding-left:15px;">
-                                    <input class="greyfont" type="text" name="searchbox" id="searchbox" value="<?php echo _('Type here to search assets'); ?>" />
+                                    <input class="greyfont" type="text" name="searchbox" id="searchbox" value="<?php echo _('برای جستجوی دارایی ها اینجا بنویسید'); ?>" />
                                     <div id="atree"></div>
                                 </td>
                             </tr>
@@ -1123,7 +1123,7 @@ $db->close();
                 </tr>
 
                 <tr>
-                    <th colspan="2"> <?php echo _('Sensor selection')?></th>
+                    <th colspan="2"> <?php echo _('انتخاب حسگر')?></th>
                 </tr>
 
                 <tr>
@@ -1136,8 +1136,8 @@ $db->close();
                                     ?>
                                     <input class="vfield" type="radio" name="sensor" id="lsensor" <?php echo $sl_checked?> value="local"/>
                                     <label for="lsensor">
-                                        <span><span class="bold"><?php echo _('Local')?></span> <?php echo _('sensor')?></span>
-                                        <span class="small"> <?php echo _('Launch scan from the local sensor')?></span>
+                                        <span><span class="bold"><?php echo _('محلی')?></span> <?php echo _('حسگر')?></span>
+                                        <span class="small"> <?php echo _('اجرای اسکن از حسگر محلی')?></span>
                                     </label>
                                 </td>
                             </tr>
@@ -1154,8 +1154,8 @@ $db->close();
 
                                         <input type="radio" class="vfield" name="sensor" id="asensor" <?php echo $sl_checked?> value="auto"/>
                                         <label for="asensor">
-                                            <span><span class="bold"><?php echo _('Automatic')?></span> <?php echo _('sensor')?></span>
-                                            <span class="small"> <?php echo _('Launch scan from the first available sensor')?></span>
+                                            <span><span class="bold"><?php echo _('خودکار')?></span> <?php echo _('حسگر')?></span>
+                                            <span class="small"> <?php echo _('اجرای اسکن از اولین حسگر قابل دسترس')?></span>
                                         </label>
                                     </td>
                                 </tr>
@@ -1174,7 +1174,7 @@ $db->close();
                         <td style="text-align: left; border:none; padding:3px 0px 3px 8px">
                             <a href="javascript:void(0);" id='lnk_ss'>
                                 <img id="sensors_arrow" border="0" align="absmiddle" src="../pixmaps/arrow_green.gif"/>
-                                <span><?php echo _('<strong>Select a</strong> specific sensor')?></span>
+                                <span><?php echo _('انتخاب حسگر مشخص')?></span>
                             </a>
                         </td>
                     </tr>
@@ -1206,7 +1206,7 @@ $db->close();
                 ?>
 
                 <tr>
-                    <th colspan="2"><?php echo _('Advanced Options')?></th>
+                    <th colspan="2"><?php echo _('گزینه های پیشرفته')?></th>
                 </tr>
 
                 <!-- Full scan -->
@@ -1217,7 +1217,7 @@ $db->close();
                             <!-- Full scan -->
                             <tr>
                                 <td class='td_label'>
-                                    <label for="scan_type"><?php echo _('Scan type')?>:</label>
+                                    <label for="scan_type"><?php echo _('نوع اسکن')?>:</label>
                                 </td>
                                 <td>
                                     <select id="scan_type" name="scan_type" class="nmap_select vfield">
@@ -1239,7 +1239,7 @@ $db->close();
                             <!-- Specific ports -->
                             <tr id='tr_cp'>
                                 <td class='td_label'>
-                                    <label for="custom_ports"><?php echo _('Specify Ports')?>:</label>
+                                    <label for="custom_ports"><?php echo _('تعیین پورتها')?>:</label>
                                 </td>
                                 <td colspan="2">
                                     <?php
@@ -1252,7 +1252,7 @@ $db->close();
                             <!-- Time template -->
                             <tr>
                                 <td class='td_label'>
-                                    <label for="timing_template"><?php echo _('Timing template')?>:</label>
+                                    <label for="timing_template"><?php echo _('تمپلت زمانی')?>:</label>
                                 </td>
                                 <td>
                                     <select id="timing_template" name="timing_template" class="nmap_select vfield">
@@ -1286,7 +1286,7 @@ $db->close();
                                     <?php $rdns_checked = ($rdns == 1) ? 'checked="checked"' : '';?>
 
                                     <input type="checkbox" id="rdns" name="rdns" class='vfield' <?php echo $rdns_checked?> value="1" />
-                                    <label for="rdns"><?php echo _('Enable reverse DNS Resolution')?></label>
+                                    <label for="rdns"><?php echo _('فعال کردن بازیابی معکوس DNS')?></label>
                                 </td>
                             </tr>
                         </table>
@@ -1296,7 +1296,7 @@ $db->close();
                 <!-- Do scan -->
                 <tr>
                     <td colspan="2" class="nobborder center" style='padding: 10px;'>
-                        <input type="button" id="scan_button" onclick="check_target_number();" value="<?php echo _('Start Scan') ?>"/>
+                        <input type="button" id="scan_button" onclick="check_target_number();" value="<?php echo _('شروع اسکن') ?>"/>
                     </td>
                 </tr>
             </tbody>

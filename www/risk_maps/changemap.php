@@ -36,7 +36,7 @@ require_once 'riskmaps_functions.php';
 
 if (!Session::menu_perms('dashboard-menu', 'BusinessProcessesEdit'))
 {
-    echo ossim_error(_("You don't have permissions to change maps"));
+    echo ossim_error(_("شما دسترسی لازم برای تغییر نقشه را ندارید!"));
     exit();
 }
 
@@ -67,7 +67,7 @@ while (!$result->EOF)
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title><?php echo  _('Risk Maps - Manage Maps')?></title>
+        <title><?php echo  _('نقشه های ریسک - نقشه های مدیریت')?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <link rel="stylesheet" type="text/css" href="/ossim/style/av_common.css?t=<?php echo Util::get_css_id() ?>">
         <link href="/ossim/style/jquery.contextMenu.css" rel="stylesheet" type="text/css"/>
@@ -137,7 +137,7 @@ while (!$result->EOF)
                         else if(action == "perms")
                         {
                             var url   = "change_user.php?map="+aux;
-                            var title = "<?php echo Util::js_entities(_("Map Permissions"))?>";
+                            var title = "<?php echo Util::js_entities(_("دسترسی ها مرتبط با نقشه"))?>";
 
                             GB_show(title, url, 250, 370);
 
@@ -151,7 +151,7 @@ while (!$result->EOF)
                         }
                         else if(action == "delete")
                         {
-                            if (confirm('<?php echo  Util::js_entities(_("This map will be removed. This action can not be undone. Are you sure you want to continue?"))?>'))
+                            if (confirm('<?php echo  Util::js_entities(_("این نقشه حذف خواهد شد، آیا از عمل خود مطمئن هستید؟?"))?>'))
                             {
                                 delete_map(aux);
                             }
@@ -177,7 +177,7 @@ while (!$result->EOF)
 
                         if(data.error)
                         {
-                            show_notification('<?php echo _('Error Changing map title') ?>: '+data.msg, 'nf_error', 2500);
+                            show_notification('<?php echo _('خطای تغییر عنوان نقشه') ?>: '+data.msg, 'nf_error', 2500);
                         }
                         else
                         {
@@ -187,7 +187,7 @@ while (!$result->EOF)
                         }
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        show_notification('<?php echo _('There was an error') ?>: '+ textStatus, 'nf_error', 2500);
+                        show_notification('<?php echo _('خطایی وجود دارد') ?>: '+ textStatus, 'nf_error', 2500);
                     }
                 });
 
@@ -204,7 +204,7 @@ while (!$result->EOF)
                     success: function(data){
                         if(data.error)
                         {
-                            show_notification('<?php echo _('Error deleting map') ?>: '+data.msg, 'nf_error', 2500);
+                            show_notification('<?php echo _('خطای حذف نقشه') ?>: '+data.msg, 'nf_error', 2500);
                         }
                         else
                         {
@@ -216,7 +216,7 @@ while (!$result->EOF)
                         }
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        show_notification('<?php echo _('There was an error') ?>: '+textStatus, 'nf_error', 2500);
+                        show_notification('<?php echo _('خطایی وجود دارد') ?>: '+textStatus, 'nf_error', 2500);
                     }
                 });
             }
@@ -232,7 +232,7 @@ while (!$result->EOF)
                     success: function(data){
                         if(data.error)
                         {
-                            show_notification('<?php echo _('Error changing default map') ?>: '+data.msg, 'nf_error', 2500);
+                            show_notification('<?php echo _('خطا در هنگام تغییر نقشه پیشفرض') ?>: '+data.msg, 'nf_error', 2500);
                         }
                         else
                         {
@@ -242,7 +242,7 @@ while (!$result->EOF)
                         }
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        show_notification('<?php echo _('There was an error') ?>: '+textStatus, 'nf_error', 2500);
+                        show_notification('<?php echo _('خطایی وجود داشت') ?>: '+textStatus, 'nf_error', 2500);
                     }
                 });
             }
@@ -289,11 +289,11 @@ while (!$result->EOF)
     </head>
     <body>
         <ul id="myMapMenu" class="contextMenu">
-            <li class="edit"><a href="#edit"><?php echo _("Edit")?></a></li>
-            <li class="toggle"><a href="#default"><?php echo _("Set as default")?></a></li>
-            <li class="addAll"><a href="#name"><?php echo _("Name")?></a></li>
-            <li class="addEntity"><a href="#perms"><?php echo _("Change Owner")?></a></li>
-            <li class="delete"><a href="#delete"><?php echo _("Delete")?></a></li>
+            <li class="edit"><a href="#edit"><?php echo _("ویرایش")?></a></li>
+            <li class="toggle"><a href="#default"><?php echo _("تنظیم به عنوان پیشفرض")?></a></li>
+            <li class="addAll"><a href="#name"><?php echo _("نام")?></a></li>
+            <li class="addEntity"><a href="#perms"><?php echo _("تغییر صاحب")?></a></li>
+            <li class="delete"><a href="#delete"><?php echo _("حذف")?></a></li>
         </ul>
 
         <?php
@@ -362,7 +362,7 @@ while (!$result->EOF)
                             //Shorting the name of the map to avoid too big names. In the title will appear the whole name.
                             $map_name  = (strlen($map_names[$n]) > 20) ? substr($map_names[$n], 0, 17).'...' : $map_names[$n];
 
-                            $map_title = $map_names[$n] . (($n == $default_map) ? ' - '. _('DEFAULT MAP') : '');
+                            $map_title = $map_names[$n] . (($n == $default_map) ? ' - '. _('نقشه پیشفرض') : '');
                             ?>
                             <td>
                                 <table id='cmap_<?php echo $n?>'>
@@ -379,7 +379,7 @@ while (!$result->EOF)
                                                     {
                                                         ?>
                                                         <td style="text-align:right" align="right" <?php echo $headerclass?>>
-                                                            <a href='javascript:;' title='<?php echo _("Map Options") ?>' class='menumaps'><img src='images/edit.png' height='18px' border=0></a>
+                                                            <a href='javascript:;' title='<?php echo _("گزینه های نقشه") ?>' class='menumaps'><img src='images/edit.png' height='18px' border=0></a>
                                                         </td>
                                                         <?php
                                                     }
@@ -415,7 +415,7 @@ while (!$result->EOF)
             <tr>
                 <td align='right'>
                     <div style='padding-bottom:15px;'>
-                        <a href='upload_map.php' title='Upload a Map' class='gb_map uppercase'><?php echo _('Upload a new Map')?></a>
+                        <a href='upload_map.php' title='Upload a Map' class='gb_map uppercase'><?php echo _('ارسال نقشه جدیدس')?></a>
                     </div>
                 </td>
             </tr>

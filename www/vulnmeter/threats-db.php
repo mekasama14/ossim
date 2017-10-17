@@ -139,7 +139,7 @@ Session::logcheck("environment-menu", "EventsVulnerabilities");
                    e.content.html(response); // the var e is the callback function data (see above)
                }
            });
-           return '<?php echo _("Searching")."..."?>'; // We temporary show a Please wait text until the ajax success callback is called.               
+           return '<?php echo _("درحال جستجو")."..."?>'; // We temporary show a Please wait text until the ajax success callback is called.
        }
      });
 	
@@ -178,7 +178,7 @@ Session::logcheck("environment-menu", "EventsVulnerabilities");
 <body>
 <?php
 
-$pageTitle = _("Nessus Threats Database");
+$pageTitle = _("پایگاه تهدیدات nessus");
 
 $getParams = array(  'disp', 'increment', 'page', 'kw', 'family', 'risk', 'start_date', 'end_date', 'cve', 'scve' );
 
@@ -226,15 +226,15 @@ case "POST" :
    break;
 }
 
-ossim_valid($disp,       OSS_ALPHA, OSS_NULLABLE, 'illegal:' . _("Disp option"));
-ossim_valid($page,       OSS_DIGIT, OSS_NULLABLE, 'illegal:' . _("Page"));
-ossim_valid($family,     OSS_DIGIT, OSS_NULLABLE,  'illegal:' . _("Family"));
-ossim_valid($risk,       OSS_DIGIT, OSS_NULLABLE,        'illegal:' . _("Risk"));
-ossim_valid($start_date, OSS_DIGIT, '\-', OSS_NULLABLE , 'illegal:' . _("Start date"));
-ossim_valid($end_date,   OSS_DIGIT, '\-', OSS_NULLABLE , 'illegal:' . _("End date"));
+ossim_valid($disp,       OSS_ALPHA, OSS_NULLABLE, 'illegal:' . _("گزینه disp"));
+ossim_valid($page,       OSS_DIGIT, OSS_NULLABLE, 'illegal:' . _("صفحه"));
+ossim_valid($family,     OSS_DIGIT, OSS_NULLABLE,  'illegal:' . _("خانواده"));
+ossim_valid($risk,       OSS_DIGIT, OSS_NULLABLE,        'illegal:' . _("ریسک"));
+ossim_valid($start_date, OSS_DIGIT, '\-', OSS_NULLABLE , 'illegal:' . _("تاریخ شروع"));
+ossim_valid($end_date,   OSS_DIGIT, '\-', OSS_NULLABLE , 'illegal:' . _("تاریخ پایان"));
 ossim_valid($cve,        OSS_ALPHA, '\-', OSS_NULLABLE , 'illegal:' . _("CVE"));
 ossim_valid($scve,       OSS_ALPHA, '\-', OSS_NULLABLE , 'illegal:' . _("sCVE"));
-ossim_valid($kw,         OSS_ALPHA, OSS_PUNC_EXT, OSS_NULLABLE , 'illegal:' . _("Keywords"));
+ossim_valid($kw,         OSS_ALPHA, OSS_PUNC_EXT, OSS_NULLABLE , 'illegal:' . _("کلید واژه ها"));
 
 if (ossim_error()) {
     die(ossim_error());
@@ -286,10 +286,10 @@ echo "<table class='transparent w100'><tr><td class=\"sec_title\">"._("Threats F
         <td colspan="7" class="transparent" style="padding: 0px;">
         <table class="transparent nobborder" cellpadding="0" cellspacing="0" width="100%" align="center">
         <tr>
-        <th class="">' . _("Date Range") . '</th>
-        <th class="">' . _("Keywords") . '</th>
+        <th class="">' . _("رنج تاریخ") . '</th>
+        <th class="">' . _("کلید واژه ها ") . '</th>
         <th class="">' . _("CVE Id") . '</th>
-        <th class="">' . _("Risk Factor") . '</th>
+        <th class="">' . _("فاکتور ریسک") . '</th>
         </tr>
         <tr>
         <td style="text-align:center;" class="nobborder">';
@@ -335,11 +335,11 @@ EOT;
      <select name="risk" size="1">
 EOT;
     echo "<option value=\"\"></option>";
-    echo "<option value=\"7\" ".(($risk==7) ? "selected='selected'":"").">"._("Info")."</option>";
-    echo "<option value=\"6\" ".(($risk==6) ? "selected='selected'":"").">"._("Low")."</option>";
-    echo "<option value=\"3\" ".(($risk==3) ? "selected='selected'":"").">"._("Medium")."</option>";
-    echo "<option value=\"2\" ".(($risk==2) ? "selected='selected'":"").">"._("High")."</option>";
-    echo "<option value=\"1\" ".(($risk==1) ? "selected='selected'":"").">"._("Serious")."</option>";
+    echo "<option value=\"7\" ".(($risk==7) ? "selected='selected'":"").">"._("اطلاعات")."</option>";
+    echo "<option value=\"6\" ".(($risk==6) ? "selected='selected'":"").">"._("پایین")."</option>";
+    echo "<option value=\"3\" ".(($risk==3) ? "selected='selected'":"").">"._("متوسط")."</option>";
+    echo "<option value=\"2\" ".(($risk==2) ? "selected='selected'":"").">"._("بالا")."</option>";
+    echo "<option value=\"1\" ".(($risk==1) ? "selected='selected'":"").">"._("جدی")."</option>";
 	echo <<<EOT
      </select>
      </td>
@@ -354,13 +354,13 @@ EOT;
 	echo <<<EOT
     <table class="table_list"><tr>
 EOT;
-    echo "<th sort:format=\"str\" style=\"text-align: left;width:30%\">"._("Threat Family")."</th>";
-    echo "<th sort:format=\"int\" style=\"width:10%\" class=\"risk7\">"._("Info")."-7</th>";
-    echo "<th sort:format=\"int\" style=\"width:10%\" class=\"risk6\">"._("Low")."-6</th>";
-    echo "<th sort:format=\"int\" style=\"width:10%\" class=\"risk3\">"._("Medium")."-3</th>";
-    echo "<th sort:format=\"int\" style=\"width:10%\" class=\"risk2\">"._("High")."-2</th>";
-    echo "<th sort:format=\"int\" style=\"width:10%\" class=\"risk1\">"._("Serious")."-1</th>";
-    echo "<th sort:format=\"int\" style=\"width:20%\">"._("Total")."</th>";
+    echo "<th sort:format=\"str\" style=\"text-align: left;width:30%\">"._("خانواده تهدیدات")."</th>";
+    echo "<th sort:format=\"int\" style=\"width:10%\" class=\"risk7\">"._("اطلاعات")."-7</th>";
+    echo "<th sort:format=\"int\" style=\"width:10%\" class=\"risk6\">"._("پایین")."-6</th>";
+    echo "<th sort:format=\"int\" style=\"width:10%\" class=\"risk3\">"._("متوسط")."-3</th>";
+    echo "<th sort:format=\"int\" style=\"width:10%\" class=\"risk2\">"._("بالا")."-2</th>";
+    echo "<th sort:format=\"int\" style=\"width:10%\" class=\"risk1\">"._("جدی")."-1</th>";
+    echo "<th sort:format=\"int\" style=\"width:20%\">"._("همگی")."</th>";
 	echo <<<EOT
     </tr>
 
@@ -404,7 +404,7 @@ EOT;
      list( $fam_urg, $fam_ser, $fam_high, $fam_med, $fam_low, $fam_total ) 
          =  $result->fields;
 
-     echo "<tr class=\"even\"><td class='noborder' style=\"text-align: left;padding:3px;\">"._("Total")."</td>
+     echo "<tr class=\"even\"><td class='noborder' style=\"text-align: left;padding:3px;\">"._("همگی")."</td>
             <td class='noborder' align=\"center\">".(($fam_low==0)? "0" : "<a href=\"$http_base&risk=7\" >".Util::number_format_locale((int)$fam_low,0)."</a>")."</td>
           <td class='noborder' align=\"center\">".(($fam_med==0)? "0" : "<a href=\"$http_base&risk=6\" >".Util::number_format_locale((int)$fam_med,0)."</a>")."</td>
             <td class='noborder' align=\"center\">".(($fam_high==0)? "0" : "<a href=\"$http_base&risk=3\" >".Util::number_format_locale((int)$fam_high,0)."</a>")."</td>
@@ -422,7 +422,7 @@ function search($page, $kw, $cve,$family, $risk, $start_date, $end_date) {
 
      $Limit=20;
      
-     $risks = array("7" => _("Info"), "6" => _("Low"), "3" => _("Medium"), "2" => _("High"), "1" => _("Serious"));
+     $risks = array("7" => _("اطلاعات"), "6" => _("پایین"), "3" => _("متوسط"), "2" => _("بالا"), "1" => _("جدی"));
      
      $query = "SELECT name FROM vuln_nessus_family WHERE id=$family";
      $result = $dbconn->execute($query);
@@ -444,7 +444,7 @@ function search($page, $kw, $cve,$family, $risk, $start_date, $end_date) {
     	      <input type="button" class="av_b_back" onclick="document.location.href=\'threats-db.php?start_date='.urlencode($start_date).'&end_date='.urlencode($end_date).'&kw='.urlencode($kw).'&risk='.urlencode($risk).'&scve='.urlencode($cve).'\';return false;"/>    	         
     	  </div>  
         <div class="sec_title">
-        '._("Search results for this criteria").'
+        '._("نتیچه چستجو با توجه به معیار").'
         </div>
          </td>
      </tr>
@@ -580,14 +580,14 @@ EOT;
          $istatus = ($next > 0)     ? '' : 'disabled="disabled"';
          $dstatus = ($previous > 0) ? '' : 'disabled="disabled"'; 
                 
-         echo '<input type="submit" name="increment" value="' . _("Next >") . '" class="av_b_transparent fright" ' . $istatus . '>';
+         echo '<input type="submit" name="increment" value="' . _("بعدی >") . '" class="av_b_transparent fright" ' . $istatus . '>';
 
-         echo '<input type="submit" name="decrement" value="' . _("< Previous") . '" class="av_b_transparent fright"' . $dstatus . '>';
+         echo '<input type="submit" name="decrement" value="' . _("< قبلی") . '" class="av_b_transparent fright"' . $dstatus . '>';
                 
          echo "</form>";
     }
     else {
-        echo "<div class=\"center\"><a href=\"threats-db.php?start_date=$start_date&end_date=$end_date&kw=$kw&risk=$risk&scve=$cve\">"._("No results found, try to change the search parameters")."</a></div>";
+        echo "<div class=\"center\"><a href=\"threats-db.php?start_date=$start_date&end_date=$end_date&kw=$kw&risk=$risk&scve=$cve\">"._("هیچ نتیجه ای یافت نشد، سعی کنید پارامتر چستجو را تغییر دهید")."</a></div>";
     }
 	echo "</td></tr></table></center>";
 }

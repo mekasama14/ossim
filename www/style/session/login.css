@@ -35,7 +35,7 @@ header("Content-type: text/css");
 
 #Head_Font{
     font-family: "BTitrTGEBold";
-    color: #006580;
+    color:#16a7c9;
     font-weight: bold;
     font-size: 18px;
 }
@@ -43,7 +43,7 @@ header("Content-type: text/css");
 body
 {
     overflow-y: auto !important;
-    background: rgba(128, 128, 128, 0.65);
+    background: rgb(82, 90, 125);
 }
 
 table

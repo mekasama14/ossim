@@ -161,7 +161,7 @@ $track_usage_information = $config->get_conf('track_usage_information');
                     setTimeout(function()
                     {
                         params = {
-                            caption       : "<?php echo sprintf(_('Help us improve AlienVault %s'), $app_name)?>",
+                            caption       : "<?php echo sprintf(_('کمک به ارتقا پروژه  %s'), $app_name)?>",
                             url           : url,
                             height        : 300,
                             width         : 550,

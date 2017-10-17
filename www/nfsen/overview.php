@@ -12,9 +12,9 @@ function DisplayOverview () {
 	$profilegroup = $_SESSION['profilegroup'];
 
 	if ( $profilegroup == '.' ) 
-		print "<h2>Overview Profile: ".Util::htmlentities($profile).", Group: (nogroup)</h2>\n";
-	else 
-		print "<h2>Overview Profile: ".Util::htmlentities($profile).", Group ".Util::htmlentities($profilegroup)."</h2>\n";
+		print "<h2>خلاصه پروفایل: ".Util::htmlentities($profile).", گروه: (هیچ گروه)</h2>\n";
+	else
+		print "<h2>خلاصه پروفایل: ".Util::htmlentities($profile).", گروه ".Util::htmlentities($profilegroup)."</h2>\n";
 
 	if ( $_SESSION['profileinfo']['graphs'] != 'ok' ) {
 		print "<h2>No data available!</h2>\n";

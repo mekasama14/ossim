@@ -125,7 +125,7 @@ function otx_summary_dashboard(p)
     
     this.load_pulse_summary = function()
     {
-        var $loading = create_loading("<?php echo Util::js_entities(_('Loading Pulse Summary Data')) ?>");
+        var $loading = create_loading("<?php echo Util::js_entities(_('بارگذاری خلاصه پالسهای ارسال شده')) ?>");
             $loading.appendTo($('[data-bind="p-summary"]'));
 
         return $.ajax(
@@ -154,14 +154,14 @@ function otx_summary_dashboard(p)
                 
                 var $d = $('<div/>',
                 {
-                    "text": "<?php echo Util::js_entities(_('Connect your OTX account to get more insight into emerging threats in your environment.')) ?>",
+                    "text": "<?php echo Util::js_entities(_('برای مشاهده بیشتر تهدیدهای درحال گسترش، لطفا حساب OTX خود را فعال کنید.')) ?>",
                     "class": "p_sec_msg",
                 }).appendTo($sum);
                 
                 
                 if (perms.admin)
                 {
-                    var msg = "<?php echo Util::js_entities(_('Connect Account')) ?>"
+                    var msg = "<?php echo Util::js_entities(_('اتصال حساب')) ?>"
                     $('<button/>',
                     {
                         'text'     : msg,
@@ -185,7 +185,7 @@ function otx_summary_dashboard(p)
     
     this.load_top_pulses = function()
     {
-        var $loading = create_loading("<?php echo Util::js_entities(_('Loading Top Pulse Graph')) ?>");
+        var $loading = create_loading("<?php echo Util::js_entities(_('بارگذاری 10 پالس گراف برتر')) ?>");
             $loading.appendTo($('[data-bind="p-top-pulses"]'));
 
         return $.ajax(
@@ -210,7 +210,7 @@ function otx_summary_dashboard(p)
     
     this.load_trend_pulses = function()
     {
-        var $loading = create_loading("<?php echo Util::js_entities(_('Loading Trend Pulse Graph')) ?>");
+        var $loading = create_loading("<?php echo Util::js_entities(_('بارگذاری پالس گراف روال کنونی')) ?>");
             $loading.appendTo($('[data-bind="p-trend-pulses"]'));
 
         return $.ajax(
@@ -241,9 +241,9 @@ function otx_summary_dashboard(p)
         self.r_chart        = [];
         self.r_activities   = [];
         self.r_total        =  0;
-        self.r_last_updated = "<?php echo _('Unknown') ?>";
+        self.r_last_updated = "<?php echo _('ناشناس') ?>";
         
-        var $loading = create_loading("<?php echo Util::js_entities(_('Loading IP Reputation Data')) ?>");
+        var $loading = create_loading("<?php echo Util::js_entities(_('بارگذاری داده ی IPهای مشهور')) ?>");
             $loading.appendTo($('[data-bind="ipr-data"]'));
             
 
@@ -467,7 +467,7 @@ function otx_summary_dashboard(p)
     		"content": function()
     		{
         		var $dot = $(this).parents('.g_bubble').first();
-        		return $dot.data('date') + ': ' + $dot.data('events') + " <?php echo _('Events') ?>";
+        		return $dot.data('date') + ': ' + $dot.data('events') + " <?php echo _('رویدادها') ?>";
     		}
 		}).on('click', function()
 		{
@@ -524,7 +524,7 @@ function otx_summary_dashboard(p)
 		var $chart = new Chart(ctx).Line(lineChartData, 
 		{
 			responsive: true,
-			tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= $.number(value) %> <?php echo _('Events') ?>",
+			tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= $.number(value) %> <?php echo _('رویدادها') ?>",
 		});
 		
 
@@ -550,7 +550,7 @@ function otx_summary_dashboard(p)
     {
         var $select = $('[data-bind="act-filter"]');
         
-        $select.html('<option value="All"><?php echo _("All") ?></option>');
+        $select.html('<option value="All"><?php echo _("همه") ?></option>');
         
         $.each(self.r_activities, function(i, v)
         {
@@ -569,8 +569,8 @@ function otx_summary_dashboard(p)
     {
         var data =
         {
-            "<?php echo Util::js_entities(_('Unique IPs in the database')) ?>": self.r_total,
-            "<?php echo Util::js_entities(_('Last Updated')) ?>": self.r_last_updated
+            "<?php echo Util::js_entities(_('تمام IPهای موجود در پایگاه داده ')) ?>": self.r_total,
+            "<?php echo Util::js_entities(_('آخرین به روز رسانی')) ?>": self.r_last_updated
         }
         
         $table = $('[data-bind="r-summary"]').empty();
@@ -584,8 +584,8 @@ function otx_summary_dashboard(p)
     
     this.draw_rep_top_countries = function()
     {
-        var title1 = "<?php echo Util::js_entities(_('Country')) ?>";
-        var title2 = "<?php echo Util::js_entities(_('Unique IPs')) ?>";
+        var title1 = "<?php echo Util::js_entities(_('کشور')) ?>";
+        var title2 = "<?php echo Util::js_entities(_('تمام IPهای یکتا')) ?>";
         
         $table = $('[data-bind="r-top"]').html('<tr><td class="left">'+ title1 +'</td><td>'+ title2 +'</td></tr>');
         
@@ -604,7 +604,7 @@ function otx_summary_dashboard(p)
         
         if (self.r_chart.length == 0)
         {
-            $chart.html("<?php echo Util::js_entities(_('No data available')) ?>").addClass('r_chart_empty');
+            $chart.html("<?php echo Util::js_entities(_('داده ای یافت نشد!')) ?>").addClass('r_chart_empty');
             return false;
         }
         
@@ -714,7 +714,7 @@ function otx_summary_dashboard(p)
     
     function empty_layer($elem)
     {
-        $elem.html("<div class='p_sec_msg'><?php echo _('No recent OTX activity') ?></div>");
+        $elem.html("<div class='p_sec_msg'><?php echo _('عدم وجود فعالیت OTX') ?></div>");
     }
     
     

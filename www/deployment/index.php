@@ -75,7 +75,7 @@ $net_form_url = $paths['network']['views'] . 'net_form.php';
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-	<title> <?php echo _("OSSIM Framework"); ?> </title>
+	<title> <?php echo _("چهار چوب صبا"); ?> </title>
 	
 	<!--[if lt IE 9]>
 		<script type="text/javascript" src="/ossim/js/excanvas.js"></script>
@@ -163,7 +163,7 @@ $net_form_url = $paths['network']['views'] . 'net_form.php';
 			
 			$('.ignore_loc').click(function(e){
 				var location = $(this).parents('td').data('location');
-				GB_show("<?php echo _('Configure Services') ?>","services.php?location="+location,"315","500");
+				GB_show("<?php echo _('پیکربندی سرویس ها') ?>","services.php?location="+location,"315","500");
 				e.stopPropagation();
 			});
 
@@ -195,7 +195,7 @@ $net_form_url = $paths['network']['views'] . 'net_form.php';
 					else
 					{
 						$('#net_list').hide();	
-						var txt = "<?php echo _('There are no networks related to this location') ?>. <a href='<?php echo $net_form_url ?>' title='<?php echo _('Add network') ?>' class='g_net'><?php echo _('click here to add a network') ?></a>";
+						var txt = "<?php echo _('هیچ شبکه ای به این مکان مرتبط نیست') ?>. <a href='<?php echo $net_form_url ?>' title='<?php echo _('اضافه کردن شبکه') ?>' class='g_net'><?php echo _('برای اضافه کردن شبکه اینجا کلیک کنید') ?></a>";
 						$('#net_info').html(txt);
 						$('#net_info').show();
 
@@ -204,7 +204,7 @@ $net_form_url = $paths['network']['views'] . 'net_form.php';
 				else if (id != undefined)
 				{
 					$('#net_list').hide();	
-					var txt = "<?php echo _('There are no sensors related to this location') ?>. <a href='/ossim/sensor/newlocationsform.php?id="+id+"' title='<?php echo _('Relate sensor to location') ?>' class='g_loc'><?php echo _('click here to relate a sensor') ?></a>";
+					var txt = "<?php echo _('هیچ شبکه ای به این مکان مرتبط نیست') ?>. <a href='/ossim/sensor/newlocationsform.php?id="+id+"' title='<?php echo _('حسگرهای مرتبط با مکان') ?>' class='g_loc'><?php echo _('برای ارتباط دهی حسگرها اینجا کلیک کنید') ?></a>";
 					$('#net_info').html(txt);
 					$('#net_info').show();
 				}
@@ -288,17 +288,17 @@ if ($error)
 		<table class='transparent clear_table' width="100%" align='center'>
 			<tr>
 				<td class='noborder'>
-					<div id='box_global' class='box_chart box_help' title='<?php echo _('Global Visibility') ?>' >
-						<div class='box_title sec_title'><?php echo _('Global Visibility') ?></div>
+					<div id='box_global' class='box_chart box_help' title='<?php echo _('نمایش عمومی') ?>' >
+						<div class='box_title sec_title'><?php echo _('نمایش عمومی') ?></div>
 						<table class='transparent circle'>
 							<tr>
 								<td class='noborder' valign='top'>
 									<div class='box_circle'>
 									
 										<div class='percentage' id='c_location' data-percent=""><span id='c_location_label'></span></div>
-										<div class='box_subtitle' style='max-width:180px;'><?php echo _('Locations with Sensors') ?></div>
+										<div class='box_subtitle' style='max-width:180px;'><?php echo _('مکانها به همراه حسگرها') ?></div>
 										<div class='box_count'>
-											<?php echo   $location_percent[1] . "/" . $location_percent[2] ?> <?php echo _('Locations with sensors') ?>
+											<?php echo   $location_percent[1] . "/" . $location_percent[2] ?> <?php echo _('مکانها به همراه حسگرها') ?>
 										</div>
 									</div>
 								</td>
@@ -308,8 +308,8 @@ if ($error)
 				</td>
 								
 				<td class='noborder'>
-					<div id='box_assets' class='box_chart box_help' title='<?php echo _('Assets Visibility') ?>' >
-						<div class='box_title sec_title'><?php echo _('Assets Visibility') ?></div>
+					<div id='box_assets' class='box_chart box_help' title='<?php echo _('نمایش دارایی ها') ?>' >
+						<div class='box_title sec_title'><?php echo _('نمایش دارایی ها') ?></div>
 						<table class='transparent circle'>
 							<tr>
 								<td class='noborder' valign='top'>
@@ -318,7 +318,7 @@ if ($error)
 											<span id='c_net_label'></span>
 										</div>
 										<div class='box_subtitle'>
-											<?php echo _('Network Devices') ?>
+											<?php echo _('ابزارهای  شبکه') ?>
 										</div>
 										<div class='box_count' id='counter_net_devices'>
 											<?php echo   $network_percent[1] . "/" . $network_percent[2] . " " . _('Configured') ?>
@@ -331,10 +331,10 @@ if ($error)
 											<span id='c_server_label'></span>
 										</div>
 										<div class='box_subtitle'>
-											<?php echo _('Servers') ?>
+											<?php echo _('سرورها') ?>
 										</div>
 										<div class='box_count' id='counter_server_devices'>
-											<?php echo   $server_percent[1] . "/" . $server_percent[2] . " " . _('Configured') ?>
+											<?php echo   $server_percent[1] . "/" . $server_percent[2] . " " . _('پیکربندی شد') ?>
 										</div>
 									</div>
 								</td>
@@ -344,43 +344,43 @@ if ($error)
 				</td>
 								
 				<td class='noborder'>
-					<div id='box_networks' class='box_chart box_help' title='<?php echo _('Network Visibility') ?>' >
-						<div class='box_title sec_title'><?php echo _('Network Visibility') ?></div>
+					<div id='box_networks' class='box_chart box_help' title='<?php echo _('نمایش شبکه') ?>' >
+						<div class='box_title sec_title'><?php echo _('نمایش شبکه') ?></div>
 						<table class='transparent circle'>
 							<tr>
 								<td class='noborder' valign='top'>
 									<div class='box_circle'>
 										<div class='percentage' id='c_ids' data-percent=""><span id='c_ids_label'></span></div>
-										<div class='box_subtitle'><?php echo _('IDS Enabled') ?></div>
-										<div class='box_count'><?php echo   $ids_percent[1] . "/" . $ids_percent[2] . " " . _('Networks') ?></div>
+										<div class='box_subtitle'><?php echo _(' تمام IDSهای فعال ') ?></div>
+										<div class='box_count'><?php echo   $ids_percent[1] . "/" . $ids_percent[2] . " " . _('شبکه ها') ?></div>
 									</div>
 								</td>
 								<td class='noborder' valign='top'>
 									<div class='box_circle'>
 										<div class='percentage' id='c_vulns' data-percent=""><span id='c_vulns_label'></span></div>
-										<div class='box_subtitle'><?php echo _('Vulnerability Scans') ?></div>
-										<div class='box_count'><?php echo   $vulns_percent[1] . "/" . $vulns_percent[2] . " " . _('Networks') ?></div>
+										<div class='box_subtitle'><?php echo _('اسکن آسیب پذیری') ?></div>
+										<div class='box_count'><?php echo   $vulns_percent[1] . "/" . $vulns_percent[2] . " " . _('شبکه ها') ?></div>
 									</div>
 								</td>
 								<td class='noborder' valign='top'>
 									<div class='box_circle'>
 										<div class='percentage' id='c_pasive' data-percent=""><span id='c_pasive_label'></span></div>
-										<div class='box_subtitle'><?php echo _('Passive Inventory') ?></div>
-										<div class='box_count'><?php echo   $passive_percent[1] . "/" . $passive_percent[2] . " " . _('Networks') ?></div>
+										<div class='box_subtitle'><?php echo _('ابزارهای های ایستا') ?></div>
+										<div class='box_count'><?php echo   $passive_percent[1] . "/" . $passive_percent[2] . " " . _('شبکه ها') ?></div>
 									</div>
 								</td>
 								<td class='noborder' valign='top'>
 									<div class='box_circle'>
 										<div class='percentage' id='c_active' data-percent=""><span id='c_active_label'></span></div>
-										<div class='box_subtitle'><?php echo _('Active Inventory') ?></div>
-										<div class='box_count'><?php echo   $active_percent[1] . "/" . $active_percent[2] . " " . _('Networks') ?></div>
+										<div class='box_subtitle'><?php echo _('ابزارهای های پویا') ?></div>
+										<div class='box_count'><?php echo   $active_percent[1] . "/" . $active_percent[2] . " " . _('شبکه ها ') ?></div>
 									</div>
 								</td>
 								<td class='noborder' valign='top'>
 									<div class='box_circle'>
 										<div class='percentage' id='c_netflow' data-percent=""><span id='c_netflow_label'></span></div>
-										<div class='box_subtitle'><?php echo _('Netflow Monitoring') ?></div>
-										<div class='box_count'><?php echo   $netflow_percent[1] . "/" . $netflow_percent[2] . " " . _('Networks') ?></div>
+										<div class='box_subtitle'><?php echo _('مانیتور Net flow') ?></div>
+										<div class='box_count'><?php echo   $netflow_percent[1] . "/" . $netflow_percent[2] . " " . _('شبکه ها ') ?></div>
 									</div>
 								</td>
 							</tr>
@@ -417,11 +417,11 @@ if ($error)
 										
 										if (count($sensors) == 0)
 										{
-											$tooltip  = "0 ". _('Sensors') ."<br> $total_n ". _('Networks');
+											$tooltip  = "0 ". _('حسگرها') ."<br> $total_n ". _('شبکه ها');
 										}
 										else
 										{
-											$tooltip  = count($sensors) ." ". ((count($sensors) ==1) ? _('Sensor') : _('Sensors')) .":<br> ";
+											$tooltip  = count($sensors) ." ". ((count($sensors) ==1) ? _('حسگر') : _('حسگرها')) .":<br> ";
 											$tooltip  .= "<ul>";
 											
 											foreach ($sensors as $s)
@@ -430,7 +430,7 @@ if ($error)
 											}
 											
 											$tooltip  .= "</ul>";											
-											$tooltip  .= "$total_n ". (($total_n ==1) ? _('Network') : _('Networks')) ;
+											$tooltip  .= "$total_n ". (($total_n ==1) ? _('شبکه') : _('شبکه ها')) ;
 										
 										}
 									
@@ -459,7 +459,7 @@ if ($error)
 			
 					<td class='noborder' width='30%' valign='top'>
 						<div id="second" class="category-section">
-							<div id='net_info' class='helper-text'><?php echo _('Click on a location to retrieve its network list') ?></div>
+							<div id='net_info' class='helper-text'><?php echo _('برای بدست آوردن لیست شبکه ها بر روی مکان آن کلیک کنید') ?></div>
 							<div style='display:none;' id='net_list'>
 								<table class='noborder networks' width='100%' align="center">
 									<tbody></tbody>
@@ -472,14 +472,14 @@ if ($error)
 						<div id="third" class="category-section">
 						
 							<div id='net_notif'></div>
-							<div id='service_help' class='helper-text'><?php echo _('Click on a network to retrieve the available services') ?></div>
+							<div id='service_help' class='helper-text'><?php echo _('برای بدست آوردن لیست شبکه ها بر روی مکان آن کلیک کنید') ?></div>
 							<input type='hidden' id='net_id_selected' value=''>
 							<table id='net_data' class='transparent' align="center">
 								<tr>
 									<td class='noborder' width='100%' colspan='2'>
 										<div class='net_info'>	
 											<div class='big line' id='net_name' style='text-decoration:underline;'></div>
-											<div class='midbig line'><strong><?php echo _('Owner') ?>: </strong><span id='net_owner'></span></div>
+											<div class='midbig line'><strong><?php echo _('صاحب') ?>: </strong><span id='net_owner'></span></div>
 											<div class='line' id='net_descr'></div>
 										</div>
 									</td>
@@ -491,7 +491,7 @@ if ($error)
 												<td class='res_item' id='service_ids'>
 													<div class="item_result">
 														<img src="/ossim/pixmaps/status/quiz.png" alt="" align="absmiddle"/>
-														<strong><?php echo _('IDS Enabled') ?></strong>
+														<strong><?php echo _('قابل استفاده شدن IDS') ?></strong>
 													</div>
 												</td>
 											</tr>
@@ -500,7 +500,7 @@ if ($error)
 												<td class='res_item' id='service_vulns'>
 													<div class="item_result">
 														<img src="/ossim/pixmaps/status/quiz.png" alt="" align="absmiddle"/>
-														<strong><?php echo _('Vuln Scan Scheduled') ?></strong>
+														<strong><?php echo _('اسکن آسیب پذیری برنامه ریزی شد') ?></strong>
 													</div>
 												</td>
 											</tr>
@@ -509,7 +509,7 @@ if ($error)
 												<td class='res_item' id='service_passive'>
 													<div class="item_result">
 														<img src="/ossim/pixmaps/status/quiz.png" alt="" align="absmiddle"/>
-														<strong><?php echo _('Passive Inventory Enabled') ?></strong>
+														<strong><?php echo _('ابزارهای های ایستا فعال شدند') ?></strong>
 													</div>
 												</td>
 											</tr>
@@ -518,7 +518,7 @@ if ($error)
 												<td class='res_item' id='service_active'>
 													<div class="item_result">
 														<img src="/ossim/pixmaps/status/quiz.png" alt="" align="absmiddle"/>
-														<strong><?php echo _('Active Inventory Enabled') ?></strong>
+														<strong><?php echo _('ابزارهای پویا فعال شدند') ?></strong>
 													</div>
 												</td>
 											</tr>
@@ -527,7 +527,7 @@ if ($error)
 												<td class='res_item' id='service_netflow'>
 													<div class="item_result">
 														<img src="/ossim/pixmaps/status/quiz.png" alt="" align="absmiddle"/>
-														<strong><?php echo _('Netflow Monitoring Enabled') ?></strong>
+														<strong><?php echo _('مانیتورینگ از طریق Netflow فعال شد') ?></strong>
 													</div>
 												</td>
 											</tr>
@@ -541,13 +541,13 @@ if ($error)
 												<span id='n_devices_label'></span>
 											</div>
 											<div class='box_subtitle' >
-												<a href='javascript:;' onclick="load_slider_panel('network');" title='<?php echo _('Click here to see the network devices list') ?>' class='box_help'>
+												<a href='javascript:;' onclick="load_slider_panel('network');" title='<?php echo _('برای دیدن لیست ابزار های  شبکه کلیک کنید') ?>' class='box_help'>
 													<img src='/ossim/pixmaps/network-adapters.png' height='12' border=0 align='absline'/>
-													<?php echo _('Network Devices') ?>
+													<?php echo _('ابزارهای شبکه') ?>
 												</a>
 											</div>
 											<div class='box_count tlink' id='service_net'>
-												<span id='n_devices_count'>0/0</span> <?php echo _('Configured') ?>
+												<span id='n_devices_count'>0/0</span> <?php echo _('پیکربندی شد') ?>
 											</div>
 										</div>	
 										<div class='box_circle_net'>
@@ -555,7 +555,7 @@ if ($error)
 												<span id='n_servers_label'></span>
 											</div>
 											<div class='box_subtitle'>
-												<a href='javascript:;' onclick="load_slider_panel('server');" title='<?php echo _('Click here to see the servers list') ?>' class='box_help'>
+												<a href='javascript:;' onclick="load_slider_panel('server');" title='<?php echo _('برای دیدن لیست سرویسها کلیک کنید') ?>' class='box_help'>
 													<img src='/ossim/pixmaps/servers--arrow.png' height='12' border=0 align='absline'/>
 													<?php echo _('Servers') ?>
 												</a>
@@ -572,10 +572,10 @@ if ($error)
 								<tr>
 									<td id='service_netflow' class="center" colspan='2'>
 
-										<a href='javascript:;' onclick="load_fade_panel();" title='<?php echo _('Click here to see the hosts without device type assigned') ?>' class='box_help'>
+										<a href='javascript:;' onclick="load_fade_panel();" title='<?php echo _('برای دیدن ابزارهایی که نوع آنها مشخص نشده، کلیک کنید') ?>' class='box_help'>
 										
 											<img src='/ossim/pixmaps/tools_gray.png' height='12' border=0 align='absline'/>
-											<?php echo _('Unclassified Asset List') ?>
+											<?php echo _('لیست دارایی های دسته بندی نشده') ?>
 										</a>
 
 									</td>
@@ -592,7 +592,7 @@ if ($error)
 								<div class='loading_box' id='if_loading'>
 									<div class='loading_panel'>
 										<div style='padding: 10px; overflow: hidden;'>
-											<?php echo _("Loading asset details") ?>  <img src='/ossim/pixmaps/loading3.gif' align='absmiddle'/>
+											<?php echo _("بارگذاری جزییات دارایی ها") ?>  <img src='/ossim/pixmaps/loading3.gif' align='absmiddle'/>
 										</div>
 									</div>
 								</div>
@@ -614,7 +614,7 @@ if ($error)
 				<div class='loading_box' id='fade_loading'>
 					<div class='loading_panel'>
 						<div class='text' style='padding: 10px; overflow: hidden;'>
-							<?php echo _("Loading asset details") ?>  <img src='/ossim/pixmaps/loading3.gif' align='absmiddle'/>
+							<?php echo _("بارگذاری جزییات دارایی ها") ?>  <img src='/ossim/pixmaps/loading3.gif' align='absmiddle'/>
 						</div>
 					</div>
 				</div>

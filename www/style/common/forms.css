@@ -59,7 +59,7 @@ if (!headers_sent())
 
 textarea
 {
-    border: 1px solid #888888;
+    border: 1px solid #4f6f88;
     font: inherit;
     vertical-align: middle;
     resize: vertical;

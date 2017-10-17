@@ -398,9 +398,9 @@ class Filter_asset_created extends Asset_filter
             $from  = $value[1];
             $to    = $value[2];
 
-            ossim_valid($range,    OSS_LETTER, OSS_NULLABLE,    'illegal:' . _('Filter Value'));
-            ossim_valid($from,     OSS_DATE, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
-            ossim_valid($to,       OSS_DATE, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+            ossim_valid($range,    OSS_LETTER, OSS_NULLABLE,    'illegal:' . _('نوع فیلتر'));
+            ossim_valid($from,     OSS_DATE, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
+            ossim_valid($to,       OSS_DATE, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
             if (ossim_error())
             {
@@ -483,7 +483,7 @@ class Filter_asset_created extends Asset_filter
     {
         $tags  = array();
 
-        $label = _('Assets Added:') . ' ';
+        $label = _('دارایی های اضافه شده:') . ' ';
 
         $range = $this->get_val();
 
@@ -491,16 +491,16 @@ class Filter_asset_created extends Asset_filter
 
         if ($range == 'range')
         {
-            $label .=  _('Date Range');
+            $label .=  _('تاریخ');
         }
         elseif ($range != '')
         {
-            $_txt   = _('Last ' . ucfirst($range));
+            $_txt   = _('آخرین ' . ucfirst($range));
             $label .= _($_txt);
         }
         else
         {
-            $label .= _('Unknown');
+            $label .= _('ناشناس');
         }
 
         $tags[$id] = $label;
@@ -597,9 +597,9 @@ class Filter_asset_updated extends Asset_filter
             $from  = $value[1];
             $to    = $value[2];
 
-            ossim_valid($range,    OSS_LETTER, OSS_NULLABLE,    'illegal:' . _('Filter Value'));
-            ossim_valid($from,     OSS_DATE, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
-            ossim_valid($to,       OSS_DATE, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+            ossim_valid($range,    OSS_LETTER, OSS_NULLABLE,    'illegal:' . _('نوع فیلتر'));
+            ossim_valid($from,     OSS_DATE, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
+            ossim_valid($to,       OSS_DATE, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
             if (ossim_error())
             {
@@ -683,7 +683,7 @@ class Filter_asset_updated extends Asset_filter
     {
         $tags  = array();
 
-        $label = _('Last Updated:') . ' ';
+        $label = _('آخرین به روز رسانی:') . ' ';
 
         $range = $this->get_val();
 
@@ -691,16 +691,16 @@ class Filter_asset_updated extends Asset_filter
 
         if ($range == 'range')
         {
-            $label .=  _('Date Range');
+            $label .=  _('تاریخ');
         }
         elseif ($range != '')
         {
-            $_txt   = _('Last ' . ucfirst($range));
+            $_txt   = _('آخرین ' . ucfirst($range));
             $label .= _($_txt);
         }
         else
         {
-            $label .= _('Unknown');
+            $label .= _('ناشناس');
         }
 
         $tags[$id] = $label;
@@ -803,7 +803,7 @@ class Filter_alarms extends Asset_filter
         $tags  = array();
 
         $id    = $this->_id . '###' . $this->_id;
-        $label = _('Has Alarms');
+        $label = _('داشتن هشدار');
 
         $tags[$id] = $label;
 
@@ -907,7 +907,7 @@ class Filter_events extends Asset_filter
         $tags  = array();
 
         $id    = $this->_id . '###' . $this->_id;
-        $label = _('Has Events');
+        $label = _('داشتن رویداد');
 
         $tags[$id] = $label;
 
@@ -989,8 +989,8 @@ class Filter_vulnerabilities extends Asset_filter
             $from  = $value[0];
             $to    = $value[1];
 
-            ossim_valid($from,     '1-7', OSS_NULLABLE,    'illegal:' . _('Filter Value'));
-            ossim_valid($to,       '1-7', OSS_NULLABLE,    'illegal:' . _('Filter Value'));
+            ossim_valid($from,     '1-7', OSS_NULLABLE,    'illegal:' . _('نوع فیلتر'));
+            ossim_valid($to,       '1-7', OSS_NULLABLE,    'illegal:' . _('نوع فیلتر'));
 
             if (ossim_error())
             {
@@ -1070,7 +1070,7 @@ class Filter_vulnerabilities extends Asset_filter
 
         $from  = $__vuln_opts[$this->get_from()];
         $to    = $__vuln_opts[$this->get_to()];
-        $label = _('Vulnerabilities:') . ' ' . $to . ' - ' . $from;
+        $label = _('خطاها:') . ' ' . $to . ' - ' . $from;
 
         $tags[$id] = $label;
 
@@ -1151,8 +1151,8 @@ class Filter_asset_value extends Asset_filter
             $from  = $value[0];
             $to    = $value[1];
 
-            ossim_valid($from,     '0-5', OSS_NULLABLE,    'illegal:' . _('Filter Value'));
-            ossim_valid($to,       '0-5', OSS_NULLABLE,    'illegal:' . _('Filter Value'));
+            ossim_valid($from,     '0-5', OSS_NULLABLE,    'illegal:' . _('نوع فیلتر'));
+            ossim_valid($to,       '0-5', OSS_NULLABLE,    'illegal:' . _('نوع فیلتر'));
 
             if (ossim_error())
             {
@@ -1226,7 +1226,7 @@ class Filter_asset_value extends Asset_filter
         $tags  = array();
 
         $id    = $this->_id . '###' . $this->get_from() . ';' . $this->get_to();
-        $label = _('Asset Value:') . ' ' . $this->get_from() . ' - ' . $this->get_to();
+        $label = _('مقدار دارایی:') . ' ' . $this->get_from() . ' - ' . $this->get_to();
 
         $tags[$id] = $label;
 
@@ -1271,7 +1271,7 @@ class Filter_network extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_HEX, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_HEX, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -1352,9 +1352,9 @@ class Filter_network extends Asset_filter
                 $name = '';
             }
 
-            $name  = ($name == '') ? _('Unknown') : $name;
+            $name  = ($name == '') ? _('ناشناس') : $name;
 
-            $label = _('Network:') . ' ' . $name;
+            $label = _('شبکه:') . ' ' . $name;
 
             $tags[$id] = $label;
         }
@@ -1400,7 +1400,7 @@ class Filter_software extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_INPUT, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_INPUT, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -1481,9 +1481,9 @@ class Filter_software extends Asset_filter
                 $name = '';
             }
 
-            $name  = ($name == '') ? _('Unknown') : $name;
+            $name  = ($name == '') ? _('ناشناس') : $name;
 
-            $label = _('Software:') . ' ' . $name;
+            $label = _('برنامه:') . ' ' . $name;
 
             $tags[$id] = $label;
         }
@@ -1529,7 +1529,7 @@ class Filter_fqdn extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_DIGIT, OSS_LETTER, OSS_SCORE, OSS_DOT, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_DIGIT, OSS_LETTER, OSS_SCORE, OSS_DOT, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -1649,7 +1649,7 @@ class Filter_location extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_HEX, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_HEX, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -1729,9 +1729,9 @@ class Filter_location extends Asset_filter
                 $name = '';
             }
 
-            $name  = ($name == '') ? _('Unknown') : $name;
+            $name  = ($name == '') ? _('ناشناس') : $name;
 
-            $label = _('Location:') . ' ' . $name;
+            $label = _('مکان:') . ' ' . $name;
 
 
             $tags[$id] = $label;
@@ -1778,7 +1778,7 @@ class Filter_sensor extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_HEX, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_HEX, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -1858,9 +1858,9 @@ class Filter_sensor extends Asset_filter
                 $name = '';
             }
 
-            $name  = ($name == '') ? _('Unknown') : $name;
+            $name  = ($name == '') ? _('ناشناس') : $name;
 
-            $label = _('Sensor:') . ' ' . $name;
+            $label = _('حسگر:') . ' ' . $name;
 
             $tags[$id] = $label;
         }
@@ -1907,7 +1907,7 @@ class Filter_ip extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,    OSS_IP_ADDRCIDR, OSS_NULLABLE,  'illegal:' . _('Filter Value'));
+        ossim_valid($value,    OSS_IP_ADDRCIDR, OSS_NULLABLE,  'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -2047,12 +2047,12 @@ class Filter_device_type extends Asset_filter
         $from  = $_val[0];
         $to    = $_val[1];
 
-        ossim_valid($from,     OSS_DIGIT, OSS_NULLABLE,    'illegal:' . _('Filter Value'));
-        ossim_valid($to,       OSS_DIGIT, OSS_NULLABLE,    'illegal:' . _('Filter Value'));
+        ossim_valid($from,     OSS_DIGIT, OSS_NULLABLE,    'illegal:' . _('نوع فیلتر'));
+        ossim_valid($to,       OSS_DIGIT, OSS_NULLABLE,    'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
-            $exp_msg = _('Error').': '.ossim_get_error();
+            $exp_msg = _('خطا').': '.ossim_get_error();
             ossim_clean_error();
 
             Av_exception::throw_error(Av_exception::USER_ERROR, $exp_msg);
@@ -2144,12 +2144,12 @@ class Filter_device_type extends Asset_filter
                 $tname = $sname = '';
             }
 
-            $tname = ($tname == '') ? _('Unknown') : $tname;
+            $tname = ($tname == '') ? _('ناشناس') : $tname;
             $sname = ($sname == '') ? '' : '/' . $sname;
 
             $name  = $tname . $sname;
 
-            $label = _('Device Type:') . ' ' . $name;
+            $label = _('نوع ابزار:') . ' ' . $name;
 
             $tags[$id] = $label;
         }
@@ -2201,9 +2201,9 @@ class Filter_port_service extends Asset_filter
         $protocol = $_val[1];
         $service  = $_val[2];
 
-        ossim_valid($port,          OSS_DIGIT, OSS_NULLABLE,    'illegal:' . _('Filter Value'));
-        ossim_valid($protocol,      OSS_DIGIT, OSS_NULLABLE,    'illegal:' . _('Filter Value'));
-        ossim_valid($service,       OSS_INPUT, OSS_NULLABLE,    'illegal:' . _('Filter Value'));
+        ossim_valid($port,          OSS_DIGIT, OSS_NULLABLE,    'illegal:' . _('نوع فیلتر'));
+        ossim_valid($protocol,      OSS_DIGIT, OSS_NULLABLE,    'illegal:' . _('نوع فیلتر'));
+        ossim_valid($service,       OSS_INPUT, OSS_NULLABLE,    'illegal:' . _('نوع فیلتر'));
 
 
         if (ossim_error())
@@ -2292,9 +2292,9 @@ class Filter_port_service extends Asset_filter
             $id       = $this->_id . '###' . $port . ';' . $protocol . ';' . $service;
 
             $protocol = Protocol::get_protocol_by_number($protocol);
-            $protocol = (FALSE === $protocol) ? _('Unknown') : $protocol;
+            $protocol = (FALSE === $protocol) ? _('ناشناس') : $protocol;
 
-            $label    = _('Service:') . ' ' . $port .'/'. $protocol . ' ('. $service . ')';
+            $label    = _('سرویس:') . ' ' . $port .'/'. $protocol . ' ('. $service . ')';
 
             $tags[$id] = $label;
         }
@@ -2338,7 +2338,7 @@ class Filter_os extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_NULLABLE, OSS_ALPHA, OSS_PUNC_EXT,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_NULLABLE, OSS_ALPHA, OSS_PUNC_EXT,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -2453,7 +2453,7 @@ class Filter_model extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_INPUT, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_INPUT, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -2575,7 +2575,7 @@ class Filter_availability extends Asset_filter
         }
         else
         {
-            ossim_valid($value,     '0-2', OSS_NULLABLE,    'illegal:' . _('Availability Status'));
+            ossim_valid($value,     '0-2', OSS_NULLABLE,    'illegal:' . _('وضعیت دسترس پذیری'));
 
             if (ossim_error())
             {
@@ -2642,7 +2642,7 @@ class Filter_availability extends Asset_filter
         $tags  = array();
 
         $id    = $this->_id . '###' . $this->_values;
-        $label = _('Availability Status:') . ' ' . $__availability_status[$this->_values];
+        $label = _('وضعیت دسترس پذیری:') . ' ' . $__availability_status[$this->_values];
 
         $tags[$id] = $label;
 
@@ -2685,7 +2685,7 @@ class Filter_groups extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_HEX, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_HEX, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -2766,9 +2766,9 @@ class Filter_groups extends Asset_filter
                 $name = '';
             }
 
-            $name  = ($name == '') ? _('Unknown') : $name;
+            $name  = ($name == '') ? _('ناشناس') : $name;
 
-            $label = _('Group:') . ' ' . $name;
+            $label = _('گروه:') . ' ' . $name;
 
             $tags[$id] = $label;
         }
@@ -2813,7 +2813,7 @@ class Filter_labels extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_HEX, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_HEX, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -2894,9 +2894,9 @@ class Filter_labels extends Asset_filter
                 $name = '';
             }
 
-            $name  = ($name == '') ? _('Unknown') : $name;
+            $name  = ($name == '') ? _('ناشناس') : $name;
 
-            $label = _('Label:') . ' ' . $name;
+            $label = _('برچسب:') . ' ' . $name;
 
             $tags[$id] = $label;
         }
@@ -2941,7 +2941,7 @@ class Filter_group_name extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_ALPHA, OSS_PUNC, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_ALPHA, OSS_PUNC, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -3015,7 +3015,7 @@ class Filter_group_name extends Asset_filter
         {
             $id    = $this->_id . '###' . $val;
 
-            $label = _('Group Name:') . ' ' . $val;
+            $label = _('نام گروه:') . ' ' . $val;
 
             $tags[$id] = $label;
         }
@@ -3060,7 +3060,7 @@ class Filter_network_name extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_ALPHA, OSS_PUNC, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_ALPHA, OSS_PUNC, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -3134,7 +3134,7 @@ class Filter_network_name extends Asset_filter
         {
             $id    = $this->_id . '###' . $val;
 
-            $label = _('Network Name:') . ' ' . $val;
+            $label = _('نام شبکه:') . ' ' . $val;
 
             $tags[$id] = $label;
         }
@@ -3179,7 +3179,7 @@ class Filter_network_cidr extends Asset_filter
     */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_IP_CIDR, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_IP_CIDR, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -3304,7 +3304,7 @@ class Filter_hids extends Asset_filter
         }
         else
         {
-            ossim_valid($value,     '0-2', OSS_NULLABLE,    'illegal:' . _('HIDS Status'));
+            ossim_valid($value,     '0-2', OSS_NULLABLE,    'illegal:' . _('وضعیت HIDS'));
 
             if (ossim_error())
             {
@@ -3371,7 +3371,7 @@ class Filter_hids extends Asset_filter
         $tags  = array();
 
         $id    = $this->_id . '###' . $this->_values;
-        $label = _('HIDS Status:') . ' ' . $__hids_status[$this->_values];
+        $label = _('وضعیت HIDS') . ' ' . $__hids_status[$this->_values];
 
         $tags[$id] = $label;
 
@@ -3415,7 +3415,7 @@ class Filter_plugin extends Asset_filter
      */
     protected function _set_value($value, $delete = FALSE)
     {
-        ossim_valid($value,     OSS_INPUT, OSS_NULLABLE,      'illegal:' . _('Filter Value'));
+        ossim_valid($value,     OSS_INPUT, OSS_NULLABLE,      'illegal:' . _('نوع فیلتر'));
 
         if (ossim_error())
         {
@@ -3488,7 +3488,7 @@ class Filter_plugin extends Asset_filter
             
             if ($val == 0)
             {
-                $name = _('No Plugin Enabled');
+                $name = _('هیچ پلاگینی فعال نیست');
             }
             else
             {
@@ -3502,9 +3502,9 @@ class Filter_plugin extends Asset_filter
                 }
             }
             
-            $name  = ($name == '') ? _('Unknown') : $name;
+            $name  = ($name == '') ? _('ناشناس') : $name;
             
-            $label = _('Plugin:') . ' ' . $name;
+            $label = _('پلاگین:') . ' ' . $name;
             
             $tags[$id] = $label;
         }

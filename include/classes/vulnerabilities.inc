@@ -197,13 +197,13 @@ class Vulnerabilities
 
             if (!Session::hostAllowed($conn, $host_id))
             {
-                $result[] = array( 'type' => 'error', 'message' => _('Host not allowed') );
+                $result[] = array( 'type' => 'error', 'message' => _('میزبان اشتباه است') );
                 return $result;
             }
 
             if (!Asset_host::is_in_db($conn, $host_id))
             {
-                $result[] = array( 'type' => 'error', 'message' => _('Host not found') );
+                $result[] = array( 'type' => 'error', 'message' => _('میزبان پیدا نشد') );
                 return $result;
             }
 
@@ -251,23 +251,23 @@ class Vulnerabilities
 
                     if(preg_match("/Connection timed out/i", $out))
                     {
-                        $result[] = array( "type" => "test_ko", "message" => _("Checking SSH User/Password"), "sensor" => "Local", "status" => "<span style='color:#D7B044;'>"._("Host unreachable")."</span>");
+                        $result[] = array( "type" => "test_ko", "message" => _("چک نام کاربری و پسورد SSH"), "حسگر" => "محلی", "وضعیت" => "<span style='color:#D7B044;'>"._("عدم دسترسی به میزبان")."</span>");
                     }
                     else if(preg_match("/No route to host/i", $out))
                     {
-                        $result[] = array( "type" => "test_ko", "message" => _("Checking SSH User/Password"), "sensor" => "Local", "status" => "<span style='color:#D7B044;'>"._("No route to host")."</span>");
+                        $result[] = array( "type" => "test_ko", "message" => _("چک نام کاربری و پسورد SSH"), "حسگر" => "محلی", "وضعیت" => "<span style='color:#D7B044;'>"._("عدم یافتن مسیر به سمت میزبان")."</span>");
                     }
                     else if(preg_match("/Authentication failed/i", $out))
                     {
-                        $result[] = array( "type" => "test_ko", "message" => _("Checking SSH User/Password"), "sensor" => "Local", "status" => "<span style='color:#E5383B;'>"._("Authentication failed")."</span>");
+                        $result[] = array( "type" => "test_ko", "message" => _("چک نام کاربری و پسورد SSH"), "حسگر" => "محلی", "وضعیت" => "<span style='color:#E5383B;'>"._("عدم احراز هویت موفق")."</span>");
                     }
                     else if(preg_match("/ok/i", $out))
                     {
-                        $result[] = array( "type" => "test_ok", "message" => _("Checking SSH User/Password"), "sensor" => "Local", "status" => "<span style='color:#5BB531;'>"._("Successfully logged in")."</span>");
+                        $result[] = array( "type" => "test_ok", "message" => _("چک نام کاربری و پسورد SSH"), "حسگر" => "محلی", "وضعیت" => "<span style='color:#5BB531;'>"._("ورود موفق")."</span>");
                     }
                     else
                     {
-                        $result[] = array( "type" => "test_ko", "message" => _("Checking SSH User/Password"), "sensor" => "Local", "status" => "<span style='color:#E5383B;'>"._("Wrong credentials")."</span>");
+                        $result[] = array( "type" => "test_ko", "message" => _("چک نام کاربری و پسورد SSH"), "حسگر" => "محلی", "وضعیت" => "<span style='color:#E5383B;'>"._("اشتباه در محرمانگی اطلاعات")."</span>");
                     }
 
                     // check smb credential with user/login
@@ -316,19 +316,19 @@ class Vulnerabilities
 
                     if(preg_match("/HOST_UNREACHABLE/", $out))
                     {
-                        $result[] = array( "type" => "test_ko", "message" => _("Checking SMB User/Password"), "sensor" => "Local", "status" => "<span style='color:#D7B044;'>"._("Host unreachable")."</span>");
+                        $result[] = array( "type" => "test_ko", "message" => _("چک نام کاربری و پسورد SMB"), "حسگر" => "محلی", "وضعیت" => "<span style='color:#D7B044;'>"._("عدم دسترسی به میزبان") ."</span>");
                     }
                     else if(preg_match("/LOGON_FAILURE|UNSUCCESSFUL|ACCESS_DENIED/", $out))
                     {
-                        $result[] = array( "type" => "test_ko", "message" => _("Checking SMB User/Password"), "sensor" => "Local", "status" => "<span style='color:#E5383B;'>"._("Wrong credentials")."</span>");
+                        $result[] = array( "type" => "test_ko", "message" => _("چک نام کاربری و پسورد SMB"), "حسگر" => "محلی", "وضعیت" => "<span style='color:#E5383B;'>"._("اشتباه در محرمانگی")."</span>");
                     }
                     else if(preg_match("/CONNECTION_REFUSED/", $out))
                     {
-                        $result[] = array( "type" => "test_ko", "message" => _("Checking SMB User/Password"), "sensor" => "Local", "status" => "<span style='color:#D7B044;'>"._("Connection refused")."</span>");
+                        $result[] = array( "type" => "test_ko", "message" => _("چک نام کاربری و پسورد SMB"), "حسگر" => "محلی", "وضعیت" => "<span style='color:#D7B044;'>"._("عدم پذیرش ارتباط")."</span>");
                     }
                     else if(preg_match("/Sharename/", $out) || ($return_var && !$out))
                     {
-                        $result[] = array( "type" => "test_ok", "message" => _("Checking SMB User/Password"), "sensor" => "Local", "status" => "<span style='color:#5BB531;'>"._("Successfully logged in")."</span>");
+                        $result[] = array( "type" => "test_ok", "message" => _("چک نام کاربری و پسورد SMB"), "حسگر" => "محلی", "وضعیت" => "<span style='color:#5BB531;'>"._("ورود موفق")."</span>");
                     }
 
                     if (file_exists($pass_file))
@@ -356,7 +356,7 @@ class Vulnerabilities
 
                     if (!preg_match("/NOK/i", $out))
                     {
-                        $result[] = array( "type" => "test_ok", "message" => _("Checking ssh User/Private Key"), "sensor" => "Local", "status" => "<span style='color:#5BB531;'>"._("Successfully logged in")."</span>");
+                        $result[] = array( "type" => "test_ok", "message" => _("چک نام کاربری و پسورد SMB"), "حسگر" => "محلی", "وضعیت" => "<span style='color:#5BB531;'>"._("ورود موفق")."</span>");
                     }
                     else
                     {
@@ -366,11 +366,11 @@ class Vulnerabilities
 
                         if(preg_match("/Host seems down/i", $out))
                         {
-                            $result[] = array( "type" => "test_ko", "message" => _("Checking ssh User/Private Key"), "sensor" => "Local", "status" => "<span style='color:#D7B044;'>"._("Host unreachable")."</span>");
+                            $result[] = array( "type" => "test_ko", "message" => _("Checking ssh User/Private Key"), "sensor" => "Local", "status" => "<span style='color:#D7B044;'>"._("عدم دسترسی به میزبان")."</span>");
                         }
                         else
                         {
-                            $result[] = array( "type" => "test_ko", "message" => _("Checking ssh User/Private Key"), "sensor" => "Local", "status" => "<span style='color:#E5383B;'>"._("Wrong credentials")."</span>");
+                            $result[] = array( "type" => "test_ko", "message" => _("Checking ssh User/Private Key"), "sensor" => "Local", "status" => "<span style='color:#E5383B;'>"._("اشتباه در مجرمانگی")."</span>");
                         }
                     }
                 }
@@ -378,7 +378,7 @@ class Vulnerabilities
         }
         else
         {
-            $result[] = array( "type" => "error", "message" => _("Not found any sensor") );
+            $result[] = array( "type" => "error", "message" => _("هیچ حسگری یافت نشد") );
         }
 
         return $result;
@@ -572,15 +572,15 @@ class Vulnerabilities
 
         if ($total_scans > 1)
         {
-            $running_scans_title = _("<strong>%d</strong> Running Scans");
+            $running_scans_title = _("<strong>%d</strong> اسکن های درحال اجرا");
         }
         else if($total_scans == 1)
         {
-            $running_scans_title = _("<strong>%d</strong> Running Scan");
+            $running_scans_title = _("<strong>%d</strong> اسکن درحال اجرا");
         }
         else
         {
-            $running_scans_title = _("Running Scans");
+            $running_scans_title = _("اسکن های درحال اجرا");
         }
 
         $sInfo .= "<table style='margin-top:5px;' class='w100 transparent'>
@@ -653,12 +653,12 @@ class Vulnerabilities
                     else if( preg_match("/^([a-f\d]{32})#hostgroup/i", $id_ip, $found))
                     {
                         $hostgroup_name = Asset_group::get_name_by_id($dbconn, $found[1]);
-                        $ttargets[] = ($hostgroup_name == _('Unknown')) ? _('Unknown hostgroup') : $hostgroup_name;
+                        $ttargets[] = ($hostgroup_name == _('ناشناس')) ? _('گروه میزبان ناشناس') : $hostgroup_name;
                     }
                     else if( preg_match("/^([a-f\d]{32})#netgroup/i", $id_ip, $found))
                     {
                         $netgroup_name  = Net_group::get_name_by_id($dbconn, $found[1]);
-                        $ttargets[] = ($netgroup_name == _('Unknown')) ? _('Unknown netgroup') : $netgroup_name;
+                        $ttargets[] = ($netgroup_name == _('ناشناس')) ? _('گروه شبکه ناشناس') : $netgroup_name;
                     }
                     else
                     {
@@ -701,12 +701,12 @@ class Vulnerabilities
                     }
                     else
                     {
-                        $shostname = _("unknown");
+                        $shostname = _("ناشناس");
                     }
                 }
 
                 // check job status
-                $tstatus = array("status"=>'', "progress"=>'');
+                $tstatus = array("وضعیت"=>'', "پیشرفت"=>'');
 
                 if (preg_match("/.*\s(\d+\.\d+\.\d+\.\d+)<.*/", $meth_Wcheck, $found))
                 {
@@ -736,7 +736,7 @@ class Vulnerabilities
 
                 if ($tstatus['status'] != '')
                 {
-                    $job_status = "<strong>"._("Job Status")."</strong>: ".$tstatus["status"].(($tstatus["progress"]!=-1 && $tstatus["status"]!="Requested")? " ".$tstatus["progress"]."%" : '')."<br>";
+                    $job_status = "<strong>"._("وضعیت کارها")."</strong>: ".$tstatus["status"].(($tstatus["progress"]!=-1 && $tstatus["status"]!="Requested")? " ".$tstatus["progress"]."%" : '')."<br>";
                 }
 
                 if (preg_match("/requested$/i", $tstatus["status"]))
@@ -795,14 +795,14 @@ class Vulnerabilities
                     }
                 }
 
-                $tooltip_message = "<strong>"._("Sensor").":</strong> $shostname
-                                    <br>$job_status<strong>"._("Job ID").":</strong> $nid
-                                    <br><strong>"._("Profile").":</strong> $profile
+                $tooltip_message = "<strong>"._("حسگر").":</strong> $shostname
+                                    <br>$job_status<strong>"._("مشخصه کار").":</strong> $nid
+                                    <br><strong>"._("پروفایل").":</strong> $profile
                                     <br>".((count($credentialm)>0) ? implode("<br/>", $credentialm)."<br/>" : '')."
-                                    <strong>"._("Failed attempts").":</strong> $failed_attempts
-                                    <br><strong>"._("Targets").":</strong>
+                                    <strong>"._("تلاشهای شکست خورده").":</strong> $failed_attempts
+                                    <br><strong>"._("هدف ها").":</strong>
                                     <br>$meth_TARGET
-                                    <br>".(($meth_Wcheck != '')? "<strong>"._("Messages").":</strong>
+                                    <br>".(($meth_Wcheck != '')? "<strong>"._("پیام ها").":</strong>
                                     <br>".nl2br(trim($meth_Wcheck)) : '');
 
                 $sInfo .= "<td style='text-align:left;width:15%;padding:3px 0px 3px 3px;'>$image&nbsp;<span class='tip' title='$tooltip_message'>".html_entity_decode($nname)."</span></td>";
@@ -819,8 +819,8 @@ class Vulnerabilities
                 // Scan time
                 $sInfo .= "<td style='width:12%;'>";
 
-                $time_text  = "<strong>"._("Submit date").":</strong> $submit_date";
-                $time_text .= "<br/><strong>"._("Start date").":</strong> $start_date";
+                $time_text  = "<strong>"._("تاریخ ارسال").":</strong> $submit_date";
+                $time_text .= "<br/><strong>"._("تاریخ شروع").":</strong> $start_date";
 
                 $sInfo .= "<div class='tip' title='$time_text'>";
                 $sInfo .= ( $nmins =="0 mins" ) ? "< 1 min" : "$nmins";
@@ -849,7 +849,7 @@ class Vulnerabilities
                         // pause button
                         if($task_status == "Running" || $task_status == "Requested" && !preg_match("/.*\srequested/i", $task_status))
                         {
-                            $sInfo .= "<img align='absmiddle' class='manageJob' id='pauseTask_$nid' title='"._("Pause current scan job")."' alt='"._("Pause current scan job")."' src='./images/pause_task.png'  border='0'>";
+                            $sInfo .= "<img align='absmiddle' class='manageJob' id='pauseTask_$nid' title='"._("توقف اسکن کنونی")."' alt='"._("توقف اسکن کنونی")."' src='./images/pause_task.png'  border='0'>";
                         }
                         else
                         {
@@ -859,7 +859,7 @@ class Vulnerabilities
                         // resume button
                         if( preg_match("/^pause.*/i", $task_status) && !preg_match("/.*\srequested/i", $task_status))
                         {
-                            $sInfo .= "<img align='absmiddle' class='manageJob' id='resumeTask_$nid' title='"._("Resume scan job")."' alt='"._("Resume scan job")."' src='./images/resume_task.png'  border='0'>";
+                            $sInfo .= "<img align='absmiddle' class='manageJob' id='resumeTask_$nid' title='"._("شروع دوباره اسکن کنونی")."' alt='"._("شروع دوباره اسکن کنونی")."' src='./images/resume_task.png'  border='0'>";
                         }
                         else
                         {
@@ -870,7 +870,7 @@ class Vulnerabilities
                     // stop button
                     if($task_status == "Running" || $task_status == "Paused" && !preg_match("/.*\srequested/i", $task_status))
                     {
-                        $sInfo .= "<img align='absmiddle' class='manageJob' id='stopTask_$nid' title='"._("Stop current scan job")."' alt='"._("Stop current scan job")."' src='./images/stop_task.png'  border='0'>";
+                        $sInfo .= "<img align='absmiddle' class='manageJob' id='stopTask_$nid' title='"._("توقف کامل اسکن کنونی")."' alt='"._("توقف کامل اسکن کنونی")."' src='./images/stop_task.png'  border='0'>";
                     }
                     else
                     {
@@ -879,7 +879,7 @@ class Vulnerabilities
                 }
                 else
                 {
-                    $sInfo .= "<span style='font-size:10px'>"._("Requesting task status...")."</span>";
+                    $sInfo .= "<span style='font-size:10px'>"._("در حال درخواست وضعیت تسک ")."</span>";
                 }
 
                 $sInfo .= "<span style='display:none' id='changing_task_status_$nid'><img align='absmiddle' src='../pixmaps/loading.gif' width='16' border='0'></span></td>";
@@ -928,15 +928,15 @@ class Vulnerabilities
 
         if($out == 0)
         {
-            $sInfo .= "<tr><td colspan='5' class='empty_results'>"._("No Runnings Scans")."</td></tr>";
+            $sInfo .= "<tr><td colspan='5' class='empty_results'>"._("عدم وجود اسکن درحال اجرا")."</td></tr>";
             $sInfo = preg_replace("/#HEADER#/", '', $sInfo);
         }
         else
         {
             $header ="<tr>
-                        <th>"._("Job Name")."</th>
-                        <th>"._("Owner")."</th>
-                        <th>"._("Scan Time")."</th>
+                        <th>"._("نام کار")."</th>
+                        <th>"._("صاحب")."</th>
+                        <th>"._("زمان اسکن")."</th>
                         <th style='padding: 0px !important;'>
                             <div style='width:11%;float:left;'><img src='./images/serious.png'/></div>
                             <div style='width:11%;float:left;'><img src='./images/high.png'/></div>
@@ -945,7 +945,7 @@ class Vulnerabilities
                             <div style='width:11%;float:left;'><img src='./images/inf.png'/></div>
                             <div style='width:44%;float:left;'>"._("Vulns. Trend / Scan Progress")."</div>
                         </th>
-                        <th>"._("Action")."</th>
+                        <th>"._("فعالیت")."</th>
                         </tr>";
             $sInfo = preg_replace("/#HEADER#/", $header, $sInfo);
         }
@@ -964,8 +964,8 @@ class Vulnerabilities
 
             $sInfo .= "<div class='fright tmargin'>";
 
-            $sInfo .= "<a $previous_attr>< " . _("PREVIOUS") . "</a>";
-            $sInfo .= "<a $next_attr>" . _("NEXT") . "></a>";
+            $sInfo .= "<a $previous_attr>< " . _("قبلی") . "</a>";
+            $sInfo .= "<a $next_attr>" . _("بعدی") . "></a>";
 
             $sInfo .= "</div>";
         }
@@ -1040,7 +1040,7 @@ class Vulnerabilities
             {
                 if(!preg_match("/^\d+$/",$sq->fields["report_id"]))
                 {
-                    $return['errors'][] = _("Error getting new report id");
+                    $return['errors'][] = _("خطا در هنگام گرفتن مشخصه گزارش");
                     $new_report_id      = -1;
                 }
                 else
@@ -2315,7 +2315,7 @@ class Vulnerabilities
                 $port        = $rs->fields['port'];
                 $protocol    = $rs->fields['protocol'];
                 $plugin_id   = $rs->fields['scriptid'];
-                $plugin_name = ($rs->fields['scriptid'] == 0) ? _('Open port') : $rs->fields['name'];
+                $plugin_name = ($rs->fields['scriptid'] == 0) ? _('پورت های باز') : $rs->fields['name'];
                 $risk        = $rs->fields['risk'];
                 $msg         = $rs->fields['msg'];
 
@@ -2376,7 +2376,7 @@ class Vulnerabilities
                     $port        = $rs->fields['port'];
                     $protocol    = $rs->fields['protocol'];
                     $plugin_id   = $rs->fields['scriptid'];
-                    $plugin_name = ($rs->fields['scriptid'] == 0) ? _('Open port') : $rs->fields['name'];
+                    $plugin_name = ($rs->fields['scriptid'] == 0) ? _('پورت های باز') : $rs->fields['نام'];
                     $risk        = $rs->fields['risk'];
                     $msg         = $rs->fields['msg'];
     
@@ -2452,27 +2452,27 @@ class Vulnerabilities
     {
         if ($risk == 1)
         {
-            return _('Serious');
+            return _('جدی');
         }
         elseif ($risk == 2)
         {
-            return _('High');
+            return _('بالا');
         }
         elseif ($risk == 3)
         {
-            return _('Medium');
+            return _('متوسط');
         }
         elseif ($risk <= 6)
         {
-            return _('Low');
+            return _('پایین');
         }
         elseif ($risk > 6)
         {
-            return _('Info');
+            return _('اطلاعات');
         }
         else
         {
-            return _('Unknown');
+            return _('ناشناس');
         }
     }
 

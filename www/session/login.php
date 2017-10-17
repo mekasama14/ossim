@@ -235,7 +235,7 @@ $pro = Session::is_pro();
 try
 {
     list($system_name, $system_ip) = Session::get_local_sysyem_info();
-    $system_name = 'سامانه مدیریت رخداد و هشدار امنیتی';
+    $system_name = ' سامانه مدیریت رخداد و هشدار امنیتی صبا';
 }
 catch (Exception $e){}
 
@@ -954,7 +954,7 @@ if (Mobile::is_mobile_device())
                                         <tr>
                                             <td class='td_user'> <h3> نام کاربری </h3> </td>
                                             <td class="left">
-                                                <input type="text" autocapitalize="off" maxlength="64" id="user" name="user" value="<?php echo $default_user?>"/>
+                                                <input type="text"  autocapitalize="off" maxlength="64" id="user" name="user" value="<?php echo $default_user?>"/>
                                             </td>
                                         </tr>
 

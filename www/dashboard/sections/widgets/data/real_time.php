@@ -109,7 +109,7 @@ if (!isset($_SESSION['plugins_to_show']))
 $id    = GET("id");
 
 //Validation
-ossim_valid($id,    OSS_DIGIT, OSS_NULLABLE,    'illegal:' . _("Widget ID"));
+ossim_valid($id,    OSS_DIGIT, OSS_NULLABLE,    'illegal:' . _("مشخصه ویجت"));
 
 if (ossim_error())
 {
@@ -140,7 +140,7 @@ else  //If the ID is not empty, we are in the normal case; loading the widget fr
 //Validation
 
 ossim_valid($assets ,   OSS_HEX,OSS_SCORE,OSS_ALPHA,OSS_USER,   'illegal:' . _('Asset/User/Entity'));
-ossim_valid($speed ,    OSS_DIGIT,                              'illegal:' . _('Refresh period'));
+ossim_valid($speed ,    OSS_DIGIT,                              'illegal:' . _('تازه کردن دوره'));
 
 if (ossim_error())
 {
@@ -166,7 +166,7 @@ if (GET('modo') == "responder")
     foreach ($plgs as $encoded)
     {
         $p_id = base64_decode($encoded);
-            ossim_valid($p_id, OSS_DIGIT, 'illegal:' . _('Plugin ID'));
+            ossim_valid($p_id, OSS_DIGIT, 'illegal:' . _('مشخصه پلاگین'));
 
             if (!ossim_error())
             {
@@ -340,7 +340,7 @@ else
     <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title><?php echo _("Event Tail Viewer")?></title>
+        <title><?php echo _("نمایش دنباله رویداد")?></title>
 
         <?php
             //CSS Files
@@ -519,10 +519,10 @@ else
             function toogle_filters(){
                 if($('#filter_panel').css('display') == 'none'){
                     $('#filter_panel').fadeIn(700);
-                    $('#message_filter').find('a').html('<?php echo _("Hide Filters") ?>' );
+                    $('#message_filter').find('a').html('<?php echo _("پنهان کردن فیلترها") ?>' );
                 } else {
                     $('#filter_panel').fadeOut(700);
-                    $('#message_filter').find('a').html( '<?php echo _("Show Filters") ?>');
+                    $('#message_filter').find('a').html( '<?php echo _("نمایش فیلترها") ?>');
                 }
             }
 
@@ -534,8 +534,8 @@ else
 
                     pause = true;
 
-                    if ( $('#footer').text() != '<?php echo _("Stopped")?>.' )
-                        $('#footer').html('<?php echo _("Paused") ?>.');
+                    if ( $('#footer').text() != '<?php echo _("متوقف شده")?>.' )
+                        $('#footer').html('<?php echo _("ایستاده") ?>.');
 
                     // Generating detail info
                     var txt1 = '<table border="0" cellpadding="8" cellspacing="0" class="semiopaque">'
@@ -615,11 +615,11 @@ else
                     $('#numeroDiv').hide();
                     $('#numeroDiv').html('');
 
-                    if ($('#bcontrol').val() == '<?php echo _("Resume") ?>') {
-                        $('#footer').html('<?php echo _("Stopped.")?>');
+                    if ($('#bcontrol').val() == '<?php echo _("شروع مجدد") ?>') {
+                        $('#footer').html('<?php echo _("متوقف شده.")?>');
                     }
                     else {
-                        $('#footer').html('<?php echo _("Continue... Awaiting next refresh")?>');
+                        $('#footer').html('<?php echo _("ادامه دادن ... منتظر بازیابی دوباره")?>');
                     }
 
                     pause = false;
@@ -821,7 +821,7 @@ else
                 if ( pause == false && mutex == false )
                 {
                     mutex = true;
-                    $('#footer').html('<?php echo _("Refreshing") ?>...')
+                    $('#footer').html('<?php echo _("در حال بازیابی") ?>...')
                     // load extra parameters from select filter
                     var idm    = ( $('#idm:checked').length > 0 ) ? 1 : 0;
                     var urlr = url + "&idm=" + idm + "&" + $('#form_filters').serialize();
@@ -961,7 +961,7 @@ else
                     }
 
 
-                    $('#footer').html('<?php echo _("Done") ?>. [<b>' + fadescount + '</b> <?php echo _("new rows") ?>]');
+                    $('#footer').html('<?php echo _("انجام شده") ?>. [<b>' + fadescount + '</b> <?php echo _("سطرهای جدید") ?>]');
 
                 }
             }
@@ -970,7 +970,7 @@ else
             function play() {
                 refresh();
 
-                $('#bcontrol').val('<?php echo Util::html_entities2utf8(_("Pause")) ?>');
+                $('#bcontrol').val('<?php echo Util::html_entities2utf8(_("متوقف کردن")) ?>');
 
                 if (idr == null)
                     idr = setInterval("refresh()",speed);
@@ -979,8 +979,8 @@ else
             function stop() {
                  clearInterval(idr);
                  idr = null;
-                 $('#bcontrol').val('<?php echo Util::html_entities2utf8(_("Resume")) ?>');
-                 $('#footer').html('<?php echo Util::html_entities2utf8(_("Stopped")) ?>.') }
+                 $('#bcontrol').val('<?php echo Util::html_entities2utf8(_("ادامه دادن")) ?>');
+                 $('#footer').html('<?php echo Util::html_entities2utf8(_("متوقف")) ?>.') }
 
             function reload() { stop(); play() }
 
@@ -998,7 +998,7 @@ else
                     $('#pf_name').removeClass('show');
                     $('#pf_name').addClass('hide');
 
-                    $('#p_filter').find('span').html("<?php echo _("Show Plugin filter")?>");
+                    $('#p_filter').find('span').html("<?php echo _("نمایش فیلترهای پلاگین")?>");
 
                     $("#cont_tplugin").slideUp(600);
                 }
@@ -1007,7 +1007,7 @@ else
                     $('#pf_name').removeClass('hide');
                     $('#pf_name').addClass('show');
 
-                    $('#p_filter').find('span').html("<?php echo _("Hide Plugin filter")?>");
+                    $('#p_filter').find('span').html("<?php echo _("پنهان کردن فیلترهای پلاگین")?>");
 
                     $("#cont_tplugin").slideDown(600);
                 }
@@ -1164,7 +1164,7 @@ else
                     <table class="container" width="100%" align="left">
                         <tr>
                             <td class="nobborder" valign='middle' width='100px'>
-                                <input id="bcontrol" type='button' class='small av_b_secondary' onclick="pausecontinue()" value="<?php echo _("Pause");?>"/>
+                                <input id="bcontrol" type='button' class='small av_b_secondary' onclick="pausecontinue()" value="<?php echo _("متوقف");?>"/>
                             </td>
 
                             <td id="footer" class="nobborder" valign='middle'></td>
@@ -1177,14 +1177,14 @@ else
                 <table class='table_data'>
                     <thead>
                     <tr>
-                        <th width="140"><?php echo _("Date"); ?></th>
-                        <th width="290" class='left'><?php echo _("Event Name"); ?></th>
-                        <th width="40"><?php echo _("Risk"); ?></th>
-                        <!--<th width="150"><?php echo _("Generator"); ?></th>-->
-                        <th width="100"><?php echo _("Sensor"); ?></th>
+                        <th width="140"><?php echo _("تاریخ"); ?></th>
+                        <th width="290" class='left'><?php echo _("نام رویداد"); ?></th>
+                        <th width="40"><?php echo _("ریسک"); ?></th>
+                        <!--<th width="150"><?php echo _("تولید کننده"); ?></th>-->
+                        <th width="100"><?php echo _("حسگر"); ?></th>
                         <th width="40"><?php echo _("OTX"); ?></th>
-                        <th width="140"><?php echo _("Source IP"); ?></th>
-                        <th width="140"><?php echo _("Dest IP"); ?></th>
+                        <th width="140"><?php echo _("مبدا"); ?></th>
+                        <th width="140"><?php echo _("مقصد"); ?></th>
                     </tr>
                     </thead>
 
@@ -1218,40 +1218,40 @@ else
             <div id='filter_panel'>
                 <table>
                     <tr>
-                        <th colspan='4'><?php echo _("Filters")?></th>
+                        <th colspan='4'><?php echo _("فیلترها")?></th>
                     </tr>
 
                     <tr>
-                        <td class='_label'><?php echo _("Source IP")?>:</td>
+                        <td class='_label'><?php echo _("مبدا")?>:</td>
                         <td class='data'>
                             <input type='text' class='inp_filter' name='src_ip' id='src_ip'/>
-                            <span style='margin-left: 3px;'><a class='clean' id='clean_src_ip' title='<?php echo _("Clean filter")?>'><img src='/ossim/pixmaps/delete.gif' align='absmiddle'/></a></span>
+                            <span style='margin-left: 3px;'><a class='clean' id='clean_src_ip' title='<?php echo _("از بین بردن فیلترها")?>'><img src='/ossim/pixmaps/delete.gif' align='absmiddle'/></a></span>
                         </td>
-                        <td class='_label'><?php echo _("Destination IP")?>:</td>
+                        <td class='_label'><?php echo _("مقصد")?>:</td>
                         <td class='data'>
                             <input type='text' class='inp_filter' name='dst_ip' id='dst_ip'/>
-                            <span style='margin-left: 3px;'><a class='clean' id='clean_dst_ip' title='<?php echo _("Clean filter")?>'><img src='/ossim/pixmaps/delete.gif' align='absmiddle'/></a></span>
+                            <span style='margin-left: 3px;'><a class='clean' id='clean_dst_ip' title='<?php echo _("از بین بردن فیلترها")?>'><img src='/ossim/pixmaps/delete.gif' align='absmiddle'/></a></span>
                         </td>
                     </tr>
 
                     <tr>
-                        <td class='_label'><?php echo _("Source Port")?>:</td>
+                        <td class='_label'><?php echo _("پورت منبع")?>:</td>
                         <td class='data'>
                             <input type='text' class='inp_filter' name='src_port' id='src_port'/>
-                            <span style='margin-left: 3px;'><a class='clean' id='clean_src_port' title='<?php echo _("Clean filter")?>'><img src='/ossim/pixmaps/delete.gif' align='absmiddle'/></a></span>
+                            <span style='margin-left: 3px;'><a class='clean' id='clean_src_port' title='<?php echo _("از بین بردن فیلترها")?>'><img src='/ossim/pixmaps/delete.gif' align='absmiddle'/></a></span>
                         </td>
-                        <td class='_label'><?php echo _("Destination Port")?>:</td>
+                        <td class='_label'><?php echo _("پورت مقصد")?>:</td>
                         <td class='data'>
                             <input type='text' class='inp_filter' name='dst_port' id='dst_port'/>
-                            <span style='margin-left: 3px;'><a class='clean' id='clean_dst_port' title='<?php echo _("Clean filter")?>'><img src='/ossim/pixmaps/delete.gif' align='absmiddle'/></a></span>
+                            <span style='margin-left: 3px;'><a class='clean' id='clean_dst_port' title='<?php echo _("از بین بردن فیلترها")?>'><img src='/ossim/pixmaps/delete.gif' align='absmiddle'/></a></span>
                         </td>
                     </tr>
 
                     <tr>
-                        <td class='_label' valign='top'><?php echo _("Protocol")?>:</td>
+                        <td class='_label' valign='top'><?php echo _("پروتکل")?>:</td>
                         <td class='data'>
                             <input type='text' class='inp_filter' name='protocol' id='protocol'/>
-                            <span style='margin-left: 3px;'><a class='clean' id='clean_protocol' title='<?php echo _("Clean filter")?>'><img src='/ossim/pixmaps/delete.gif' align='absmiddle'/></a></span>
+                            <span style='margin-left: 3px;'><a class='clean' id='clean_protocol' title='<?php echo _("از بین بردن فیلترها")?>'><img src='/ossim/pixmaps/delete.gif' align='absmiddle'/></a></span>
                         </td>
                         <td class='noborder' colspan='2'>
                             <table id='filter_chk'>
@@ -1261,7 +1261,7 @@ else
                                     if ( $Reputation->existReputation() )
                                     {
                                         ?>
-                                        <td class='_label'><span><?php echo _("Include OTX Info");?>:</span></td>
+                                        <td class='_label'><span><?php echo _("شامل شده اطلاعات OTX");?>:</span></td>
                                         <td class='data' style='width:62px !important;'><input type='checkbox' name='idm' id='idm' checked='checked' value="1"/></td>
                                         <?php
                                     }
@@ -1290,9 +1290,9 @@ else
                         <tr>
                             <td colspan='4' class='_label'>
                                 <div>
-                                    <span id='pf_name' class='hide'><?php echo _("Plugins")?>:
+                                    <span id='pf_name' class='hide'><?php echo _("پلاگین ها")?>:
                                         <span id='cont_pfilter' style='margin-left: 5px'>
-                                            <a id='p_filter' class='uppercase'><img align="absmiddle" border="0" src="/ossim/pixmaps/arrow_green.gif"><span><?php echo _("Show Plugin filter")?></span></a>
+                                            <a id='p_filter' class='uppercase'><img align="absmiddle" border="0" src="/ossim/pixmaps/arrow_green.gif"><span><?php echo _("نمایش فیلترهای پلاگین")?></span></a>
                                         </span>
                                     </span>
                                 </div>
