@@ -117,8 +117,8 @@ if ($action != "" && $user_id != '')
         		ossim_set_lang($language);
         		        		 
                 $av_menu = new Menu($conn);
-                $av_menu->set_menu_option('configuration', 'administration');
-                $av_menu->set_hmenu_option('users');
+                $av_menu->set_menu_option('پیکربندی', 'اجرا');
+                $av_menu->set_hmenu_option('کاربران');
                                 
                 $_SESSION['av_menu'] = serialize($av_menu);     
                          
@@ -139,7 +139,7 @@ if ($action != "" && $user_id != '')
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-	<title><?php echo _('OSSIM Framework');?></title>
+	<title dir="rtl"><?php echo _('چهارچوب OSSIM');?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
 	<meta http-equiv="Pragma" content="no-cache">
 	<link rel="stylesheet" type="text/css" href="../style/av_common.css?t=<?php echo Util::get_css_id() ?>"/>
@@ -219,7 +219,7 @@ if ($action != "" && $user_id != '')
 						{
 							key       = key.replace("e_","");
 							var url   = "../acl/entities_edit.php?id="+key; // id (modify entity)
-							var title = "<?php echo _("Modify Entity")?>";
+							var title = "<?php echo _("اصلاح موجودی")?>";
 							$('#multilevel_tree').hide();
 							GB_show(title,url,'500','70%');
 						}
@@ -228,7 +228,7 @@ if ($action != "" && $user_id != '')
 						{
 							key       = key.replace("u_","");
 							var url   = "user_form.php?greybox=1&login="+key; // login (modify user)
-							var title = "<?php echo _("Modify User")?>";
+							var title = "<?php echo _("اصلاح کاربر")?>";
 							$('#multilevel_tree').hide();
 							GB_show(title,url,'500','70%');
 						}
@@ -255,14 +255,14 @@ if ($action != "" && $user_id != '')
 		{
 			var items = $('.trSelected', grid);
 			
-			if (com == '<?=_('Delete selected')?>') 
+			if (com == '<?=_('حذف انتخاب شده')?>')
 			{
 				//Delete user by AJAX
 				if (typeof(items[0]) != 'undefined') 
 				{					
-					if (confirm('<?php echo Util::js_entities(_('Are you sure you want to delete this user?'))?>'))
+					if (confirm('<?php echo Util::js_entities(_('آیا مطمئن اید که می خواهید این کاربر را حذف کنید؟'))?>'))
 					{
-						$("#flextable").changeStatus('<?php echo _('Deleting user')?>...', false);
+						$("#flextable").changeStatus('<?php echo _('حذف کاربر')?>...', false);
 						var dtoken = Token.get_token("delete_user");
 						$.ajax({
 							type: "GET",
@@ -271,7 +271,7 @@ if ($action != "" && $user_id != '')
 							dataType: "json",
 							cache: false,
 							error: function(msg){
-								var msg = '<?php echo _('Permission error').' - '._('You can not remove users')?>';
+								var msg = '<?php echo _('خطای مجوز').' - '._('شما نمی توانید کاربران را حذف کنید')?>';
 								notify(msg, 'nf_error', true);
 								$("#flextable").changeStatus('',false);
 								
@@ -280,7 +280,7 @@ if ($action != "" && $user_id != '')
 								if (typeof(msg) != 'undefined' && msg != null)
 								{
 									var msg_text = msg.data;
-									var msg_type = (msg.status == 'OK') ? 'nf_success' : 'nf_error';
+									var msg_type = (msg.status == 'بسیار خب') ? 'nf_success' : 'nf_error';
 									
 									$("#flextable").changeStatus('', false);
                                     notify(msg_text, msg_type, true);
@@ -292,10 +292,10 @@ if ($action != "" && $user_id != '')
 				}
 				else
 				{
-					alert('<?php echo Util::js_entities(_('You must select a user'))?>');
+					alert('<?php echo Util::js_entities(_('شما باید یک کاربر انتخاب کنید'))?>');
 				}
 			}
-			else if (com == '<?=_('Modify')?>') 
+			else if (com == '<?=_('اصلاح')?>')
 			{
 				if (typeof(items[0]) != 'undefined') 
 				{
@@ -303,10 +303,10 @@ if ($action != "" && $user_id != '')
 				}
 				else
 				{ 
-				    alert('<?php echo Util::js_entities(_('You must select a user'))?>');
+				    alert('<?php echo Util::js_entities(_('شما باید یک کاربر انتخاب کنید'))?>');
 				}
 			}
-			else if (com == '<?=_('Duplicate selected')?>') 
+			else if (com == '<?=_('انتخاب شما تکراری است')?>')
 			{
 				if (typeof(items[0]) != 'undefined') 
 				{
@@ -316,19 +316,19 @@ if ($action != "" && $user_id != '')
                     }
                     else 
                     {
-                        alert('<?php echo Util::js_entities(_('The user admin can not be duplicated'))?>');
+                        alert('<?php echo Util::js_entities(_('کاربر ادمین نمی تواند تکراری باشد'))?>');
                     }
                 }
 				else
 				{ 
-				    alert('<?php echo Util::js_entities(_('You must select a user'))?>');
+				    alert('<?php echo Util::js_entities(_('شما باید یک کاربر انتخاب کنید'))?>');
 				}
 			}
-			else if (com == '<?=_('New')?>') 
+			else if (com == '<?=_('جدید')?>')
 			{
 				document.location.href = 'user_form.php';
 			}
-			else if (com == '<?=_('Select all')?>') 
+			else if (com == '<?=_('انتخاب همه')?>')
 			{
 				var rows = $("#flextable").find("tr").get();
 				
@@ -339,7 +339,7 @@ if ($action != "" && $user_id != '')
 					});
 				}
 			}
-			else if (com == '<?php echo _('Multilevel Tree') ?>') 
+			else if (com == '<?php echo _('درخت چند سطحی') ?>')
 			{
 				$('#multilevel_tree').toggle();
 			}
@@ -347,7 +347,7 @@ if ($action != "" && $user_id != '')
 	
 		function save_layout(clayout) 
 		{
-			$("#flextable").changeStatus('<?=_('Saving column layout')?>...', false);
+			$("#flextable").changeStatus('<?=_('ذخیره ستون طرح بندی')?>...', false);
 			
 			$.ajax({
 				type: "POST",
@@ -398,23 +398,23 @@ if ($action != "" && $user_id != '')
 			if ($msg == 'created') 
 			{ 
 				?>
-				notify('<?php echo _('The user has been created successfully')?>', 'nf_success', true);
+				notify('<?php echo _('کاربر با موفقیت ایجاد شده است')?>', 'nf_success', true);
 				<?php 
 			} 
 			elseif ($msg == 'updated') 
 			{ 
 				?>
-				notify('<?php echo _('The user has been updated successfully')?>', 'nf_success', true);
+				notify('<?php echo _('کاربر با موفقیت به روز رسانی شده است')?>', 'nf_success', true);
 				<?php 
 			}
 			elseif ($msg == 'unknown_error') 
 			{ 
 				?>
-				notify('<?php echo _('Invalid action - Operation cannot be completed')?>', 'nf_error', true);
+				notify('<?php echo _(' عمل نا معتبر- عملگر نمی تواند کامل شود')?>', 'nf_error', true);
 				<?php 
-			} 
-			
-			if (Session::is_pro()) 
+			}
+
+			if (Session::is_pro())
 			{ 
 				?>
 				load_tree();
@@ -432,56 +432,56 @@ if ($action != "" && $user_id != '')
 				{
 					$default = array(
 						'login' => array(
-							_('Login'),
+							_('ورود'),
 							110,
 							'true',
 							'left',
 							FALSE
 						) ,
 						'name' => array(
-							_('Name'),
+							_('نام'),
 							150,
 							'true',
 							'center',
 							FALSE
 						),
 						'email' => array(
-							_('Email'),
+							_('ایمیل'),
 							180,
 							'false',
 							'center',
 							FALSE
 						) ,
 						'company' => array(
-							_('Visibility'),
+							_('قابلیت رویت'),
 							150,
 							'false',
 							'center',
 							FALSE
 						) ,
 						'active' => array(
-							_('Status'),
+							_('وضعیت'),
 							50,
 							'false',
 							'center',
 							FALSE
 						) ,
 						'language' => array(
-							_('Language'),
+							_('زبان'),
 							180,
 							'false',
 							'center',
 							FALSE
 						) ,
 						'creation_date' => array(
-							_('Creation date'),
+							_('تاریخ تولید'),
 							150,
 							'false',
 							'center',
 							FALSE
 						) ,
 						'last_login_date' => array(
-							_('Last login date'),
+							_('تاریخ آخرین ورود'),
 							166,
 							'false',
 							'center',
@@ -493,49 +493,49 @@ if ($action != "" && $user_id != '')
 				{
 					$default = array(
 						'login' => array(
-							_('Login'),
+							_('ورود'),
 							110,
 							'true',
 							'left',
 							FALSE
 						) ,
 						'name' => array(
-							_('Name'),
+							_('نام'),
 							170,
 							'true',
 							'center',
 							FALSE
 						),
 						'email' => array(
-							_('Email'),
+							_('ایمیل'),
 							190,
 							'false',
 							'center',
 							FALSE
 						) ,
 						'company' => array(
-							_('Visibility'),
+							_('قابلیت رویت'),
 							160,
 							'false',
 							'center',
 							FALSE
 						) ,
 						'language' => array(
-							_('Language'),
+							_('زبان'),
 							180,
 							'false',
 							'center',
 							FALSE
 						) ,
 						'creation_date' => array(
-							_('Creation date'),
+							_('تاریخ تولید'),
 							160,
 							'false',
 							'center',
 							FALSE
 						) ,
 						'last_login_date' => array(
-							_('Last login date'),
+							_('تاریخ آخرین ورود'),
 							174,
 							'false',
 							'center',
@@ -553,20 +553,20 @@ if ($action != "" && $user_id != '')
 					if ($proadmin) 
 					{ 
 						?>
-						{name: '<?=_('New')?>', bclass: 'add', onpress : action},
+						{name: '<?=_('جدید')?>', bclass: 'add', onpress : action},
 						{separator: true},
 						<?php 
 					} 
 					?>
-					{name: '<?=_('Modify')?>', bclass: 'modify', onpress : action}	
+					{name: '<?=_('اصلاح')?>', bclass: 'modify', onpress : action}
 					<?php 
 					if ($proadmin) 
 					{ 
 						?>,
 						{separator: true},
-						{name: '<?=_('Delete selected')?>', bclass: 'delete', onpress : action},
+						{name: '<?=_('حذف انتخاب شده')?>', bclass: 'delete', onpress : action},
 						{separator: true},
-						{name: '<?=_('Duplicate selected')?>', bclass: 'duplicate', onpress : action}
+						{name: '<?=_('انتخاب تکراری است')?>', bclass: 'duplicate', onpress : action}
 						<?php 
 					}
 					
@@ -574,19 +574,19 @@ if ($action != "" && $user_id != '')
 					{ 
 						?>
 						,{separator: true},
-						{name: "<?=_('Multilevel Tree')?>", bclass: 'duplicate', onpress : action}
+						{name: "<?=_('درخت چند سطحی')?>", bclass: 'duplicate', onpress : action}
 						<?php 
 					} 
 					?>
 				],
 				searchitems : [
-					{display: "<?=_('Login')?>", name : 'login'}
+					{display: "<?=_('ورود')?>", name : 'login'}
 				],
 				sortname: "<?php echo $sortname ?>",
 				sortorder: "<?php echo $sortorder ?>",
 				usepager: true,
 				pagestat: '<?=_("Displaying <b>{from}</b> to <b>{to}</b> of <b>{total}</b> users")?>',
-				nomsg: '<?php echo _("No users found in the system")?>',
+				nomsg: '<?php echo _("هیچ کاربری در سیستم یافت نشد")?>',
 				useRp: true,
 				rp: 20,
 				showTableToggleBtn: false,

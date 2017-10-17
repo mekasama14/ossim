@@ -196,7 +196,7 @@ foreach($sensors_status as $sensor_ip => $sensor_info)
             				        if (data.length < 1)
             				        {
             				            var nf_style = 'padding: 3px; width: 90%; margin: auto; text-align: center;';
-            				            var msg = '<?php echo _('Unable to fetch the asset group members') ?>';
+            				            var msg = '<?php echo _('نمی توان اعضای گروه دارایی را واکشی کرد') ?>';
             				            show_notification('av_info', msg, 'nf_error', 0, 1, nf_style);
             				        }
             				        else
@@ -207,7 +207,7 @@ foreach($sensors_status as $sensor_ip => $sensor_info)
                                     if (last_element.match(/hostgroup_/))
                                     {
                                         var nf_style = 'padding: 3px; width: 90%; margin: auto; text-align: center;';
-                                        var msg = '<?php echo _('This asset group has more than 1000 assets, please try again with a smaller group') ?>';
+                                        var msg = '<?php echo _('این گروه بیش از 1000 دارایی دارد. لطفا با یک گروه کوچکتر امتحان کنید') ?>';
                                         show_notification('av_info', msg, 'nf_warning', 0, 1, nf_style);
                                     }
                                     else
@@ -278,7 +278,7 @@ foreach($sensors_status as $sensor_ip => $sensor_info)
             				        if (data.length < 1)
             				        {
             				            var nf_style = 'padding: 3px; width: 90%; margin: auto; text-align: center;';
-            				            var msg = '<?php echo _('Unable to fetch the asset group members') ?>';
+            				            var msg = '<?php echo _('نمی توان اعضای گروه دارایی را واکشی کرد') ?>';
             				            show_notification('av_info', msg, 'nf_error', 0, 1, nf_style);
             				        }
             				        else
@@ -289,7 +289,7 @@ foreach($sensors_status as $sensor_ip => $sensor_info)
                                     if (last_element.match(/hostgroup_/))
                                     {
                                         var nf_style = 'padding: 3px; width: 90%; margin: auto; text-align: center;';
-                                        var msg = '<?php echo _('This asset group has more than 1000 assets, please try again with a smaller group') ?>';
+                                        var msg = '<?php echo _('این گروه بیش از 1000 دارایی دارد. لطفا با یک گروه کوچکتر امتحان کنید') ?>';
                                         show_notification('av_info', msg, 'nf_warning', 0, 1, nf_style);
                                     }
                                     else
@@ -406,7 +406,7 @@ foreach($sensors_status as $sensor_ip => $sensor_info)
 
     function confirmDelete(data)
     {
-        var ans = confirm("<?php echo Util::js_entities(_("Are you sure you want to delete this capture?"))?>");
+        var ans = confirm("<?php echo Util::js_entities(_("آیا مطمئن اید میخواهید این بخش را حذف کنید؟"))?>");
        
         if (ans) 
         {
@@ -431,9 +431,9 @@ if(count($sensors_status) == 0)
 {
     ?>
     <table class='t_sensors' cellspacing="0" cellpadding="3">
-        <tr><th><?php echo _('Sensors Status')?></th></tr>
+        <tr><th><?php echo _('وضعیت سنسورها')?></th></tr>
         <tr>
-            <td class="nobborder" style="text-align:center"><?php echo _('No available sensors')?></td>
+            <td class="nobborder" style="text-align:center"><?php echo _('هیچ سنسوری در دسترس نیست')?></td>
         </tr>
     </table>
     <?php
@@ -441,13 +441,13 @@ if(count($sensors_status) == 0)
 else 
 {
     ?>
-    <div class='traffic_title'><?php echo _('Sensors Status')?></div>
+    <div class='traffic_title'><?php echo _('وضعیت سنسورها')?></div>
     <table class='t_sensors'>
         <tr>
-            <th width="30%"><?php echo _('Sensor Name');?></th>
-            <th width="30%"><?php echo _('Sensor IP')?></th>
-            <th width="20%"><?php echo _('Total Captures')?></th>
-            <th width="20%"><?php echo _('Status')?></th>
+            <th width="30%"><?php echo _('نام سنسور');?></th>
+            <th width="30%"><?php echo _('IPسنسور ')?></th>
+            <th width="20%"><?php echo _('مجموع ضبط شده ها')?></th>
+            <th width="20%"><?php echo _('وضعیت')?></th>
         </tr>
             <?php
                 $i=1;
@@ -497,7 +497,7 @@ else
                     
                     ?>
                     <tr><td style="text-align:center;" id="<?php echo $sname_seid ?>" class="<?php echo $tdborder ?>">
-                        <?php echo (Av_sensor::get_name_by_ip($dbconn, $sensor_ip) !='' ) ? Av_sensor::get_name_by_ip($dbconn, $sensor_ip) : _("Not found"); ?></td>
+                        <?php echo (Av_sensor::get_name_by_ip($dbconn, $sensor_ip) !='' ) ? Av_sensor::get_name_by_ip($dbconn, $sensor_ip) : _("یافت نشد"); ?></td>
                         <td style="text-align:center;" id="<?php echo $sip_seid ?>" class="<?php echo $tdborder ?>"><?php echo $sensor_ip; ?></td>
                         <td style="text-align:center;" id="<?php echo $tcap_seid ?>" class="<?php echo $tdborder ?>"><?php echo count($scans_by_sensor[$sensor_ip])?></td>
                         <td style="text-align:center;" id="<?php echo $sstatus_seid ?>" class="<?php echo $tdborder ?>"><span class="sensor_status_<?php echo $sensor_ip; ?>"><?php echo $states[$sensor_info[0]] ?></span></td>
@@ -507,8 +507,8 @@ else
                             <table align="center" class="transparent">
                                 <tr>
                                     <th>
-                                    <strong><?php echo _("Current capture");?></strong><br>
-                                    <input type='button' class="small" style="margin-top:7px" onclick='this.value="<?php echo _("Stopping...")?>";stop_capture("<?php echo $sensor_ip;?>");' value='<?php echo _("Stop now")?>'/>
+                                    <strong><?php echo _("ضبط فعلی");?></strong><br>
+                                    <input type='button' class="small" style="margin-top:7px" onclick='this.value="<?php echo _("متوقف کردن ...")?>";stop_capture("<?php echo $sensor_ip;?>");' value='<?php echo _("Stop now")?>'/>
                                     </th>
                                     <td width="10" class="nobborder">&nbsp;</td> <!-- space between tds -->
                                     <td class="nobborder" style="text-align:left;width:300px">
@@ -517,7 +517,7 @@ else
                                                 <div class="ui-progress stripes"></div>
                                             </div>
                                             <div style="float:left;padding-left:5px;">
-                                            <?php echo _("Packets");?> <span id="pPacketsValue<?php echo md5($sensor_ip); ?>">0</span>%
+                                            <?php echo _("بسته ها");?> <span id="pPacketsValue<?php echo md5($sensor_ip); ?>">0</span>%
                                             </div>
                                         </div>
                                         
@@ -526,7 +526,7 @@ else
                                                 <div class="ui-progress stripes"></div>
                                             </div>
                                             <div style="float:left;padding-left:5px;">
-                                            <?php echo _("Time");?> <span id="pTimeValue<?php echo md5($sensor_ip); ?>">0</span>%
+                                            <?php echo _("زمان");?> <span id="pTimeValue<?php echo md5($sensor_ip); ?>">0</span>%
                                             </div>
                                         </div>
                                     </td>
@@ -540,10 +540,10 @@ else
                         <tr><td colspan="4" class="nobborder">
                             <table class='table_list ninety_perc'>
                                 <tr>
-                                    <th width="30%"><?php echo gettext("Capture Start Time"); ?></th>
-                                    <th width="20%"><?php echo gettext("Duration (seconds)"); ?></th>
-                                    <th width="30%"><?php echo gettext("User"); ?></th>
-                                    <th width="20%"><?php echo gettext("Action"); ?></th>
+                                    <th width="30%"><?php echo gettext("گرفتن زمان شروع"); ?></th>
+                                    <th width="20%"><?php echo gettext("مدت(ثانیه)"); ?></th>
+                                    <th width="30%"><?php echo gettext("کاربر"); ?></th>
+                                    <th width="20%"><?php echo gettext("عمل کن"); ?></th>
                                 </tr>
 
                                 <?php
@@ -642,12 +642,12 @@ else
                                   <option <?php echo (($timeout=="90") ? "selected=\"selected\"":"") ?>>90</option>
                                   <option <?php echo (($timeout=="120") ? "selected=\"selected\"":"") ?>>120</option>
                                   <option <?php echo (($timeout=="180") ? "selected=\"selected\"":"") ?>>180</option>
-                                </select> <?php echo _("seconds");
+                                </select> <?php echo _("ثانیه ها");
                             }
                             else
                             {
                                 ?>
-                                <input type="text" size="10" name="timeout" value="<?php echo ( (intval($timeout)!=0) ? intval($timeout) : "10" ); ?>"/> <?php echo _("seconds");?>
+                                <input type="text" size="10" name="timeout" value="<?php echo ( (intval($timeout)!=0) ? intval($timeout) : "10" ); ?>"/> <?php echo _("ثانیه ها");?>
                                 <?php
                             }
                             ?>
@@ -655,7 +655,7 @@ else
                         <td width="50" class="nobborder">&nbsp;
                         </td>
                         <th>
-                            <?php echo _("Cap size");?>
+                            <?php echo _("سایز کلاهک");?>
                         </th>
                         <?php
                         if(!$unlimited_traffic_capture) 
@@ -665,7 +665,7 @@ else
                                 <div id="cap_size" style="width:150px;margin-right:6px;"></div>
                             </td>
                             <td class="nobborder" width="80">
-                                <span id="cap_size_value" style="color:#000000; font-weight:bold;"><?php echo ((intval($cap_size) != 0) ? intval($cap_size) : "4000"); ?></span><?php echo " "._("packets");?>
+                                <span id="cap_size_value" style="color:#000000; font-weight:bold;"><?php echo ((intval($cap_size) != 0) ? intval($cap_size) : "4000"); ?></span><?php echo " "._("بسته ها");?>
                                 <input type="hidden" id="cap_size_input" name="cap_size" value="<?php echo ((intval($cap_size) != 0) ? intval($cap_size) : "4000"); ?>" />
                             </td>
                             <?php
@@ -696,7 +696,7 @@ else
                             });
                         </script>
                         <th>
-                            <?php echo _("Raw filter");?>
+                            <?php echo _("فیلتر خام");?>
                         </th>
                         <td class="nobborder" style="padding-left:10px;">
                             <input type="text" name="raw_filter" value="<?php echo (($raw_filter!="") ? Util::htmlentities($raw_filter) : ""); ?>" />
@@ -708,12 +708,12 @@ else
         </tr>
         <tr>
             <td class="nobborder" width="100%">
-                <div class='traffic_title'><?php echo _("Settings")?></div>
+                <div class='traffic_title'><?php echo _("تنظیمات")?></div>
                 <table class='t_settings'>
                     <tr>
-                        <th><?php echo _("Sensor");?></th>
-                        <th><?php echo _("Source");?></th>
-                        <th><?php echo _("Destination");?></th>
+                        <th><?php echo _("سنسور");?></th>
+                        <th><?php echo _("منبع");?></th>
+                        <th><?php echo _("مقصد");?></th>
                     </tr>
                     <tr>
                         <td valign="top" style="padding:4px;text-align:center" class="nobborder"  width="30%">
@@ -744,7 +744,7 @@ else
                                     
                                     if(count($sensor_list) == 0)
                                     {
-                                        echo _('No available sensors');
+                                        echo _('سنسوری در دسترس نیست');
                                     }
                                     else 
                                     {
@@ -803,7 +803,7 @@ else
         </tr>
         <tr>
             <td style="text-align:right;padding:10px" class="nobborder">
-                <input type="submit" name="command" value="<?php echo _("Launch capture");?>" />
+                <input type="submit" name="command" value="<?php echo _("اقدام به گرفتن");?>" />
             </td>
         </tr>
     </table>

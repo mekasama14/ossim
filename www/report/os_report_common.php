@@ -38,7 +38,7 @@ function get_freport_data($id = NULL)
     $date_from = date('Y-m-d', strtotime('-10 year'));
     $date_to   = date('Y-m-d');
     
-    $reports['Events_Report'] = array('report_name' => _('SIEM Events Report'),
+    $reports['Events_Report'] = array('report_name' => _('گزارش رویدادهای SIEM'),
         'report_id'     => 'Events_Report',
         'type'          => 'pdf',
         'subreports'    => array(
@@ -71,12 +71,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['UniqueEvents_Report'] = array('report_name' => _('SIEM Unique Events Report'),
+    $reports['UniqueEvents_Report'] = array('report_name' => _('گزارش  منحصر به فرد رویداد SIEM'),
         'report_id'     => 'UniqueEvents_Report',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'           => array('id'  => 'title_page',           'name' => _('Title Page'),                'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'UniqueEvents_Report'  => array('id'  => 'UniqueEvents_Report',  'name' => _('SIEM Unique Events Report'), 'report_file' => 'os_reports/Forensics/UniqueEvents_Report.php')
+            'title_page'           => array('id'  => 'title_page',           'name' => _('عنوان صفحه'),                'report_file' => 'os_reports/Forensics/titlepage.php'),
+            'UniqueEvents_Report'  => array('id'  => 'UniqueEvents_Report',  'name' => _('گزارش رویداد منحصر به فرد SIEM'), 'report_file' => 'os_reports/Forensics/UniqueEvents_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -104,12 +104,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['Sensors_Report'] = array('report_name' => _('SIEM Sensors Report'),
+    $reports['Sensors_Report'] = array('report_name' => _('گزارش سنسورهای SIEM'),
         'report_id'     => 'Sensors_Report',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'      => array('id'  => 'title_page',      'name' => _('Title Page'),           'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'Sensors_Report'  => array('id'  => 'Sensors_Report',  'name' => _('SIEM Sensors Report'),  'report_file' => 'os_reports/Forensics/Sensors_Report.php')
+            'title_page'      => array('id'  => 'title_page',      'name' => _('صفحه عنوان'),           'report_file' => 'os_reports/Forensics/titlepage.php'),
+            'Sensors_Report'  => array('id'  => 'Sensors_Report',  'name' => _('گزارش سنسورهای SIEM'),  'report_file' => 'os_reports/Forensics/Sensors_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -137,12 +137,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['UniqueAddress_Report1'] = array('report_name' => _('SIEM Unique Source Addresses Report'),
+    $reports['UniqueAddress_Report1'] = array('report_name' => _('گزارش  آدرس منحصر به فرد منبع SIEM'),
         'report_id'     => 'UniqueAddress_Report1',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'             => array('id'  => 'title_page',              'name' => _('Title Page'),                           'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'UniqueAddress_Report1'  => array('id'  => 'UniqueAddress_Report1',   'name' => _('SIEM Unique Source Addresses Report'),  'report_file' => 'os_reports/Forensics/UniqueAddress_Report.php')
+            'title_page'             => array('id'  => 'title_page',              'name' => _('عنوان صفحه'),                           'report_file' => 'os_reports/Forensics/titlepage.php'),
+            'UniqueAddress_Report1'  => array('id'  => 'UniqueAddress_Report1',   'name' => _('گزارش آدرس منحصر به فرد منبع SIEM'),  'report_file' => 'os_reports/Forensics/UniqueAddress_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -175,12 +175,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['UniqueAddress_Report2'] = array('report_name' => _('SIEM Unique Destination Addresses Report'),
+    $reports['UniqueAddress_Report2'] = array('report_name' => _('گزارش  آدرس منحصر به فرد مقصد SIEM'),
         'report_id'     => 'UniqueAddress_Report2',
         'type'          => 'pdf',
         'subreports'    => array(
             'title_page'             => array('id'  => 'title_page',             'name' => _('Title Page'),                                'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'UniqueAddress_Report2'  => array('id'  => 'UniqueAddress_Report2',  'name' => _('SIEM Unique Destination Addresses Report'),  'report_file' => 'os_reports/Forensics/UniqueAddress_Report.php')
+            'UniqueAddress_Report2'  => array('id'  => 'UniqueAddress_Report2',  'name' => _('گزارش  آدرس منحصر به فرد مقصد SIEM'),  'report_file' => 'os_reports/Forensics/UniqueAddress_Report.php')
         ),
         'parameters'    => array(
             array('name' => 'reportUser',
@@ -213,12 +213,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['SourcePort_Report0'] = array('report_name' => _('SIEM Source Port Report (TCP/UDP)'),
+    $reports['SourcePort_Report0'] = array('report_name' => _('گزارش پورت منبع SIEM (TCP/UDP) '),
         'report_id'     => 'SourcePort_Report0',
         'type'          => 'pdf',
         'subreports'    => array(
             'title_page'          => array('id'  => 'title_page',           'name' => _('Title Page'),                         'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'SourcePort_Report0'  => array('id'  => 'SourcePort_Report0',   'name' => _('SIEM Source Port Report (TCP/UDP)'),  'report_file' => 'os_reports/Forensics/SourcePort_Report.php')
+            'SourcePort_Report0'  => array('id'  => 'SourcePort_Report0',   'name' => _('گزارش پورت منبع SIEM (TCP/UDP) '),  'report_file' => 'os_reports/Forensics/SourcePort_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -251,12 +251,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['SourcePort_Report1'] = array('report_name' => _('SIEM Source Port Report (TCP)'),
+    $reports['SourcePort_Report1'] = array('report_name' => _('گزارش پورت منبع SIEM (TCP) '),
         'report_id'     => 'SourcePort_Report1',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'          => array('id'  => 'title_page',           'name' => _('Title Page'),                     'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'SourcePort_Report1'  => array('id'  => 'SourcePort_Report1',   'name' => _('SIEM Source Port Report (TCP)'),  'report_file' => 'os_reports/Forensics/SourcePort_Report.php')
+            'title_page'          => array('id'  => 'title_page',           'name' => _('عنوان صفحه'),                     'report_file' => 'os_reports/Forensics/titlepage.php'),
+            'SourcePort_Report1'  => array('id'  => 'SourcePort_Report1',   'name' => _('گزارش پورت منبع SIEM (TCP)'),  'report_file' => 'os_reports/Forensics/SourcePort_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -288,12 +288,12 @@ function get_freport_data($id = NULL)
         'send_by_email' => 0
     );
 
-    $reports['SourcePort_Report2'] = array('report_name' => _('SIEM Source Port Report (UDP)'),
+    $reports['SourcePort_Report2'] = array('report_name' => _('گزارش پورت منبع SIEM (UDP)'),
         'report_id'     => 'SourcePort_Report2',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'          => array('id'  => 'title_page',           'name' => _('Title Page'),                     'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'SourcePort_Report2'  => array('id'  => 'SourcePort_Report2',   'name' => _('SIEM Source Port Report (UDP)'),  'report_file' => 'os_reports/Forensics/SourcePort_Report.php')
+            'title_page'          => array('id'  => 'title_page',           'name' => _('عنوان صفحه'),                     'report_file' => 'os_reports/Forensics/titlepage.php'),
+            'SourcePort_Report2'  => array('id'  => 'SourcePort_Report2',   'name' => _('گزارش پورت منبع SIEM (UDP)'),  'report_file' => 'os_reports/Forensics/SourcePort_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -326,12 +326,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['DestinationPort_Report0'] = array('report_name' => _('SIEM Destination Port Report (TCP/UDP)'),
+    $reports['DestinationPort_Report0'] = array('report_name' => _('گزارش پورت مقصد SIEM (TCP/UDP) '),
         'report_id'     => 'DestinationPort_Report0',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'               => array('id'  => 'title_page',               'name' => _('Title Page'),                              'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'DestinationPort_Report0'  => array('id'  => 'DestinationPort_Report0',  'name' => _('SIEM Destination Port Report (TCP/UDP)'),  'report_file' => 'os_reports/Forensics/DestinationPort_Report.php')
+            'title_page'               => array('id'  => 'title_page',               'name' => _('عنوان صفحه'),                              'report_file' => 'os_reports/Forensics/titlepage.php'),
+            'DestinationPort_Report0'  => array('id'  => 'DestinationPort_Report0',  'name' => _('گزارش پورت مقصد SIEM (TCP/UDP) '),  'report_file' => 'os_reports/Forensics/DestinationPort_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -364,12 +364,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['DestinationPort_Report1'] = array('report_name'   => _('SIEM Destination Port Report (TCP)'),
+    $reports['DestinationPort_Report1'] = array('report_name'   => _('گزارش پورت مقصد SIEM (TCP) '),
         'report_id'     => 'DestinationPort_Report1',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'               => array('id'  => 'title_page',               'name' => _('Title Page'),                          'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'DestinationPort_Report1'  => array('id' => 'DestinationPort_Report1',   'name' => _('SIEM Destination Port Report (TCP)'),  'report_file' => 'os_reports/Forensics/DestinationPort_Report.php')
+            'title_page'               => array('id'  => 'title_page',               'name' => _('عنوان صفحه'),                          'report_file' => 'os_reports/Forensics/titlepage.php'),
+            'DestinationPort_Report1'  => array('id' => 'DestinationPort_Report1',   'name' => _('گزارش پورت مقصد SIEM (TCP)'),  'report_file' => 'os_reports/Forensics/DestinationPort_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -402,12 +402,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['DestinationPort_Report2'] = array('report_name'   => _('SIEM Destination Port Report (UDP)'),
+    $reports['DestinationPort_Report2'] = array('report_name'   => _('گزارش پورت مقصد SIEM (UDP)'),
         'report_id'     => 'DestinationPort_Report2',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'               => array('id'  => 'title_page',               'name' => _('Title Page'),                          'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'DestinationPort_Report2'  => array('id' => 'DestinationPort_Report2',   'name' => _('SIEM Destination Port Report (UDP)'),  'report_file' => 'os_reports/Forensics/DestinationPort_Report.php')
+            'title_page'               => array('id'  => 'title_page',               'name' => _('عنوان صفحه'),                          'report_file' => 'os_reports/Forensics/titlepage.php'),
+            'DestinationPort_Report2'  => array('id' => 'DestinationPort_Report2',   'name' => _('گزارش پورت مقصد SIEM (UDP)'),  'report_file' => 'os_reports/Forensics/DestinationPort_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -440,12 +440,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['UniquePlugin_Report'] = array('report_name'   => _('SIEM Unique Data Sources Report'),
+    $reports['UniquePlugin_Report'] = array('report_name'   => _('گزارش منحصر به فرد داده منابع SIEM'),
         'report_id'     => 'UniquePlugin_Report',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'           => array('id' => 'title_page',            'name' => _('Title Page'),                       'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'UniquePlugin_Report'  => array('id' => 'UniquePlugin_Report',   'name' => _('SIEM Unique Data Sources Report'),  'report_file' => 'os_reports/Forensics/UniquePlugin_Report.php')
+            'title_page'           => array('id' => 'title_page',            'name' => _('عنوان صفحه'),                       'report_file' => 'os_reports/Forensics/titlepage.php'),
+            'UniquePlugin_Report'  => array('id' => 'UniquePlugin_Report',   'name' => _('گزارش منحصر به فرد داده منابع SIEM'),  'report_file' => 'os_reports/Forensics/UniquePlugin_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -473,12 +473,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['UniqueCountryEvents_Report'] = array('report_name' => _('SIEM Unique Country Events Report'),
+    $reports['UniqueCountryEvents_Report'] = array('report_name' => _('گزارش منحصر به فرد کشور مرتبط با رویداد SIEM'),
         'report_id'     => 'UniqueCountryEvents_Report',
         'type'          => 'pdf',
         'subreports'    => array(
             'title_page'                  => array('id'  => 'title_page',                  'name' => _('Title Page'),                         'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'UniqueCountryEvents_Report'  => array('id'  => 'UniqueCountryEvents_Report',  'name' => _('SIEM Unique Country Events Report'),  'report_file' => 'os_reports/Forensics/UniqueCountryEvents_Report.php')
+            'UniqueCountryEvents_Report'  => array('id'  => 'UniqueCountryEvents_Report',  'name' => _('گزارش منحصر به فرد کشور مرتبط با رویداد SIEM'),  'report_file' => 'os_reports/Forensics/UniqueCountryEvents_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -506,12 +506,12 @@ function get_freport_data($id = NULL)
     );
 
 
-    $reports['UniqueIPLinks_Report'] = array('report_name' => _('SIEM Unique IP Links Report'),
+    $reports['UniqueIPLinks_Report'] = array('report_name' => _('گزارش منحصر به فرد لینک IPدر SIEM'),
         'report_id'     => 'UniqueIPLinks_Report',
         'type'          => 'pdf',
         'subreports'    => array(
             'title_page'            => array('id'  => 'title_page',           'name' => _('Title Page'),                   'report_file' => 'os_reports/Forensics/titlepage.php'),
-            'UniqueIPLinks_Report'  => array('id'  => 'UniqueIPLinks_Report', 'name' => _('SIEM Unique IP Links Report'),  'report_file' => 'os_reports/Forensics/UniqueIPLinks_Report.php')
+            'UniqueIPLinks_Report'  => array('id'  => 'UniqueIPLinks_Report', 'name' => _('گزارش منحصر به فرد لینک IPدر SIEM'),  'report_file' => 'os_reports/Forensics/UniqueIPLinks_Report.php')
         ),
         'parameters' => array(
             array('name' => 'reportUser',
@@ -561,7 +561,7 @@ function get_report_data($id = NULL)
     $m = strftime('%m', time() - ((24 * 60 * 60) * 30));
     $d = strftime('%d', time() - ((24 * 60 * 60) * 30));
     
-    $reports['asset_report'] = array('report_name' => _('Asset Details'),
+    $reports['asset_report'] = array('report_name' => _('جزئیات دارایی'),
         'report_id'     => 'asset_report',
         'type'          => 'external',
         'link_id'       => 'link_ar_asset',
@@ -578,63 +578,63 @@ function get_report_data($id = NULL)
     
     
     $status_values = array(
-        'All'      => array ('text' => _('All')), 
-        'Open'     => array ('text' => _('Open')),  
+        'All'      => array ('text' => _('همه')),
+        'Open'     => array ('text' => _('بازکردن')),
         'Assigned' => array ('text' => _('Assigned')),
-        'Studying' => array ('text' => _('Studying')),
-        'Waiting'  => array ('text' => _('Waiting')),
-        'Testing'  => array ('text' => _('Testing')),
-        'Closed'   => array ('text' => _('Closed'))
+        'Studying' => array ('text' => _('مطالعه کردن')),
+        'Waiting'  => array ('text' => _('انتظار')),
+        'Testing'  => array ('text' => _('امتحان کردن')),
+        'Closed'   => array ('text' => _('بستن'))
     );
                            
     $types_values =  array(
-        'ALL'                     => array ('text' => _('ALL')), 
-        'Expansion Virus'         => array ('text' => _('Expansion Virus')), 
-        'Corporative Nets Attack' => array ('text' => _('Corporative Nets Attack')),
-        'Policy Violation'        => array ('text' => _('Policy Violation')), 
-        'Security Weakness'       => array ('text' => _('Security Weakness')), 
-        'Net Performance'         => array ('text' => _('Net Performance')),
-        'Applications and Systems Failures'  => array ('text' => _('Applications and Systems Failures')),
-        'Anomalies'                          => array ('text' => _('Anomalies')),
-        'Vulnerability'                      => array ('text' => _('Vulnerability'))
+        'ALL'                     => array ('text' => _('همه')),
+        'Expansion Virus'         => array ('text' => _('انتشار ویروس')),
+        'Corporative Nets Attack' => array ('text' => _('حمله وابسته به شبکه')),
+        'Policy Violation'        => array ('text' => _('تخلف از سیاست ها')),
+        'Security Weakness'       => array ('text' => _('ضعف های امنیتی')),
+        'Net Performance'         => array ('text' => _('کارایی شبکه')),
+        'Applications and Systems Failures'  => array ('text' => _('خرابی های برنامه ها و سیستم ها')),
+        'Anomalies'                          => array ('text' => _('ناهنجاری ها')),
+        'Vulnerability'                      => array ('text' => _('آسیب پذیری'))
     );
 
 
 
     $priority_values = array(
-        'High'    => _('High'), 
-        'Medium'  => _('Medium'), 
-        'Low'     => _('Low')
+        'High'    => _('زیاد'),
+        'Medium'  => _('متوسط'),
+        'Low'     => _('کم')
     );
 
 
-    $reports['tickets_report'] = array('report_name' => _('Tickets Report'),
+    $reports['tickets_report'] = array('report_name' => _('گزارش بلیط'),
         'report_id'     => 'tickets_report',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'     => array('id' => 'title_page',    'name' => _('Title Page'),    'report_file' => 'os_reports/Common/titlepage.php'),                       
-             'alarm'         => array('id' => 'alarm',         'name' => _('Alarm'),         'report_file' => 'os_reports/Tickets/Alarm.php'),
-             'event'         => array('id' => 'event',         'name' => _('Event'),         'report_file' => 'os_reports/Tickets/Event.php'),
-             'anomaly'       => array('id' => 'anomaly',       'name' => _('Anomaly'),       'report_file' => 'os_reports/Tickets/Anomaly.php'),
-             'vulnerability' => array('id' => 'vulnerability', 'name' => _('Vulnerability'), 'report_file' => 'os_reports/Tickets/Vulnerability.php')
+            'title_page'     => array('id' => 'title_page',    'name' => _('صفحه عنوان'),    'report_file' => 'os_reports/Common/titlepage.php'),
+             'alarm'         => array('id' => 'alarm',         'name' => _('هشدار'),         'report_file' => 'os_reports/Tickets/Alarm.php'),
+             'event'         => array('id' => 'event',         'name' => _('رویداد'),         'report_file' => 'os_reports/Tickets/Event.php'),
+             'anomaly'       => array('id' => 'anomaly',       'name' => _('ناهنجاری'),       'report_file' => 'os_reports/Tickets/Anomaly.php'),
+             'vulnerability' => array('id' => 'vulnerability', 'name' => _('آسیب پذیری'), 'report_file' => 'os_reports/Tickets/Vulnerability.php')
         ),
         'parameters'    => array(
-            array('name'          => _('Date Range'),
+            array('name'          => _('محدوده داده'),
                   'date_from_id'  => 'tr_date_from',
                   'date_to_id'    => 'tr_date_to',
                   'type'          => 'date_range',
                   'default_value' => array('date_from' => $y.'-'.$m.'-'.$d, 'date_to' => date('Y').'-'.date('m').'-'.date('d') )),          
-            array('name'   => _('Status'),
+            array('name'   => _('وضعیت'),
                   'id'     => 'tr_status',
                   'type'   => 'select',
                   'values' => $status_values),
                   
-            array('name'   => _('Type'),
+            array('name'   => _('نوع'),
                   'id'     => 'tr_type',
                   'type'   => 'select',
                   'values' => $types_values),
                   
-            array('name'   => _('Priority'),
+            array('name'   => _('اولویت'),
                   'id'     => 'tr_priority',
                   'type'   => 'checkbox',
                   'values' => $priority_values),
@@ -644,19 +644,19 @@ function get_report_data($id = NULL)
     );
     
         
-    $reports['alarm_report'] = array('report_name' => _('Alarms Report'),
+    $reports['alarm_report'] = array('report_name' => _('گزارش هشدار'),
         'report_id'     => 'alarm_report',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'        => array('id' => 'title_page',          'name' => _('Title Page'),              'report_file' => 'os_reports/Common/titlepage.php'),
-            'top_attacker_host' => array('id' => 'top_attacker_host',   'name' => _('Top 10 Attacker Host'),    'report_file' => 'os_reports/Alarms/AttackerHosts.php'),
-            'top_attacked_host' => array('id' => 'top_attacked_host',   'name' => _('Top 10 Attacked Host'),    'report_file' => 'os_reports/Alarms/AttackedHosts.php'),
-            'used_port'         => array('id' => 'used_port',           'name' => _('Top 10 Used Ports'),       'report_file' => 'os_reports/Alarms/UsedPorts.php'),
-            'top_events'        => array('id' => 'top_events',          'name' => _('Top 15 Alarms'),           'report_file' => 'os_reports/Alarms/TopAlarms.php'),
-            'events_by_risk'    => array('id' => 'events_by_risk',      'name' => _('Top 15 Alarms by Risk'),   'report_file' => 'os_reports/Alarms/TopAlarmsByRisk.php')
+            'title_page'        => array('id' => 'title_page',          'name' => _('عنوان صفحه'),              'report_file' => 'os_reports/Common/titlepage.php'),
+            'top_attacker_host' => array('id' => 'top_attacker_host',   'name' => _('10 حمله کننده نخست میزبان'),    'report_file' => 'os_reports/Alarms/AttackerHosts.php'),
+            'top_attacked_host' => array('id' => 'top_attacked_host',   'name' => _('10 میزبان نخست مورد حمله'),    'report_file' => 'os_reports/Alarms/AttackedHosts.php'),
+            'used_port'         => array('id' => 'used_port',           'name' => _('10 پورت نخست مورد استفاده'),       'report_file' => 'os_reports/Alarms/UsedPorts.php'),
+            'top_events'        => array('id' => 'top_events',          'name' => _('15 هشدار نخست'),           'report_file' => 'os_reports/Alarms/TopAlarms.php'),
+            'events_by_risk'    => array('id' => 'events_by_risk',      'name' => _('15 هشدار نخست به همراه ریسک'),   'report_file' => 'os_reports/Alarms/TopAlarmsByRisk.php')
         ),
         'parameters'    => array(
-            array('name' => _('Date Range'),
+            array('name' => _('رنج داده'),
                   'date_from_id' => 'ar_date_from',
                   'date_to_id' => 'ar_date_to',
                   'type' => 'date_range',
@@ -671,13 +671,13 @@ function get_report_data($id = NULL)
         'report_id'     => 'bc_pci_report',
         'type'          => 'pdf',
         'subreports'    => array(
-            'title_page'        => array('id' => 'title_page',         'name' => _('Title Page'),                  'report_file' => 'os_reports/Common/titlepage.php'),
-            'threat_overview'   => array('id' => 'threat_overview',    'name' => _('Threat overview'),             'report_file' => 'os_reports/BusinessAndComplianceISOPCI/ThreatOverview.php'),
+            'title_page'        => array('id' => 'title_page',         'name' => _('عنوان صفحه'),                  'report_file' => 'os_reports/Common/titlepage.php'),
+            'threat_overview'   => array('id' => 'threat_overview',    'name' => _('چکیده تهدیدات'),             'report_file' => 'os_reports/BusinessAndComplianceISOPCI/ThreatOverview.php'),
             'bri_risks'         => array('id' => 'bri_risks',          'name' => _('Business real impact risks'),  'report_file' => 'os_reports/BusinessAndComplianceISOPCI/BusinessPotentialImpactsRisks.php'),
-            'ciap_impact'       => array('id' => 'ciap_impact',        'name' => _('C.I.A Potential impact'),      'report_file' => 'os_reports/BusinessAndComplianceISOPCI/CIAPotentialImpactsRisks.php'),
+            'ciap_impact'       => array('id' => 'ciap_impact',        'name' => _('C.I.A پتانسیل اثر'),      'report_file' => 'os_reports/BusinessAndComplianceISOPCI/CIAPotentialImpactsRisks.php'),
             'pci_dss'           => array('id' => 'pci_dss',            'name' => _('PCI-DSS 2.0'),                 'report_file' => 'os_reports/BusinessAndComplianceISOPCI/PCI-DSS.php'),
             'pci_dss3'          => array('id' => 'pci_dss3',           'name' => _('PCI-DSS 3.0'),                 'report_file' => 'os_reports/BusinessAndComplianceISOPCI/PCI-DSS3.php'),
-            'trends'            => array('id' => 'trends',             'name' => _('Trends'),                      'report_file' => 'os_reports/BusinessAndComplianceISOPCI/Trends.php'),
+            'trends'            => array('id' => 'trends',             'name' => _('آلودگی ها'),                      'report_file' => 'os_reports/BusinessAndComplianceISOPCI/Trends.php'),
             'iso27002_p_impact' => array('id' => 'iso27002_p_impact',  'name' => _('ISO27002 Potential impact'),   'report_file' => 'os_reports/BusinessAndComplianceISOPCI/ISO27002PotentialImpact.php'),
             'iso27001'          => array('id' => 'iso27001',           'name' => _('ISO27001'),                    'report_file' => 'os_reports/BusinessAndComplianceISOPCI/ISO27001.php')
         ),
@@ -695,16 +695,16 @@ function get_report_data($id = NULL)
     );
         
                     
-    $reports['siem_report'] = array('report_name' => _('SIEM Events'),
+    $reports['siem_report'] = array('report_name' => _('SIEM رویدادهای '),
         'report_id'     => 'siem_report',
         'type'          => 'pdf',
         'subreports'    => array(
             'title_page'        => array('id' => 'title_page',          'name' => _('Title Page'),              'report_file' => 'os_reports/Common/titlepage.php'),
-            'top_attacker_host' => array('id' => 'top_attacker_host',   'name' => _('Top 10 Attacker Host'),    'report_file' => 'os_reports/Siem/AttackerHosts.php'),
-            'top_attacked_host' => array('id' => 'top_attacked_host',   'name' => _('Top 10 Attacked Host'),    'report_file' => 'os_reports/Siem/AttackedHosts.php'),
-            'used_port'         => array('id' => 'used_port',           'name' => _('Top 10 Used Ports'),       'report_file' => 'os_reports/Siem/UsedPorts.php'),
-            'top_events'        => array('id' => 'top_events',          'name' => _('Top 15 Events'),           'report_file' => 'os_reports/Siem/TopEvents.php'),
-            'events_by_risk'    => array('id' => 'events_by_risk',      'name' => _('Top 15 Events by Risk'),   'report_file' => 'os_reports/Siem/TopEventsByRisk.php')
+            'top_attacker_host' => array('id' => 'top_attacker_host',   'name' => _('10 حمله کننده نخست میزبان'),    'report_file' => 'os_reports/Siem/AttackerHosts.php'),
+            'top_attacked_host' => array('id' => 'top_attacked_host',   'name' => _('10 میزبان نخست مورد حمله'),    'report_file' => 'os_reports/Siem/AttackedHosts.php'),
+            'used_port'         => array('id' => 'used_port',           'name' => _('10 پورت نخست مورد استفاده'),       'report_file' => 'os_reports/Siem/UsedPorts.php'),
+            'top_events'        => array('id' => 'top_events',          'name' => _('15 هشدار نخست'),           'report_file' => 'os_reports/Siem/TopEvents.php'),
+            'events_by_risk'    => array('id' => 'events_by_risk',      'name' => _('15 هشدار نخست به همراه ریسک'),   'report_file' => 'os_reports/Siem/TopEventsByRisk.php')
         ),
         'parameters'    => array(
             array('name'          => _('Date Range'),
@@ -718,7 +718,7 @@ function get_report_data($id = NULL)
     );
             
     
-    $reports['vulnerabilities_report'] = array('report_name' => _('Vulnerabilities Report'),
+    $reports['vulnerabilities_report'] = array('report_name' => _('گزارش آسیب پذیری ها'),
         'report_id'     => 'vulnerabilities_report',
         'type'          => 'external',
         'target'        => '_blank',
@@ -728,7 +728,7 @@ function get_report_data($id = NULL)
         'send_by_email' => 0
     );
                      
-    $reports['th_vuln_db'] = array('report_name' => _('Threats & Vulnerabilities Database'),
+    $reports['th_vuln_db'] = array('report_name' => _('پایگاه داده تهدیدها و آسیب پذیری ها'),
         'report_id'     => 'th_vuln_db',
         'type'          => 'external',
         'link_id'       => 'link_tvd',
@@ -738,7 +738,7 @@ function get_report_data($id = NULL)
     );
     
                   
-    $reports['ticket_status'] = array('report_name' => _('Tickets Status'),
+    $reports['ticket_status'] = array('report_name' => _('وضعیت بلیط ها'),
         'report_id'     => 'ticket_status',
         'type'          => 'external',
         'link_id'       => 'link_tr',        
@@ -768,7 +768,7 @@ function get_report_data($id = NULL)
     // User Log lists
     if (Session::am_i_admin()) 
     { 
-        $user_values[''] = array ('text' => _('All'));
+        $user_values[''] = array ('text' => _('همه'));
                 
         if ($session_list)
         {
@@ -795,7 +795,7 @@ function get_report_data($id = NULL)
    
     $code_list = Log_config::get_list($conn, 'ORDER BY descr');
     
-    $action_values[''] = array ('text' => _('All'));
+    $action_values[''] = array ('text' => _('همه'));
     
     if ($code_list) 
     {
@@ -806,18 +806,18 @@ function get_report_data($id = NULL)
         }
     }
     
-    $reports['user_activity'] = array('report_name' => _('User Activity Report'),
+    $reports['user_activity'] = array('report_name' => _('گزارش فعالیت کاربر'),
         'report_id'     => 'user_activity',
         'type'          => 'external',
         'link_id'       => 'link_ua',
         'link'          => Menu::get_menu_url('../userlog/user_action_log.php', 'settings', 'settings', 'user_activity'),
         'parameters'    => array(
-            array('name' => _('User'),
+            array('name' => _('کاربر'),
                   'id'   => 'ua_user',                        
                   'type' => 'select', 
                   'values' => $user_values),
             
-            array('name' => _('Action'),
+            array('name' => _('عمل '),
                   'id'   => 'ua_action',                        
                   'type' => 'select', 
                   'values' => $action_values)
@@ -831,11 +831,11 @@ function get_report_data($id = NULL)
         'report_id'     => 'geographic_report',
         'type'          => 'pdf',
         'subreports'    => array(
-        'title_page'        => array('id'  => 'title_page',        'name' => _('Title Page'),        'report_file' => 'os_reports/Common/titlepage.php'),
-        'geographic_report' => array('id' => 'geographic_report',  'name' => _('Geographic Report'), 'report_file' => 'os_reports/Various/Geographic.php')
+        'title_page'        => array('id'  => 'title_page',        'name' => _('عنوان صفحه'),        'report_file' => 'os_reports/Common/titlepage.php'),
+        'geographic_report' => array('id' => 'geographic_report',  'name' => _('گزارش جغرافیایی'), 'report_file' => 'os_reports/Various/Geographic.php')
         ),
         'parameters'    => array(
-            array('name' => _('Date Range'),
+            array('name' => _('محدوده داده'),
                   'date_from_id' => 'gr_date_from',
                   'date_to_id' => 'gr_date_to',
                   'type' => 'date_range',
@@ -846,7 +846,7 @@ function get_report_data($id = NULL)
         );
                 
     //Sensor list 
-    $sensor_values[''] = array('text' => ' -- '._('Sensors no found').' -- ');  
+    $sensor_values[''] = array('text' => ' -- '._('سنسور یافت نشد').' -- ');
     
     
     $filters = array(
@@ -887,23 +887,23 @@ function get_report_data($id = NULL)
     $nagios         = $port.$path;  
 
     $section_values = array(
-        urlencode($nagios.'cgi-bin/trends.cgi')           => array('text' => _('Trends')), 
-        urlencode($nagios.'cgi-bin/avail.cgi')            => array('text' => _('Availability')),  
-        urlencode($nagios.'cgi-bin/histogram.cgi')        => array('text' => _('Event Histogram')),  
-        urlencode($nagios.'cgi-bin/history.cgi?host=all') => array('text' => _('Event History')),  
-        urlencode($nagios.'cgi-bin/summary.cgi')          => array('text' => _('Event Summary')),  
-        urlencode($nagios.'cgi-bin/notifications.cgi')    => array('text' => _('Notifications')),  
-        urlencode($nagios.'cgi-bin/showlog.cgi')          => array('text' => _('Performance Info'))
+        urlencode($nagios.'cgi-bin/trends.cgi')           => array('text' => _('آلودگی ها')),
+        urlencode($nagios.'cgi-bin/avail.cgi')            => array('text' => _('دسترسی')),
+        urlencode($nagios.'cgi-bin/histogram.cgi')        => array('text' => _('هیستوگرام رویداد')),
+        urlencode($nagios.'cgi-bin/history.cgi?host=all') => array('text' => _('تاریخ رویداد')),
+        urlencode($nagios.'cgi-bin/summary.cgi')          => array('text' => _('خلاصه رویداد')),
+        urlencode($nagios.'cgi-bin/notifications.cgi')    => array('text' => _('آگاه سازی ها')),
+        urlencode($nagios.'cgi-bin/showlog.cgi')          => array('text' => _('کارایی اطلاعات'))
     );          
                
                 
-    $reports['availability_report'] = array('report_name'   => _('Availability Report'),
+    $reports['availability_report'] = array('report_name'   => _('گزارش دسترسی'),
         'report_id'     => 'availability_report',
         'type'          => 'external',
         'link_id'       => 'link_avr',
         'click'         => "nagios_link('avr_nagios_link', 'avr_sensor', 'avr_section');",
         'parameters'    => array(
-            array('name' => _('Sensor'),
+            array('name' => _('سنسور'),
                   'id'   => 'avr_sensor',
                   'type' => 'select', 
                   'values' => $sensor_values),
@@ -913,7 +913,7 @@ function get_report_data($id = NULL)
                   'type' => 'hidden', 
                   'default_value' => urlencode($scheme)),
             
-            array('name'  => _('Section'),
+            array('name'  => _('بخش'),
                   'id'    => 'avr_section',
                   'type'  => 'select', 
                   'values' => $section_values)
@@ -1020,23 +1020,23 @@ function validate_parameter($type, $parameter)
     switch ($type)
     {
         case 'date':
-           ossim_valid($parameter, OSS_DATE, 'illegal:' . _('Date'));
+           ossim_valid($parameter, OSS_DATE, 'illegal:' . _('تاریخ'));
            
            if (ossim_error())
            {
-                $res = _('Invalid Date-time. Format allowed: YYYY-MM-DD');
+                $res = _('تاریخ-زمان نامعتبر. فرمت مجاز: YYYY-MM-DD');
            }     
         break;
         
         case 'year':
             if ($parameter > 1970 && $parameter < 3000)
             {
-                $res = _('Invalid Year. Format allowed: YYYY [1970-3000]');
+                $res = _('سال نامعتبر. فرمت مجاز: YYYY [1970-3000]');
             }
         case 'month':
             if ($parameter > 0 && $parameter < 13)
             {    
-                $res = _('Invalid Month. Format allowed: MM [00-12]');
+                $res = _('ماه نامعتبر. فرمت مجاز: MM [00-12]');
             }
         break;                      
     }
@@ -1055,7 +1055,7 @@ function check_parameters($report_id, $parameters, $section)
     if (empty($d_reports))
     {
         $res['error']       = TRUE;
-        $res['error_msg'][] = _('The report has been removed');
+        $res['error_msg'][] = _('گزارش حذف شده است');
         
         return $res;
     }
