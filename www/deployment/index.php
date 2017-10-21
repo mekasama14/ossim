@@ -351,7 +351,7 @@ if ($error)
 								<td class='noborder' valign='top'>
 									<div class='box_circle'>
 										<div class='percentage' id='c_ids' data-percent=""><span id='c_ids_label'></span></div>
-										<div class='box_subtitle'><?php echo _(' تمام IDSهای فعال ') ?></div>
+										<div class='box_subtitle' style="direction: rtl"><?php echo _(' تمام IDSهای فعال ') ?></div>
 										<div class='box_count'><?php echo   $ids_percent[1] . "/" . $ids_percent[2] . " " . _('شبکه ها') ?></div>
 									</div>
 								</td>
