@@ -379,7 +379,7 @@ if ($error)
 								<td class='noborder' valign='top'>
 									<div class='box_circle'>
 										<div class='percentage' id='c_netflow' data-percent=""><span id='c_netflow_label'></span></div>
-										<div class='box_subtitle'><?php echo _('مانیتور Net flow') ?></div>
+										<div class='box_subtitle' style="direction: rtl"><?php echo _('مانیتور Net flow') ?></div>
 										<div class='box_count'><?php echo   $netflow_percent[1] . "/" . $netflow_percent[2] . " " . _('شبکه ها ') ?></div>
 									</div>
 								</td>
