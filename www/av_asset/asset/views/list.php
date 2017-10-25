@@ -55,7 +55,7 @@ function show_notif($msg, $type)
 $back  = intval(GET('back'));
 $notif = GET('notif');
 
-ossim_valid($notif,    OSS_TEXT, OSS_NULLABLE,    'illegal:' . _('Notification Message'));
+ossim_valid($notif,    OSS_TEXT, OSS_NULLABLE,    'illegal:' . _('پیام آگاهی دهنده'));
 
 if (ossim_error())
 {
@@ -290,26 +290,26 @@ switch ($notif)
     <div id='main_container'>
         <div class="left_side">
             <div class='filter_left_section'>
-                <input id='search_filter' data-bind="search-asset" class='input_search_filter' name='search_filter' type="search" value="" placeholder="<?php echo _('Search') ?>">
+                <input id='search_filter' data-bind="search-asset" class='input_search_filter' name='search_filter' type="search" value="" placeholder="<?php echo _('جستجو') ?>">
             </div>
 
             <div class='filter_left_section'>
                 <div class='filter_left_title'>
-                    <input id='filter_3' class='value_filter input_search_filter' data-id='3' type="checkbox" <?php echo ($_alarms) ? 'checked' : '' ?> ><?php echo _('Has Alarms') ?>
+                    <input id='filter_3' class='value_filter input_search_filter' data-id='3' type="checkbox" <?php echo ($_alarms) ? 'checked' : '' ?> ><?php echo _('هشدارهایی دارد') ?>
                 </div>
             </div>
 
 
              <div class='filter_left_section'>
                 <div class='filter_left_title'>
-                    <input id='filter_4' class='value_filter input_search_filter' data-id='4' type="checkbox" <?php echo ($_events) ? 'checked' : '' ?> ><?php echo _('Has Events') ?>
+                    <input id='filter_4' class='value_filter input_search_filter' data-id='4' type="checkbox" <?php echo ($_events) ? 'checked' : '' ?> ><?php echo _('رویدادهایی دارد') ?>
                 </div>
             </div>
 
 
             <div class='filter_left_section'>
                 <div class='filter_left_title'>
-                    <input id='filter_5' class='input_search_filter' type="checkbox" <?php echo ($flag_vulns) ? 'checked' : '' ?> ><?php echo _('Vulnerabilities') ?>
+                    <input id='filter_5' class='input_search_filter' type="checkbox" <?php echo ($flag_vulns) ? 'checked' : '' ?> ><?php echo _('آسیب پذیریها') ?>
                 </div>
 
                 <div id='vulns_slider' class='filter_left_slider'>
@@ -338,7 +338,7 @@ switch ($notif)
 
             <div class='filter_left_section'>
                 <div class='filter_left_title'>
-                    <input id='filter_6' class='input_search_filter' type="checkbox" <?php echo ($flag_av) ? 'checked' : '' ?>><?php echo _('Asset Value') ?>
+                    <input id='filter_6' class='input_search_filter' type="checkbox" <?php echo ($flag_av) ? 'checked' : '' ?>><?php echo _('مقداردارایی') ?>
                 </div>
                 <div id='asset_value_slider' class='filter_left_slider'>
         			<select class='filter_range' id="arangeA">
@@ -401,7 +401,7 @@ switch ($notif)
 
             <div class='filter_left_section'>
                 <div class='filter_left_title'>
-                    <?php echo _('Show Assets Added') ?>
+                    <?php echo _('نشان دادن دارایی های اضافه شده') ?>
                 </div>
                 <div id='filter_1' class='filter_left_content asset_date_input' data-filter='1'>
                     <?php
@@ -425,7 +425,7 @@ switch ($notif)
 
             <div class='filter_left_section'>
                 <div class='filter_left_title'>
-                    <?php echo _('Last Updated') ?>
+                    <?php echo _('آخرین بروزرسانی') ?>
                 </div>
                 <div id='filter_2' class='filter_left_content asset_date_input' data-filter='2'>
                     <?php
@@ -449,7 +449,7 @@ switch ($notif)
             <br><br>
 
             <a href='javascript:;' class='fleft button av_b_secondary' data-bind='more-filters'>
-                <?php echo _('More Filters') ?>
+                <?php echo _('فیلترهای بیشتر') ?>
             </a>
 
 
@@ -462,16 +462,16 @@ switch ($notif)
             <div id='content_header'>
 
                 <div id='asset_section_title'>
-                    <?php echo _('Assets') ?>
+                    <?php echo _('دارایی ها') ?>
                 </div>
 
                 <div id='action_add_buttons'>
 
                     <button id='button_add' class='button av_b_secondary' data-dropdown="#dropdown-add">
-                        <?php echo _('Add Assets') ?> &nbsp;&#x25be;
+                        <?php echo _('اضافه کردن دارایی ها') ?> &nbsp;&#x25be;
                     </button>
 
-                    <img id='export_selection' class='disabled tiptip' data-selection="avt_action" data-bind="export-selection" data-title="<?php echo _('Select assets to export') ?>" src="/ossim/pixmaps/download-big.png"/>
+                    <img id='export_selection' class='disabled tiptip' data-selection="avt_action" data-bind="export-selection" data-title="<?php echo _('انتخاب دارایی ها برای واردکردن') ?>" src="/ossim/pixmaps/download-big.png"/>
 
                 </div>
 
@@ -501,12 +501,12 @@ switch ($notif)
                     <div id='result_search'>
 
                         <div id='num_assets'>0</div>
-                        <span><?php echo _('Assets') ?></span>
+                        <span><?php echo _('دارایی ها') ?></span>
 
                     </div>
 
                     <div id='restart_search'>
-                        <a href='javascript:;' data-bind="restart-search"><?php echo _('Clear All Filters') ?></a>
+                        <a href='javascript:;' data-bind="restart-search"><?php echo _('پاک کردن تمام فیلترها') ?></a>
                     </div>
 
                     <div class='clear_layer'></div>

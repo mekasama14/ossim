@@ -289,10 +289,10 @@ function list_reports($type, $value, $sortby, $sortdir, $widget_mode ) {
 			$queryl = " limit $roffset,$pageSize";
 
 			if (!preg_match("/\//",$value)) {
-				$stext =  "<b>"._("Search for Host")."</b> = '*".html_entity_decode($q)."*'";
+				$stext =  "<b>"._("جستجوی میزبان")."</b> = '*".html_entity_decode($q)."*'";
 			}
 			else{
-				$stext =  "<b>"._("Search for Subnet/CIDR")."</b> = '*$q*'";
+				$stext =  "<b>"._("جستجویSubnet/CIDR ")."</b> = '*$q*'";
 			}
 
 			$url_filter="&type=$type&value=$value";
@@ -339,7 +339,7 @@ function list_reports($type, $value, $sortby, $sortdir, $widget_mode ) {
 		//echo "<center><table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"100%\"><tr><td class=\"headerpr\" style=\"border:0;\">"._("Reports")."</td></tr></table></center>";
 		// output the search form
 echo "<table cellspacing='0' cellpadding='0' class='w100 transparent'>";
-echo "<tr><td class='sec_title'>"._("Scan Reports Details")."</td></tr>";
+echo "<tr><td class='sec_title'>"._("اسکن جزئیات گزارش ها")."</td></tr>";
 echo "<tr><td style='padding-top:12px;' class='transparent'>";
 echo '
 <center>
@@ -371,8 +371,8 @@ EOT;
          echo "s";
       } else {
       }
-      echo " "._("found matching search criteria")." | ";
-      echo " <a href='index.php' alt='"._("View All Reports")."'>"._("View All Reports")."</a></p>";
+      echo " "._("معیارهای جستجومطابقت پیداکرد")." | ";
+      echo " <a href='index.php' alt='"._("مشاهده همه گزارش ها")."'>"._("مشاهده همه گزارش ها")."</a></p>";
    }
 
    echo "<p>";
@@ -384,7 +384,7 @@ EOT;
    $result=$dbconn->GetArray($querys.$queryw.$queryl);
 
    if($result === false) {
-      $errMsg[] = _("Error getting results").": " . $dbconn->ErrorMsg();
+      $errMsg[] = _("خطادردریافت نتایح").": " . $dbconn->ErrorMsg();
       $error++;
       dispSQLError($errMsg,$error);
    } else {
@@ -553,7 +553,7 @@ EOT;
       }
       else {?>
         <table class="table_list">
-            <tr><td class="nobborder" style="text-align:center;padding: 8px 0px 0px 0px;"><strong><?php echo _("No reports found"); ?></strong><br/><br/></td></tr>
+            <tr><td class="nobborder" style="text-align:center;padding: 8px 0px 0px 0px;"><strong><?php echo _("گزارشی پیدانشد"); ?></strong><br/><br/></td></tr>
         </table>
       <?php
 
@@ -567,26 +567,26 @@ EOT;
             if ($next > $pageSize)
             {
             ?>
-		        <a href="index.php?sreport=1&<?php echo "sortdir=$or_sortdir&roffset=$previous&sortby=$or_sortby$url_filter" ?>" class="pager">< <?php echo _("PREVIOUS")?> </a>
+		        <a href="index.php?sreport=1&<?php echo "sortdir=$or_sortdir&roffset=$previous&sortby=$or_sortby$url_filter" ?>" class="pager">< <?php echo _("قبلی")?> </a>
 		    <?php
 		    }
 		    else
 		    {
     		?>
-		        <a class='link_paginate_disabled' href="" onclick='return false'>< <?php echo _("PREVIOUS")?> </a>
+		        <a class='link_paginate_disabled' href="" onclick='return false'>< <?php echo _("قبلی")?> </a>
     		<?php
 		    }
 		    
             if ($next <= $last)
             {
 		    ?>
-                <a class='lmargin' href="index.php?sreport=1&<?php echo "sortdir=$or_sortdir&roffset=$next&sortby=$or_sortby$url_filter" ?>">  <?php echo _("NEXT") ?> ></a>
+                <a class='lmargin' href="index.php?sreport=1&<?php echo "sortdir=$or_sortdir&roffset=$next&sortby=$or_sortby$url_filter" ?>">  <?php echo _("بعدی") ?> ></a>
             <?php
             }
             else
             {
             ?>
-                <a class='link_paginate_disabled lmargin' href="" onclick='return false'><?php echo _("NEXT")?> ></a>
+                <a class='link_paginate_disabled lmargin' href="" onclick='return false'><?php echo _("بعدی")?> ></a>
             <?php    
             }
             ?>
@@ -780,7 +780,7 @@ EOT;
 	}
 
     function confirmDelete(key){
-        var ans = confirm("<?php echo  Util::js_entities(_("Are you sure you want to delete this report?"))?>");
+        var ans = confirm("<?php echo  Util::js_entities(_("آیاواقعاقصدداریداین گزارش راحذف کنید?"))?>");
         if (ans) document.location.href='index.php?delete='+key;
     }
 
@@ -850,7 +850,7 @@ function list_results ( $type, $value, $ctx_filter, $sortby, $sortdir ) {
         $q = $value;
         $queryw = " AND t1.scantime LIKE '%$q%' $query_onlyuser order by $sortby $sortdir";
         $queryl = " limit $offset,$pageSize";
-        $stext =  "<b>"._("Search for Date/Time")."</b> = '*$q*'";
+        $stext =  "<b>"._("جستجوی زمان/تاریخ")."</b> = '*$q*'";
         $url_filter="&type=$type&value=$value";
     }
     else if($type=="service" && $value!="") {
@@ -882,7 +882,7 @@ function list_results ( $type, $value, $ctx_filter, $sortby, $sortdir ) {
       $q = strtolower($value);
       $queryw = " AND t1.fk_name LIKE '%$q%' $query_onlyuser order by $sortby $sortdir";
       $queryl = " limit $offset,$pageSize";
-      $stext = _("Search for Subnet/CIDR")." = '*$q*'";
+      $stext = _("جستجوی Subnet/CIDR")." = '*$q*'";
       $url_filter="&type=$type&value=$value";
     }
    else if($type=="username" && $value!="") {
@@ -916,10 +916,10 @@ function list_results ( $type, $value, $ctx_filter, $sortby, $sortdir ) {
 
         $queryl = " limit $offset,$pageSize";
         if (!preg_match("/\//",$value)) {
-            $stext =  "<b>"._("Search for Host")."</b> = '".html_entity_decode($q)."'";
+            $stext =  "<b>"._("جستجوی میزبان")."</b> = '".html_entity_decode($q)."'";
         }
         else {
-            $stext =  "<b>"._("Search for Subnet/CIDR")."</b> = '$value'";
+            $stext =  "<b>"._("جستجوی Subnet/CIDR")."</b> = '$value'";
         }
         $url_filter="&type=$type&value=$value";
     }
@@ -951,7 +951,7 @@ function list_results ( $type, $value, $ctx_filter, $sortby, $sortdir ) {
 //echo "<center><table cellspacing='0' cellpadding='0' border='0' width='100%'><tr><td class='headerpr' style='border:0;'>"._("Current Vulnerablities")."</td></tr></table>";
       // output the search form
 echo "<table class='w100 transparent'>";
-echo "<tr><td class='sec_title'>"._("Asset Vulnerability Details")."</td></tr>";
+echo "<tr><td class='sec_title'>"._("جزئیات آسیب پذیری دارایی ها")."</td></tr>";
 echo "<tr><td style='padding:12px 0px 0px 0px;' class='transparent'>";
 ?>
     <div id='cvleftdiv'>
@@ -984,8 +984,8 @@ EOT;
          echo "s";
       } else {
       }
-      echo " "._("found matching search criteria")." | ";
-      echo " <a href='index.php' alt='"._("View All Reports")."'>"._("View All Reports")."</a></p>";
+      echo " "._("معیارهای جستجوتطابق پیداکرد")." | ";
+      echo " <a href='index.php' alt='"._("مشاهده همه گزارش ها")."'>"._("مشاهده همه گزارش ها")."</a></p>";
    }
    echo "<p>";
    echo $stext;
@@ -1156,26 +1156,26 @@ EOT;
         if ($next > $pageSize)
         {
         ?>
-	        <a href="index.php?<?php echo "offset=$previous$url_filter" ?>" class="pager">< <?php echo _("PREVIOUS")?> </a>
+	        <a href="index.php?<?php echo "offset=$previous$url_filter" ?>" class="pager">< <?php echo _("قبلی")?> </a>
 	    <?php
 	    }
 	    else
 	    {
 		?>
-	        <a class='link_paginate_disabled' href="" onclick='return false'>< <?php echo _("PREVIOUS")?> </a>
+	        <a class='link_paginate_disabled' href="" onclick='return false'>< <?php echo _("قبلی")?> </a>
 		<?php
 	    }
 	    
         if ($next <= $last)
         {
 	    ?>
-            <a class='lmargin' href="index.php?<?php echo "offset=$next$url_filter" ?>">  <?php echo _("NEXT") ?> ></a>
+            <a class='lmargin' href="index.php?<?php echo "offset=$next$url_filter" ?>">  <?php echo _("بعدی") ?> ></a>
         <?php
         }
         else
         {
         ?>
-            <a class='link_paginate_disabled lmargin' href="" onclick='return false'><?php echo _("NEXT")?> ></a>
+            <a class='link_paginate_disabled lmargin' href="" onclick='return false'><?php echo _("بعدی")?> ></a>
         <?php    
         }
         ?>
@@ -1194,8 +1194,8 @@ EOT;
 			<td class="valigntop" width="48%">
 				<div id="rtabs" style='width:100%;margin:0 auto;padding:0;height:100%;'>
 					<ul>
-					   <li><a href="#tabs-1" class="ptab" id="by_severity_tab"><?php echo _("By Severity") ?></a></li>
-					   <li><a href="#tabs-2" class="ptab" id="by_services_tab"><?php echo _("By Services - Top 10") ?></a></li>
+					   <li><a href="#tabs-1" class="ptab" id="by_severity_tab"><?php echo _("به شدت") ?></a></li>
+					   <li><a href="#tabs-2" class="ptab" id="by_services_tab"><?php echo _("به شدت - بالای 10") ?></a></li>
 					</ul>
 					<div id="tabs-1" class="tab_box statistics_background"><?php stats_severity_services($type, $value, "severity");?></div>
 				    <div id="tabs-2" class="tab_box statistics_background"><?php stats_severity_services($type, $value, "service");?></div>
@@ -1205,8 +1205,8 @@ EOT;
 			<td width="48%">
 				<div id="atabs" style='width:100%;margin:0 auto;padding:0;height:100%;'>
 					<ul>
-					<li><a href="#tabs-1" class="ptab" id="top_10_hosts_tab"><?php echo _("Top 10 Hosts") ?></a></li>
-					<li><a href="#tabs-2" class="ptab" id="top_10_networks_tab"><?php echo _("Top 10 Networks") ?></a></li>
+					<li><a href="#tabs-1" class="ptab" id="top_10_hosts_tab"><?php echo _("میزبانهای بالای 10") ?></a></li>
+					<li><a href="#tabs-2" class="ptab" id="top_10_networks_tab"><?php echo _("شبکه های بالای 10") ?></a></li>
 					</ul>
 					<div id="tabs-1" class="tab_box statistics_background"><?php stats_networks_hosts($type, $value, "hosts");?></div>
 					<div id="tabs-2" class="tab_box statistics_background"><?php stats_networks_hosts($type, $value, "networks");?></div>

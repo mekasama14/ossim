@@ -282,7 +282,7 @@ function TimeSlotUpdate ($detail_opts) {
 					$_SESSION['tleft']  = $max_timeslot;
 					$_SESSION['tright'] = $max_timeslot;
 				} else {
-					SetMessage('error', "Could not find max time slot");
+					SetMessage('error', "نمی توان بیشترین اسلات زمانی را پیدا کرد");
 				}
 				break;
 		}
@@ -317,7 +317,7 @@ function TimeSlotUpdate ($detail_opts) {
 			if ( ($_SESSION['tright'] < $_SESSION['tstart'])  || 
 				 ($_SESSION['tright'] > $_SESSION['tend'])) {
 				$_SESSION['tright']	= $_SESSION['tleft'];
-				SetMessage('error', "Mark outside available timeframe");
+				SetMessage('error', "علامت گزاری فهرست زمانی در دسترس");
 			}
 		}
 	}
@@ -355,7 +355,7 @@ function channellist_validate (&$channellist, $opts) {
 	$_channels = array();
 	foreach ( explode('!', $channellist) as $channel ) {
 		if ( !array_key_exists($channel, $_SESSION['profileinfo']['channel']) ) {
-			SetMessage('warning', "Requested channel '$channel' does not exists in this profile");
+			SetMessage('warning', "کانال درخواستی '$channel' does not exists in this profile");
 		} else {
 			$_channels[] = $channel;
 		}
@@ -374,14 +374,14 @@ function srcselector_validate (&$channel_array, $opts) {
 	foreach ( $channel_array as $channel ) {
 		if(empty($channel)) continue;
 		if ( !array_key_exists($channel, $_SESSION['profileinfo']['channel']) ) {
-			SetMessage('warning', "Requested channel '$channel' does not exists in this profile");
+			SetMessage('warning', "کانال درخواستی '$channel' does not exists in this profile");
 		} else {
 			$_channels[] = $channel;
 		}
 	}
 	$channel_array = $_channels;
 	if ( count($channel_array) == 0 ) {
-		SetMessage('warning', "At least one channel is required");
+		SetMessage('warning', "حداقل یک کانال لازم است");
 		return 1;
 	} else {
 		return 0;
@@ -873,9 +873,9 @@ function Process_Details_tab ($tab_changed, $profile_changed) {
 	if ( array_key_exists('fmt_delete', $_POST) ) {
 		$_tmp = Util::htmlentities($_POST['fmt_delete']);
 		if ( array_key_exists($_tmp, $OutputFormatOption)) {
-			SetMessage('error', "Can not delete built in format '$_tmp'");
+			SetMessage('error', "نمی توان ساختار این فرمت را حذف کرد '$_tmp'");
 		} else if ( !array_key_exists($_tmp, $_SESSION['formatlist'])) {
-			SetMessage('error', "Unknon format '$_tmp'");
+			SetMessage('error', "فرمت شناخته نشده '$_tmp'");
 		} else {
 			$cmd_opts['format'] = $_tmp;
 			$cmd_out =  nfsend_query("delete-format", $cmd_opts, 0);
@@ -1127,12 +1127,12 @@ function DisplayDetails () {
 				<table style="margin-bottom:1pt;border:none;width:100%">
 				<tr>
 					<td><span style='font-size:14px;font-weight:bold;margin-bottom:1pt'>
-							t<SUB><?=_("start")?></SUB>
+							t<SUB><?=_("شروع")?></SUB>
 						</span>
 					</td>
 					<td style="font-size:16px;color:#555555;">
 						<!-- input type="text" name="box_tleft" id="box_tleft" value="" SIZE="16" MAXLENGTH="16" style='font-size:10px;' readonly -->
-						<b id='box_tleft'>- <?=_("update")?> -</b>
+						<b id='box_tleft'>- <?=_("به روز رسانی")?> -</b>
 					</td>
 				</tr><tr>
 					<td><span style='font-size:14px;font-weight:bold;margin-bottom:1pt'>
@@ -1141,7 +1141,7 @@ function DisplayDetails () {
 					</td>
 					<td style="font-size:16px;color:#555555;">
 						<!-- input type="text" name="box_tright" id="box_tright" value="" SIZE="16" MAXLENGTH="16" style='font-size:10px;' readonly -->
-						<b id='box_tright'>- <?=_("update")?> -</b>
+						<b id='box_tright'>- <?=_("به روز رسانی")?> -</b>
 					</td>
 				</tr>
 				</table>
@@ -1188,18 +1188,18 @@ function DisplayDetails () {
 			<select name="CursorMode" id="ModeSelector" onchange="SetCursorMode(<?php echo Util::htmlentities($_SESSION['tstart']) . ", " . Util::htmlentities($_SESSION['tend']). ", " . Util::htmlentities($_SESSION['profileinfo']['tstart']) . ", " . Util::htmlentities($_SESSION['tleft']). ", " . Util::htmlentities($_SESSION['tright']). ",576, $RRDoffset" ?>)" size=1>
 <?php
 			if ( $detail_opts['cursor_mode'] == 1 ) {
-				print "<option value='0'>"._("Single Timeslot")."\n";
-				print "<option value='1' selected>"._("Time Window")."\n";
+				print "<option value='0'>"._("اسلات یک زمانه")."\n";
+				print "<option value='1' selected>"._("پنجره زمانی")."\n";
 			} else {
-				print "<option value='0' selected>"._("Single Timeslot")."\n";
-				print "<option value='1'>"._("Time Window")."\n";
+				print "<option value='0' selected>"._("اسلات یک زمانه")."\n";
+				print "<option value='1'>"._("پنجره زمانی")."\n";
 			}
 ?>
 			</select>
 		</td>
 
 		<td style="text-align: right;border:none">
-			<?=_("Display")?>:&nbsp;
+			<?=_("نمایش")?>:&nbsp;
 			<form action="<?php echo $self;?>" style="display:inline;" method="POST">
 			<select name='wsize' onchange='this.form.submit();' size=1>
 <?php
@@ -1213,7 +1213,7 @@ function DisplayDetails () {
 				}
 			}
 			$status = $detail_opts['cursor_mode'] == 0 && !$is_shadow ? '' : 'disabled';
-			$peak_search_label = $status == '' ? _("Search Peak") : _("Peak search not available");
+			$peak_search_label = $status == '' ? _("حداکثر جستجو") : _("حداکثر جستجو در دسترس نیست");
 			
 ?>
 			</select>
@@ -1582,7 +1582,7 @@ function DisplayDetails () {
 		<?php if ( $detail_opts['ratescale'] == 1 ) print "checked"; ?> ><?=_("Rate")?> &nbsp;
 <?php 
 		if ( !$statinfo ) {
-			print "x: "._("No Data available");
+			print "x: "._("هیچ داده ای در دسترس نیست");
 		}
 ?>
 		</td></tr>
@@ -1603,7 +1603,7 @@ function DisplayDetails () {
 
     function remove_source(id)
     {
-    	if( confirm("<?php echo Util::js_entities( _('This Netflow source is going to be deleted. This action cannot be undone. Are you soure?') ) ?>") )
+    	if( confirm("<?php echo Util::js_entities( _('این منبع جریان شبکه در حال حذف می باشد. این عمل نمی تواند کنسل شود آیا مطمئنید؟') ) ?>") )
     	{
 	    	$.ajax({
 				data:  {"action": 1, "data": {"sensor": id}},
@@ -1617,7 +1617,7 @@ function DisplayDetails () {
 					var layer = "<div id='loading_container' style='width:100%;height:100%;position:absolute;top:0px;left:0px;'></div>";
 	            	$('body').append(layer);
 	            	
-					show_loading_box('loading_container', '<?php echo Util::js_entities(_("Deleting Netflow source...")) ?>', '');
+					show_loading_box('loading_container', '<?php echo Util::js_entities(_("در حال حذف منبع جریان شبکه")) ?>', '');
 				},
 				success: function(data)
 				{ 
@@ -1720,7 +1720,7 @@ function DisplayProcessing()
     <table style='width:100%;margin-top:15px;margin-bottom:5px;border:none'><tr>
     <td class='nobborder'><b><?=_("Netflow Processing")?></b></td>
     <td class='noborder nfsen_menu'>
-        <a href='javascript:lastsessions()'><?=_("List last 500 sessions")?></a> |
+        <a href='javascript:lastsessions()'><?=_("لیست 500 جلسه قبلی")?></a> |
         &nbsp;<a href='javascript:launch("2","<?=$type?>")'><?=_("Top 10 Src IPs")?></a> |
         &nbsp;<a href='javascript:launch("3","<?=$type?>")'><?=_("Top 10 Dst IPs")?></a> |
         &nbsp;<a href='javascript:launch("5","<?=$type?>")'><?=_("Top 10 Src Port")?></a> |
@@ -1763,9 +1763,9 @@ if( $_SESSION["detail_opts"]["linegraph"] != "" ) {?>
 <input type="hidden" name="login" value="<?php echo Util::htmlentities($_SESSION["_remote_login"])?>" />
 <table class='nfsen_filters'>
 	<tr>
-		<th class="thold"><?php echo _("Source")?></th>
-		<th class="thold"><?php echo _("Filter")?></th>
-		<th class="thold"><?php echo _("Options")?></th>
+		<th class="thold"><?php echo _("منبع")?></th>
+		<th class="thold"><?php echo _("فیلتر")?></th>
+		<th class="thold"><?php echo _("انتخاب ها")?></th>
 	</tr>
 
 	<tr>
@@ -1883,13 +1883,13 @@ if( $_SESSION["detail_opts"]["linegraph"] != "" ) {?>
 				   <td class='TDnfprocControl' >
 						<table class='noborder' style='margin: auto;'>
 							<tr>
-								<td class='nobborder'><input class="small av_b_secondary" type="button" name="JSbutton1" value="<?php echo _("Clear Form")?>" onClick="ResetProcessingForm()"/></td>
-								<td class='nobborder'><input class="small" type="submit" name="process" value="<?php echo _("Process")?>" id="process_button" onClick="clean_remote_data();form_ok=true;" size="1"/></td>
+								<td class='nobborder'><input class="small av_b_secondary" type="button" name="JSbutton1" value="<?php echo _("پاک کردن فرم")?>" onClick="ResetProcessingForm()"/></td>
+								<td class='nobborder'><input class="small" type="submit" name="process" value="<?php echo _("پروسه ها")?>" id="process_button" onClick="clean_remote_data();form_ok=true;" size="1"/></td>
 								<?php 
 								if( count($RemoteInterfacesData)>0 && (!isset($_POST['login']))) 
 								{ 
 									?>
-									<td class='nobborder'><input type="button" name="remote_process" value="<?php echo _("Remote Process")?>" id="remote_process_button" onclick="$('#rinterfaces').toggle()"/>
+									<td class='nobborder'><input type="button" name="remote_process" value="<?php echo _("کنترل پروسه ها")?>" id="remote_process_button" onclick="$('#rinterfaces').toggle()"/>
 										<div id='container_rmp' style='position:relative;'>
 											<div id="rinterfaces" style="position:absolute; top:0; right:0;display:none; margin:1px 0px 0px 2px; text-align:right;">
 												<?php
@@ -1913,7 +1913,7 @@ if( $_SESSION["detail_opts"]["linegraph"] != "" ) {?>
 				</tr>
 				
 				<tr id="listNRow" <?php echo $list_display_style;?>>
-					<td class='TDnfprocLabel'><?=_("Limit to")?>:</td>
+					<td class='TDnfprocLabel'><?=_("محدود کردن به")?>:</td>
 					<td class='TDnfprocControl'>
 						<select name="listN" id="listN" style="margin-left:1" size="1">
 						<?php
@@ -1922,7 +1922,7 @@ if( $_SESSION["detail_opts"]["linegraph"] != "" ) {?>
 							print "<OPTION value='$i' $checked>" . $ListNOption[$i] . "</OPTION>\n";
 						}
 						?>
-						</select><?=_("Flows")?><br>
+						</select><?=_("جریان ها")?><br>
 					</td>
 				</tr>
 				
@@ -2277,28 +2277,28 @@ if( $_SESSION["detail_opts"]["linegraph"] != "" ) {?>
                 echo ($list) ? "
                 
                 <tr>
-                    <th>"._("Date flow start")."<br><span style='font-size:8px'>".Util::timezone($tz)."</style></th>
-                    <th>"._("Duration")."</th>
+                    <th>"._("تاریخ شروع جریان")."<br><span style='font-size:8px'>".Util::timezone($tz)."</style></th>
+                    <th>"._("مدت")."</th>
                     <th>"._("Proto")."</th>
                     <th>"._("Src IP Addr:Port")."$geotools_src</th>
                     <th>"._("Dst IP Addr:Port")."$geotools_dst</th>
-                    <th>"._("Flags")."</th>
+                    <th>"._("پرچم ها")."</th>
                     <th>"._("Tos")."</th>
-                    <th>"._("Packets")."</th>
-                    <th>"._("Bytes")."</th>
+                    <th>"._("بسته ها")."</th>
+                    <th>"._("بایت ها")."</th>
                     <th>"._("pps")."</th>
                     <th>"._("bps")."</th>
                     <th>"._("Bpp")."</th>
-                    <th>"._("Flows")."</th>
+                    <th>"._("جریان ها")."</th>
                 	".($solera ? "<th></th>" : "")."
                     </tr>" : "<tr>
-                    <th>"._("Date flow seen")."<br><span style='font-size:8px'>".Util::timezone($tz)."</style></th>
-                    <th>"._("Duration")."</th>
+                    <th>"._("تاریخ دیدن جریان")."<br><span style='font-size:8px'>".Util::timezone($tz)."</style></th>
+                    <th>"._("مدت")."</th>
                     <th>"._("Proto")."</th>
                     <th>".$titcol."</th>
-                    <th>"._("Flows")."(%)</th>
-                    <th>"._("Packets")."(%)</th>
-                    <th>"._("Bytes")."(%)</th>
+                    <th>"._("جریان ها")."(%)</th>
+                    <th>"._("بسته ها")."(%)</th>
+                    <th>"._("بایت ها")."(%)</th>
                     <th>"._("pps")."</th>
                     <th>"._("bps")."</th>
                     <th>"._("Bpp")."</th>
@@ -2323,7 +2323,7 @@ if( $_SESSION["detail_opts"]["linegraph"] != "" ) {?>
                     {
                         if (preg_match("/stat\(\) error/i",$line))
                         {
-                            $errors[] = _('The netflow information you are trying to access either has not been processed yet or does not exist. Please check your date filters.');
+                            $errors[] = _('اطلاعات جریان شبکه ای که شما در تلاش برای دسترسی به آنها هستید هنوز تهیه نشده یا وجود ندارد.لطفا تاریخ فیلترهای خود را چک کنید.');
                             Av_exception::write_log(Av_exception::USER_ERROR, $line);
                         }
                         else

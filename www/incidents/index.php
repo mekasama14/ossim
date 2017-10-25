@@ -185,11 +185,11 @@ $users_and_entities = Autocomplete::get_autocomplete($conn, $autocomplete_keys);
 
             if (action == 'apply_tags')
             {
-                msg_action = "<?php echo _("Applying tags to selected tickets")?>";
+                msg_action = "<?php echo _("بکاربردن زبانه هابرای انتخاب کردن یادداشت ها")?>";
             }
             else if (action == 'remove_tags')
             {
-                msg_action = "<?php echo _("Removing tags to selected tickets")?>";
+                msg_action = "<?php echo _("حذف کردن زبانه هابرای انتخاب یادداشت ها")?>";
             }
             else
             {
@@ -197,8 +197,8 @@ $users_and_entities = Autocomplete::get_autocomplete($conn, $autocomplete_keys);
             }
 
             var loading    = "<div>"
-                                + "<img src='../pixmaps/loading3.gif' alt='<?php echo _("Loading")?>'/>"
-                                + "<span style='margin-left: 5px;'>" + msg_action + ", <?php echo _("please wait")?> ...</span>"
+                                + "<img src='../pixmaps/loading3.gif' alt='<?php echo _("بارگذاری")?>'/>"
+                                + "<span style='margin-left: 5px;'>" + msg_action + ", <?php echo _("لطفاصبرکنید")?> ...</span>"
                            + "</div>";
 
             $.ajax({
@@ -271,7 +271,7 @@ $users_and_entities = Autocomplete::get_autocomplete($conn, $autocomplete_keys);
                         }
                         else
                         {
-                            var content = "<?php echo _('You do not have permission to perform this action')?>";
+                            var content = "<?php echo _('شمااجازه انجام دادن این کارراندارید')?>";
 
                             var config_nt = {
                                 content: content,
@@ -602,7 +602,7 @@ $total_incidents = Incident::search_count($conn);
     			}
     			?>
     			</span>    			
-    			<a href="../report/incidentreport.php" class="tiptip" title="<?php echo _("Ticket Report")?>">
+    			<a href="../report/incidentreport.php" class="tiptip" title="<?php echo _("گزارش یادداشت")?>">
                     <img src="../pixmaps/menu/reports_menu.png" width="13" border="0" align="absmiddle"/>
     			</a>
 			</th>
@@ -660,7 +660,7 @@ $total_incidents = Incident::search_count($conn);
 		
 			<td class="alp" style="border-width: 0px;">
 				<input type="text" name="with_text" value="<?php echo $with_text?>"/>
-				<?php if (preg_match("/^\d+\.\d+\.\d+\.\d+,\s*\d+\.\d+\.\d+\.\d+/", $with_text)) { ?><br><i><?php echo _("Are you searching by multiples IPs? Try searching one by one") ?></i><?php } ?>
+				<?php if (preg_match("/^\d+\.\d+\.\d+\.\d+,\s*\d+\.\d+\.\d+\.\d+/", $with_text)) { ?><br><i><?php echo _("آیاچندین ipراجستجومی کنید؟فقط یک ip را جستجوکنید") ?></i><?php } ?>
 			</td>
 			
 			<td class="alp" style="border-width: 0px;">
@@ -686,9 +686,9 @@ $total_incidents = Incident::search_count($conn);
 			<td class="alp" style="border-width: 0px;">
 				<select name="priority" onChange="document.forms['filter'].submit()">
 					<option value=""><?php echo gettext("ALL"); ?></option>
-					<option <?php if ($priority == "High") echo "selected='selected'" ?> value="High"><?php echo gettext("High"); ?></option>
-					<option <?php if ($priority == "Medium") echo "selected='selected'" ?> value="Medium"><?php echo gettext("Medium"); ?> </option>
-					<option <?php if ($priority == "Low") echo "selected='selected'" ?> value="Low"><?php echo gettext("Low"); ?></option>
+					<option <?php if ($priority == "High") echo "selected='selected'" ?> value="High"><?php echo gettext("زیاد"); ?></option>
+					<option <?php if ($priority == "Medium") echo "selected='selected'" ?> value="Medium"><?php echo gettext("متوسط"); ?> </option>
+					<option <?php if ($priority == "Low") echo "selected='selected'" ?> value="Low"><?php echo gettext("پایین"); ?></option>
 				</select>
 			</td>
 			<td class="av_table_wrapper_td">
@@ -786,11 +786,11 @@ $total_incidents = Incident::search_count($conn);
 		<table class='table_list'>
 			<tr>
 				<th><input type="checkbox" id="ticket0" onclick="checkall()"/></th>
-				<th nowrap='nowrap'><a href="?order_by=id<?php echo $filter?>"><?php echo _("Ticket") . order_img('id') ?></a></th>
-				<th nowrap='nowrap'><a href="?order_by=title<?php echo $filter ?>"><?php echo _("Title") . order_img('title') ?></a></th>
-				<th nowrap='nowrap'><a href="?order_by=priority<?php echo $filter ?>"><?php echo _("Priority") . order_img('priority') ?></a></th>
-				<th nowrap='nowrap'><a href="?order_by=date<?php echo $filter ?>"><?php echo _("Created") . order_img('date') ?></a></th>
-				<th nowrap='nowrap'><a href="?order_by=life_time<?php echo $filter ?>"><?php echo _("Life Time") . order_img('life_time') ?></a></th>
+				<th nowrap='nowrap'><a href="?order_by=id<?php echo $filter?>"><?php echo _("یادداشت") . order_img('id') ?></a></th>
+				<th nowrap='nowrap'><a href="?order_by=title<?php echo $filter ?>"><?php echo _("موضوع") . order_img('title') ?></a></th>
+				<th nowrap='nowrap'><a href="?order_by=priority<?php echo $filter ?>"><?php echo _("اولویت") . order_img('priority') ?></a></th>
+				<th nowrap='nowrap'><a href="?order_by=date<?php echo $filter ?>"><?php echo _("ایجادکردن") . order_img('date') ?></a></th>
+				<th nowrap='nowrap'><a href="?order_by=life_time<?php echo $filter ?>"><?php echo _("زمان باقی ماندن") . order_img('life_time') ?></a></th>
 				<th><?php echo _("Assignee") ?></th>
 				<th><?php echo _("Submitter") ?></th>
 				<th><?php echo _("Type") ?> <a href="incidenttype.php" style="font-weight:normal"><img align="absmiddle" src="../vulnmeter/images/pencil.png" border="0" title="Edit Types"></a></th>
@@ -890,7 +890,7 @@ $total_incidents = Incident::search_count($conn);
 			else
 			{
 				?>
-				<tr><td colspan='11' class='tl_empty'><?php echo _("No tickets found")?></td></tr>
+				<tr><td colspan='11' class='tl_empty'><?php echo _("یادداشت هاپیدانشد")?></td></tr>
 				<?php
 			}
 		?>	
@@ -961,9 +961,9 @@ $total_incidents = Incident::search_count($conn);
 								<td class="noborder" valign="middle" align="center">
 									<select id="selectnewincident">
 										<optgroup label="<?=_('Generic')?>">
-											 <option value="newincident.php?ref=Alarm&title=<?=urlencode(_("New Alarm incident"))?>&priority=1&src_ips=&src_ports=&dst_ips=&dst_ports="><?=_("Alarm")?></option>
-											 <option value="newincident.php?ref=Event&title=<?=urlencode(_("New Event incident"))?>&priority=1&src_ips=&src_ports=&dst_ips=&dst_ports="><?=_("Event")?></option>
-											 <option value="newincident.php?ref=Vulnerability&title=<?=urlencode(_("New Vulnerability incident"))?>&priority=1&ip=&port=&nessus_id=&risk=&description="><?=_("Vulnerability")?></option>
+											 <option value="newincident.php?ref=Alarm&title=<?=urlencode(_("New Alarm incident"))?>&priority=1&src_ips=&src_ports=&dst_ips=&dst_ports="><?=_("آلارم ها")?></option>
+											 <option value="newincident.php?ref=Event&title=<?=urlencode(_("New Event incident"))?>&priority=1&src_ips=&src_ports=&dst_ips=&dst_ports="><?=_("هشدار")?></option>
+											 <option value="newincident.php?ref=Vulnerability&title=<?=urlencode(_("New Vulnerability incident"))?>&priority=1&ip=&port=&nessus_id=&risk=&description="><?=_("آسیب ها")?></option>
 										</optgroup>
 										<optgroup label="<?=_('Anomalies')?>">
 											 <option value="newincident.php?ref=Anomaly&title=<?=urlencode(_("New Mac Anomaly incident"))?>&priority=1&anom_type=mac"><?=_("Mac")?></option>
@@ -974,7 +974,7 @@ $total_incidents = Incident::search_count($conn);
 										if (count($customs)>0) 
 										{ 
 											?>
-											<optgroup label="<?=_('Custom')?>">
+											<optgroup label="<?=_('سفارشی')?>">
 											<?php 
 											foreach ($customs as $custom) 
 											{ 
