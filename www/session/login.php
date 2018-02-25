@@ -1073,7 +1073,7 @@ if($embed != 'true')
 
                                         <?php
                                         echo "<h2>";
-                                        echo "<font style=\"font-family:'B Titr'; font-size:x-large\">";
+                                        echo "<font style=\"font-family:'B Titr'; font-size:xx-large\">";
                                         echo 'مهار';
                                         echo "</font>";
                                         echo "<br />";
