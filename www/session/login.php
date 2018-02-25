@@ -235,7 +235,7 @@ $pro = Session::is_pro();
 try
 {
     list($system_name, $system_ip) = Session::get_local_sysyem_info();
-    $system_name = ' سامانه مدیریت رخداد و هشدار امنیتی صبا';
+    $system_name = '<font style="font-family:\'B Titr\'; font-size:x-large"> مهار</font>';
 }
 catch (Exception $e){}
 
@@ -1073,7 +1073,10 @@ if($embed != 'true')
 
                                         <?php
                                         echo "<h2>";
-                                        echo $system_name //. '  ' . $system_ip;
+                                        echo 'مهار';
+                                        echo "<br />";
+                                        echo 'مدیریت هوشمند امنیت رایانه ای';
+                                        //echo $system_name //. '  ' . $system_ip;
                                         //echo "</h2>";
                                         ?>
                                     </td>
