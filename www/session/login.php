@@ -1078,7 +1078,7 @@ if($embed != 'true')
                                         echo "</font>";
                                         echo "<br />";
                                         echo "<br />";
-                                        echo "<font style=\"font-family:'B Nazanin'; font-size:small\">";
+                                        echo "<font style=\"font-family:'B Nazanin'; font-size:medium\">";
                                         echo 'مدیریت هوشمند امنیت رایانه ای';
                                         echo "</font>";
                                         //echo $system_name //. '  ' . $system_ip;
